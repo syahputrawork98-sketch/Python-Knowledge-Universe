@@ -1,8 +1,23 @@
 ﻿# CHANGELOG
 
 Book Code: CORE-01
-Version: v0.2.6
+Version: v0.2.9
 Last Updated: 2026-03-08
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `09_modules_and_import.md` meliputi konsep module, pola import, package dasar, `__main__`, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 09 agar pembaca siap mengorganisasi kode lintas file secara modular.
+- Impact: Sembilan bab awal Python Basics kini membentuk fondasi coding terstruktur untuk proyek sederhana.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `08_basic_data_structures.md` meliputi list, tuple, set, dict, operasi dasar, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 08 agar pembaca siap bekerja dengan koleksi data sebelum masuk modul/import.
+- Impact: Delapan bab awal Python Basics kini mencakup fondasi data dan alur pemrograman yang lebih lengkap.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `07_functions.md` mencakup definisi fungsi, parameter/argumen, return, default argument, scope dasar, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 07 agar pembaca siap menulis kode modular dan reusable.
+- Impact: Tujuh bab awal Python Basics kini membentuk fondasi coding praktis yang lebih lengkap.
 
 ## 2026-03-08
 - Changed: Menulis konten nyata untuk `06_control_flow.md` mencakup percabangan, loop, break/continue/pass, pitfall, dan latihan.

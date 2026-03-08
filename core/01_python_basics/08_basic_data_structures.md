@@ -2,163 +2,241 @@
 
 Chapter Code: CORE-01-08
 Book Code: CORE-01
-Version: v0.1.0
+Version: v0.2.8
 Last Updated: 2026-03-08
-Status: Planned
+Status: In Progress
 Difficulty: Basic
-Estimated Time: 40 menit teori + 40 menit praktik
+Estimated Time: 50 menit teori + 45 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini menjelaskan fondasi basic data structures sebagai bagian awal penguasaan Python secara bertahap.
+Bab ini membahas struktur data bawaan Python yang paling sering dipakai: `list`, `tuple`, `set`, dan `dict`. Kamu akan belajar kapan masing-masing struktur digunakan, operasi dasar yang umum, serta kesalahan praktis yang sering terjadi.
 
 ## Prasyarat Spesifik Bab
 
-- memahami materi pada bab sebelumnya (jika ada)
-- mampu menjalankan Python interpreter dan script .py
+- memahami `04_basic_data_types.md`
+- memahami `05_operators_and_expressions.md`
+- memahami `07_functions.md`
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| syntax | aturan penulisan kode Python | if condition: |
-| runtime | lingkungan saat program dijalankan | python main.py |
+| list | koleksi berurutan dan mutable | `[1, 2, 3]` |
+| tuple | koleksi berurutan dan immutable | `(1, 2, 3)` |
+| set | koleksi tanpa urutan, unik | `{1, 2, 3}` |
+| dict | pasangan key-value | `{"name": "Ayu"}` |
+| indexing | akses elemen berdasarkan posisi | `items[0]` |
+| slicing | ambil sebagian data berurutan | `items[1:4]` |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami konsep inti Basic Data Structures agar siap melanjutkan ke bab berikutnya.
+Membekali pembaca kemampuan memilih struktur data yang tepat untuk penyimpanan dan pemrosesan data sehari-hari dalam Python.
 
 ## Tujuan Kecil
 
-- mengenali konsep dasar topik bab
-- menjalankan contoh kode terkait topik
-- menghindari kesalahan dasar yang umum
+- membedakan karakteristik list, tuple, set, dan dict
+- melakukan operasi dasar tambah/ubah/hapus data
+- melakukan iterasi pada struktur data
+- memilih struktur data sesuai kebutuhan kasus
 
 ## Peruntukan
 
 Bab ini digunakan saat:
 
-- memulai pembelajaran Python dari dasar
-- membutuhkan referensi konsep inti topik ini
+- mengelola sekumpulan data dalam program
+- memproses data berulang dengan loop
+- membangun representasi data sederhana (profil, daftar tugas, dsb.)
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython tingkat lanjut
-- optimasi performa lanjutan yang spesifik
+- struktur data custom kompleks
+- optimasi algoritma tingkat lanjut
 
 ## Analogi
 
-Anggap topik ini sebagai blok bangunan: tanpa blok ini, struktur program Python akan rapuh.
+Struktur data seperti jenis lemari penyimpanan: list itu rak fleksibel, tuple itu kotak segel, set itu daftar unik tanpa duplikasi, dict itu map label-ke-nilai.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: memahami teori saja sudah cukup.
-  Klarifikasi: topik ini perlu dipahami lewat praktik kode.
+- Miskonsepsi: set mempertahankan urutan seperti list.
+  Klarifikasi: set fokus pada keunikan elemen, bukan urutan indeks.
 
-- Miskonsepsi: satu cara menyelesaikan masalah selalu paling benar.
-  Klarifikasi: Python menyediakan beberapa pendekatan, pilih sesuai konteks.
+- Miskonsepsi: tuple dan list sama saja.
+  Klarifikasi: tuple immutable, list mutable.
 
 ## Konsep Inti
 
-### 1. Konsep Dasar
+### 1. List dan Tuple
 
-Jelaskan aturan inti dan bentuk dasar penggunaan topik ini dalam Python.
+```python
+fruits = ["apple", "banana", "orange"]
+fruits.append("mango")
+print(fruits[0])
+print(fruits[1:3])
 
-### 2. Penerapan Dasar
+point = (10, 20)
+print(point[0])
+```
 
-Hubungkan konsep dengan contoh sederhana yang sering dijumpai.
+`list` cocok untuk data yang sering berubah, `tuple` untuk data tetap.
+
+### 2. Set
+
+```python
+tags = {"python", "api", "python", "backend"}
+print(tags)
+
+tags.add("learning")
+print("api" in tags)
+```
+
+Set otomatis menghapus duplikasi.
+
+### 3. Dictionary
+
+```python
+user = {
+    "name": "Ayu",
+    "age": 21,
+    "active": True,
+}
+
+print(user["name"])
+user["city"] = "Bandung"
+print(user)
+```
+
+Dict cocok untuk data terstruktur berbasis key-value.
+
+### 4. Iterasi Dasar
+
+```python
+numbers = [1, 2, 3]
+for n in numbers:
+    print(n)
+
+for key, value in user.items():
+    print(key, value)
+```
 
 ## Diagram
 
 ![Big picture Basic Data Structures](assets/08_basic_data_structures.svg)
 
-Caption: Diagram memberi gambaran besar alur pemahaman bab ini.
+Caption: Diagram memperlihatkan perbedaan peran list, tuple, set, dan dict dalam penyimpanan data.
 
 ### Legenda Diagram
 
-- kotak biru: konsep utama
-- panah: alur logika
-- kotak hijau: output/hasil
+- kotak biru: jenis struktur data
+- kotak tengah: operasi umum
+- kotak hijau: hasil penggunaan
 
 ## Contoh Kode (Benar)
 
-`python
-print("Belajar Python Basics")
-`
+```python
+tasks = ["belajar", "latihan", "review"]
+profile = {"name": "Raka", "level": "beginner"}
+
+for task in tasks:
+    print(task)
+
+print(profile["name"])
+```
 
 Expected output:
 
-`	ext
-Belajar Python Basics
-`
+```text
+belajar
+latihan
+review
+Raka
+```
 
 ## Pitfall Umum
 
-Contoh kesalahan yang sering terjadi:
+Akses key dict yang tidak ada:
 
-`python
-if True
-    print("missing colon")
-`
+```python
+user = {"name": "Ayu"}
+print(user["age"])
+```
 
 Perbaikan:
 
-`python
-if True:
-    print("colon fixed")
-`
+```python
+user = {"name": "Ayu"}
+print(user.get("age", "unknown"))
+```
+
+Mengubah tuple secara langsung:
+
+```python
+point = (1, 2)
+point[0] = 10
+```
+
+Perbaikan:
+
+```python
+point = (1, 2)
+point = (10, point[1])
+print(point)
+```
 
 ## Catatan Praktis
 
-- jalankan contoh kecil lebih dulu sebelum memperbesar kompleksitas
-- cek error message Python sebelum melakukan perubahan besar
+- gunakan list saat data perlu update dinamis
+- gunakan tuple untuk data yang seharusnya tetap
+- gunakan set untuk cek keunikan/membership cepat
+- gunakan dict untuk data berlabel jelas
 
 ## Latihan
 
 ### Dasar
 
-Tulis ulang contoh kode dan ubah nilai output.
+Buat list berisi 5 nama, lalu tampilkan nama pertama dan terakhir.
 
 ### Menengah
 
-Gabungkan konsep bab ini dengan konsep bab sebelumnya.
+Buat dict profil pengguna (`name`, `age`, `city`) dan cetak semua key-value.
 
 ### Mini Challenge
 
-Buat script kecil yang menampilkan solusi sederhana berdasarkan topik bab.
+Buat aplikasi mini todo list sederhana dengan list dan dict (tiap task punya `title` dan `done`).
 
 ## Checklist Lulus Bab
 
-- [ ] memahami konsep inti
-- [ ] menjalankan contoh tanpa error
-- [ ] memahami pitfall dan perbaikannya
+- [ ] memahami perbedaan list, tuple, set, dict
+- [ ] bisa melakukan operasi dasar setiap struktur
+- [ ] bisa iterasi data dengan loop
 - [ ] menyelesaikan mini challenge
 
 ## Peta Keterkaitan
 
-- Bab sebelumnya: $(System.Collections.Hashtable.Prev)
-- Bab berikutnya: $(System.Collections.Hashtable.Next)
-- Keterkaitan lintas buku Core: $(System.Collections.Hashtable.Link)
+- Bab sebelumnya: `07_functions.md`
+- Bab berikutnya: `09_modules_and_import.md`
+- Keterkaitan lintas buku Core: `CORE-06` (Modules and Import System)
 
 ## Ringkasan
 
-- topik bab ini adalah fondasi utama Python Basics
-- praktik langsung penting untuk menguatkan konsep
-- bab ini menyiapkan transisi ke topik berikutnya
+- Python menyediakan struktur data dasar dengan karakteristik berbeda.
+- Pemilihan struktur data yang tepat memengaruhi kejelasan dan keandalan kode.
+- List/dict paling umum, tetapi tuple/set sangat penting pada konteks tertentu.
 
 ## FAQ Singkat
 
-1. Kenapa bab ini penting?
-   Jawaban singkat: karena menjadi fondasi untuk bab setelahnya.
-2. Apakah harus menguasai semua detail sekaligus?
-   Jawaban singkat: tidak, kuasai inti dulu lalu lanjut bertahap.
-3. Kapan perlu lanjut ke bab berikutnya?
-   Jawaban singkat: setelah checklist lulus bab terpenuhi.
+1. Kapan pilih list vs tuple?
+   Jawaban singkat: list untuk data mutable, tuple untuk data tetap.
+2. Kapan pakai set?
+   Jawaban singkat: saat butuh data unik dan cek membership cepat.
+3. Kenapa dict sangat sering dipakai?
+   Jawaban singkat: karena representasi key-value cocok untuk banyak data dunia nyata.
 
 ## Referensi
 
-- Python Official Documentation: https://docs.python.org/3/
-- Python Language Reference: https://docs.python.org/3/reference/
-- Python Tutorial: https://docs.python.org/3/tutorial/
+- Python Tutorial (Data Structures): https://docs.python.org/3/tutorial/datastructures.html
+- Python Standard Types: https://docs.python.org/3/library/stdtypes.html
+- Python `dict` docs: https://docs.python.org/3/library/stdtypes.html#dict
