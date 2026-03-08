@@ -1,178 +1,174 @@
-# Python Knowledge Universe
+﻿# Python Knowledge Universe
 
-Python Knowledge Universe adalah **rak buku digital tentang Python** yang disusun secara terstruktur, modular, dan terus berkembang.
+Python Knowledge Universe adalah rak buku digital tentang Python yang disusun terstruktur, modular, dan terus berkembang.
 
 Repository ini dirancang sebagai:
+- sistem pembelajaran Python
+- peta pengetahuan Python
+- fondasi website dokumentasi
+- portfolio teknikal
 
-* 📚 **Sistem pembelajaran Python**
-* 🧠 **Peta pengetahuan Python**
-* 🌐 **Fondasi untuk website dokumentasi**
-* 💼 **Portfolio teknikal**
+Tujuan utamanya adalah membangun struktur pengetahuan Python yang jelas, bertahap, dan mudah dipahami oleh manusia maupun AI.
 
-Tujuan utama proyek ini adalah membuat **struktur pengetahuan Python yang jelas, bertahap, dan mudah dipahami oleh manusia maupun AI.**
+## Tujuan Proyek
 
----
+- menyusun pengetahuan Python secara sistematis
+- menyediakan jalur belajar Python yang jelas
+- menjadi referensi Python jangka panjang
+- menjadi dokumentasi yang terus berkembang
+- menjadi dasar untuk website pembelajaran Python
 
-# 🎯 Tujuan Proyek
+## Struktur Pengetahuan
 
-Python Knowledge Universe dibuat untuk:
+Repository ini dibagi menjadi dua bagian utama.
 
-* Menyusun pengetahuan Python secara sistematis
-* Membuat jalur belajar Python yang jelas
-* Menjadi referensi Python jangka panjang
-* Menjadi dokumentasi yang dapat berkembang terus
-* Menjadi dasar untuk website pembelajaran Python
+### 1. Core Python
 
----
+Core adalah sub-rak fondasi. Setiap folder di dalam `core/` adalah buku utama.
 
-# 🧭 Struktur Pengetahuan
+Direktori inti:
+- `core/01_python_basics`
+- `core/02_language_design`
+- `core/03_execution_model`
+- `core/04_object_model`
+- `core/05_memory_management`
+- `core/06_modules_import_system`
+- `core/07_standard_library`
+- `core/08_file_system_io`
+- `core/09_networking`
+- `core/10_concurrency`
+- `core/11_async_programming`
+- `core/12_testing`
+- `core/13_packaging`
+- `core/14_virtual_environments`
+- `core/15_tooling`
 
-Repository ini dibagi menjadi dua bagian utama:
+### 2. Python Specializations
 
-## 1️⃣ Core Python
+Specializations adalah sub-rak terapan. Setiap domain di dalam `specializations/` adalah sub-rak domain, lalu di dalamnya akan berisi banyak buku.
 
-Bagian ini berisi **fondasi utama Python** yang harus dipahami sebelum masuk ke bidang spesialisasi.
+Setelah memahami Core Python, pembaca dapat melanjutkan ke jalur:
+- Web Development
+- Data Science
+- Machine Learning
+- AI Engineering
+- Automation
 
-Terdiri dari **7 buku utama**:
+## Arsitektur Rak
 
-| No | Buku                  | Deskripsi                       |
-| -- | --------------------- | ------------------------------- |
-| 01 | Tutorial              | Dasar Python dari nol           |
-| 02 | Language Principles   | Konsep dasar bahasa Python      |
-| 03 | Runtime Execution     | Cara Python menjalankan kode    |
-| 04 | Object & Memory       | Sistem objek dan memori Python  |
-| 05 | Standard Library & IO | Library bawaan Python           |
-| 06 | Concurrency & Async   | Pemrograman paralel             |
-| 07 | Packaging & Ecosystem | Ekosistem dan distribusi Python |
+Model organisasi repository ini:
 
----
+1. `root` adalah rak utama (library Python Knowledge Universe).
+2. `core/` adalah sub-rak fondasi.
+3. `core/<book>/` adalah buku.
+4. `specializations/` adalah sub-rak terapan.
+5. `specializations/<domain>/` adalah sub-rak domain.
+6. `specializations/<domain>/<book>/` adalah buku di domain tersebut.
 
-## 2️⃣ Python Specializations
+## Struktur Repository
 
-Setelah memahami **Core Python**, pembaca dapat melanjutkan ke jalur spesialisasi.
-
-Beberapa jalur spesialisasi yang direncanakan:
-
-* Web Development
-* Data Science
-* Machine Learning
-* AI Engineering
-* Automation
-
----
-
-# 🗺️ Struktur Repository
-
-```
+```text
 python-knowledge-universe/
-│
-├── README.md
-├── roadmap.md
-├── glossary.md
-├── contribution-guide.md
-│
-├── core/
-│   ├── README.md
-│   ├── 01-tutorial/
-│   ├── 02-language-principles/
-│   ├── 03-runtime-execution/
-│   ├── 04-object-memory/
-│   ├── 05-stdlib-io/
-│   ├── 06-concurrency-async/
-│   └── 07-packaging-ecosystem/
-│
-└── specializations/
-    ├── README.md
-    ├── web-development/
-    ├── data-science/
-    ├── machine-learning/
-    ├── ai-engineering/
-    └── automation/
+|
+|-- README.md
+|-- docs/
+|   |-- roadmap.md
+|   |-- glossary.md
+|   `-- contribution-guide.md
+|
+|-- core/
+|   |-- README.md
+|   |-- 01_python_basics/
+|   |-- 02_language_design/
+|   |-- 03_execution_model/
+|   |-- 04_object_model/
+|   |-- 05_memory_management/
+|   |-- 06_modules_import_system/
+|   |-- 07_standard_library/
+|   |-- 08_file_system_io/
+|   |-- 09_networking/
+|   |-- 10_concurrency/
+|   |-- 11_async_programming/
+|   |-- 12_testing/
+|   |-- 13_packaging/
+|   |-- 14_virtual_environments/
+|   `-- 15_tooling/
+|
+`-- specializations/
+    |-- README.md
+    |-- web-development/
+    |   |-- README.md
+    |   `-- <book>/
+    |-- data-science/
+    |   |-- README.md
+    |   `-- <book>/
+    |-- machine-learning/
+    |   |-- README.md
+    |   `-- <book>/
+    |-- ai-engineering/
+    |   |-- README.md
+    |   `-- <book>/
+    `-- automation/
+        |-- README.md
+        `-- <book>/
 ```
 
----
+## Cara Menggunakan Repository
 
-# 🧑‍💻 Cara Menggunakan Repository
+### 1. Jalur Belajar Berurutan
 
-Ada dua cara menggunakan repository ini.
+Urutan rekomendasi untuk pemula:
 
-## 1️⃣ Jalur Belajar Berurutan
+1. Python Basics
+2. Language Design
+3. Execution Model
+4. Object Model
+5. Memory Management
+6. Modules and Import System
+7. Standard Library
+8. File System and IO
+9. Networking
+10. Concurrency
+11. Async Programming
+12. Testing
+13. Packaging
+14. Virtual Environments
+15. Tooling
 
-Direkomendasikan untuk pemula.
+Lanjutkan ke bagian specialization setelah menyelesaikan core.
 
-```
-01 Tutorial
-↓
-02 Language Principles
-↓
-03 Runtime Execution
-↓
-04 Object & Memory
-↓
-05 Standard Library
-↓
-06 Concurrency
-↓
-07 Packaging & Ecosystem
-```
+### 2. Jalur Referensi
 
-Setelah itu lanjut ke specialization.
+Jika sudah familiar dengan Python, pembaca dapat langsung menuju topik tertentu sesuai kebutuhan.
 
----
+## Status Proyek
 
-## 2️⃣ Jalur Referensi
+- `Planned`: topik direncanakan
+- `In Progress`: topik sedang ditulis
+- `Published`: topik tersedia
+- `Revision`: topik perlu diperbarui
 
-Jika sudah familiar dengan Python, kamu bisa langsung membaca topik tertentu sesuai kebutuhan.
+## Kontribusi
 
----
+Kontribusi terbuka untuk:
+- perbaikan dokumentasi
+- penambahan topik
+- contoh kode
+- peningkatan struktur
 
-# 📈 Status Proyek
+Lihat panduan kontribusi di `docs/contribution-guide.md`.
 
-Proyek ini bersifat **long-term evolving project**.
+## Visi Jangka Panjang
 
-Status konten:
+- website dokumentasi Python
+- sistem pembelajaran Python
+- knowledge base Python
+- referensi teknikal Python
 
-| Status      | Deskripsi          |
-| ----------- | ------------------ |
-| Planned     | Topik direncanakan |
-| In Progress | Sedang ditulis     |
-| Published   | Sudah tersedia     |
-| Revision    | Perlu diperbarui   |
+## Filosofi Proyek
 
----
+Belajar Python bukan hanya tentang sintaks, tetapi memahami bagaimana bahasa ini bekerja secara mendalam.
 
-# 🤝 Kontribusi
-
-Kontribusi sangat terbuka untuk:
-
-* perbaikan dokumentasi
-* penambahan topik
-* contoh kode
-* peningkatan struktur
-
-Silakan baca:
-
-`contribution-guide.md`
-
----
-
-# 🌐 Visi Jangka Panjang
-
-Python Knowledge Universe dirancang untuk berkembang menjadi:
-
-* Website dokumentasi Python
-* Sistem pembelajaran Python
-* Knowledge base Python
-* Referensi teknikal Python
-
----
-
-# 📚 Filosofi Proyek
-
-> Belajar Python bukan hanya tentang sintaks, tetapi memahami bagaimana bahasa ini bekerja secara mendalam.
-
----
-
-# Author
+## Author
 
 Project ini dibuat sebagai bagian dari perjalanan belajar dan eksplorasi Python.
