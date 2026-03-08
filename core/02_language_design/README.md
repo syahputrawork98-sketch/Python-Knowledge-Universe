@@ -1,9 +1,9 @@
 ﻿# Language Design
 
 Book Code: CORE-02
-Version: v0.2.0
+Version: v0.2.1
 Last Updated: 2026-03-08
-Status: In Progress
+Status: Draft Complete
 
 Bagian ini membahas prinsip desain bahasa Python, alasan di balik keputusan sintaks, serta trade-off yang membentuk pengalaman menulis kode Python.
 

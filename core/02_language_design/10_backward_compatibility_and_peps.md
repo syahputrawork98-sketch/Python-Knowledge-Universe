@@ -1,107 +1,154 @@
-﻿# Backward Compatibility and PEPs
+# Backward Compatibility and PEPs
 
 Chapter Code: CORE-02-10
 Book Code: CORE-02
-Version: v0.2.0
+Version: v0.2.1
 Last Updated: 2026-03-08
-Status: Planned
+Status: Draft
 Difficulty: Intermediate
 Estimated Time: 50 menit teori + 40 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini membahas konsep inti backward compatibility and peps dalam konteks filosofi desain bahasa Python.
+Bab ini membahas bagaimana Python menyeimbangkan dua kebutuhan yang sering bertentangan: menjaga kompatibilitas kode lama (backward compatibility) dan tetap berevolusi melalui perubahan bahasa. PEP (Python Enhancement Proposal) menjadi mekanisme utama untuk mendiskusikan dan meresmikan perubahan tersebut.
 
 ## Prasyarat Spesifik Bab
 
-- memahami bab sebelumnya (jika ada)
-- memahami dasar sintaks Python dari CORE-01
+- sudah menyelesaikan CORE-02-01 sampai CORE-02-09
+- memahami dasar versioning dan API function/module
+- memahami warning dan exception dasar
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| language design | prinsip perancangan bahasa | readability over cleverness |
-| trade-off | kompromi antar tujuan desain | simplicity vs flexibility |
+| backward compatibility | kemampuan versi baru tetap menjalankan kode lama | fungsi lama masih bekerja |
+| breaking change | perubahan yang membuat kode lama gagal | parameter wajib baru tanpa default |
+| deprecation | fase transisi sebelum fitur lama dihapus | `DeprecationWarning` |
+| migration path | langkah berpindah dari API lama ke API baru | alias fungsi + panduan update |
+| PEP | dokumen proposal resmi evolusi Python | PEP 8, PEP 20, PEP 484 |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami alasan desain Python agar keputusan coding lebih sadar konteks.
+Membantu pembaca merancang perubahan kode/API secara aman dan terukur, serta memahami mengapa proses evolusi Python sangat menekankan kompatibilitas.
 
 ## Tujuan Kecil
 
-- mengenali prinsip inti topik bab
-- menghubungkan prinsip dengan praktik coding
-- mengidentifikasi trade-off dasar pada kasus sederhana
+- membedakan perubahan kompatibel vs breaking
+- menerapkan pola deprecation bertahap pada API
+- membaca PEP sebagai sumber keputusan desain
 
 ## Hasil Belajar
 
 Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
 
-- menjelaskan prinsip utama bab ini
-- menerapkan prinsip pada contoh kode sederhana
-- mengevaluasi dampak desain pada keterbacaan kode
+- mengidentifikasi risiko breaking change sebelum rilis
+- menulis migration path sederhana untuk API internal
+- menggunakan PEP relevan sebagai acuan argumen teknis
 
 ## Peruntukan
 
 Bab ini digunakan saat:
 
-- ingin memahami "mengapa" di balik gaya Python
-- ingin menulis kode yang lebih idiomatik
+- mengubah API library internal tim
+- menyusun release note dan rencana migrasi
+- meninjau proposal perubahan arsitektur/module publik
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython detail rendah
-- pembahasan implementasi compiler/interpreter mendalam
+- membahas governance Python secara historis lengkap
+- merinci seluruh proses formal PEP dari awal sampai akhir
+- menggantikan strategi release management organisasi secara penuh
 
 ## Analogi
 
-Anggap desain bahasa seperti arsitektur kota: keputusan tata letak memengaruhi semua aktivitas di dalamnya.
+Backward compatibility seperti renovasi jalan utama kota: perubahan harus memungkinkan kendaraan lama tetap lewat sambil menyiapkan jalur baru yang lebih baik.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: desain bahasa hanya urusan pembuat bahasa.
-  Klarifikasi: pemrogram tetap terdampak langsung oleh keputusan desain.
+- Miskonsepsi: "Kalau desain baru lebih bagus, langsung ganti total."
+  Klarifikasi: tanpa transisi, biaya migrasi pengguna bisa sangat besar.
 
-- Miskonsepsi: aturan gaya hanya preferensi pribadi.
-  Klarifikasi: banyak aturan gaya berakar dari filosofi desain bahasa.
+- Miskonsepsi: "Deprecation warning cuma gangguan."
+  Klarifikasi: warning adalah alat komunikasi penting untuk menurunkan risiko perubahan.
+
+- Miskonsepsi: "PEP hanya penting untuk core developer Python."
+  Klarifikasi: developer aplikasi tetap diuntungkan karena PEP menjelaskan alasan dan dampak fitur bahasa.
 
 ## Konsep Inti
 
 ### 1. Prinsip Dasar
 
-Jelaskan prinsip utama yang dibahas di bab ini dan hubungannya dengan kode Python.
+Empat prinsip perubahan kompatibel:
+
+1. Prefer additive change
+Tambahkan API baru sebelum menghapus yang lama.
+
+2. Deprecate before remove
+Berikan warning dan waktu transisi yang jelas.
+
+3. Document migration path
+Sediakan langkah konkret berpindah API agar pengguna tidak menebak.
+
+4. Use standards as reference
+Rujuk PEP/dokumen resmi agar keputusan tidak berbasis opini semata.
 
 ### 2. Dampak Praktis
 
-Jelaskan bagaimana prinsip ini memengaruhi keputusan coding sehari-hari.
+Jika prinsip ini dipakai, tim akan mendapatkan:
+
+- rollout fitur baru lebih aman
+- gangguan produksi lebih kecil saat upgrade
+- komunikasi antar tim lebih jelas melalui release note
+- kepercayaan pengguna internal/eksternal lebih tinggi
+
+Checklist sebelum mengubah API publik:
+
+1. apakah ini breaking change
+2. apakah ada fallback/compat layer sementara
+3. apakah warning dan dokumentasi migrasi sudah tersedia
+4. apakah test mencakup jalur API lama dan baru selama transisi
 
 ## Diagram
 
 ![Big picture Backward Compatibility and PEPs](assets/10_backward_compatibility_and_peps.svg)
 
-Caption: Diagram memetakan alur konsep utama bab dan dampaknya ke praktik coding.
+Caption: Diagram menunjukkan alur perubahan dari proposal (PEP/policy) ke deprecation bertahap hingga migrasi aman.
 
 ### Legenda Diagram
 
-- 1️⃣: konsep awal
-- 2️⃣: proses analisis
-- 3️⃣: keputusan praktis
+- 1: kebutuhan perubahan
+- 2: evaluasi dampak kompatibilitas
+- 3: rollout bertahap + migrasi
 
 ## Contoh Kode (Benar)
 
 ```python
-# contoh sederhana penerapan prinsip desain
-message = "Readability matters"
-print(message)
+import warnings
+
+
+def calculate_total_v2(price: float, tax_rate: float = 0.11) -> float:
+    return price + (price * tax_rate)
+
+
+def calculate_total(price: float) -> float:
+    warnings.warn(
+        "calculate_total() is deprecated; use calculate_total_v2(price, tax_rate)",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+    return calculate_total_v2(price)
+
+
+print(calculate_total_v2(100_000))
 ```
 
 Expected output:
 
 ```text
-Readability matters
+111000.0
 ```
 
 ## Pitfall Umum
@@ -109,70 +156,97 @@ Readability matters
 Contoh kesalahan yang sering terjadi:
 
 ```python
-# kode terlalu kompleks untuk masalah sederhana
-result = [x for x in range(10) if (x % 2 == 0 and x > 3) or (x == 1)]
+# versi lama tiba-tiba dihapus tanpa fase transisi
+
+def calculate_total_v2(price: float, tax_rate: float) -> float:
+    return price + (price * tax_rate)
 ```
+
+Masalah:
+
+- caller lama langsung error karena signature berubah
+- tidak ada jalur migrasi yang jelas
+- memperbesar risiko gangguan saat deploy
 
 Perbaikan:
 
 ```python
-# pecah logika agar intent lebih jelas
-result = []
-for x in range(10):
-    if x % 2 == 0 and x > 3:
-        result.append(x)
+import warnings
+
+
+def calculate_total_v2(price: float, tax_rate: float = 0.11) -> float:
+    return price + (price * tax_rate)
+
+
+def calculate_total(price: float) -> float:
+    warnings.warn(
+        "calculate_total() is deprecated; use calculate_total_v2(price, tax_rate)",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+    return calculate_total_v2(price)
 ```
 
 ## Catatan Praktis
 
-- prioritaskan kejelasan intent
-- dokumentasikan keputusan desain yang tidak obvious
-- hindari clever code jika mengorbankan readability
+- hindari breaking change mendadak pada API yang sudah dipakai luas
+- gunakan `DeprecationWarning` dengan pesan migrasi yang jelas
+- tentukan batas waktu transisi dan komunikasikan sejak awal
+- sertakan contoh before/after di release note
+- jadikan PEP relevan sebagai rujukan keputusan desain
 
 ## Latihan
 
 ### Dasar
 
-Identifikasi satu keputusan desain Python yang kamu lihat pada contoh bab ini.
+Tambahkan wrapper deprecated untuk satu fungsi lama di proyek Anda dan tampilkan warning yang informatif.
 
 ### Menengah
 
-Refactor contoh kode agar lebih jelas tanpa mengubah hasil.
+Buat rencana migrasi 3 langkah untuk perubahan signature fungsi yang sudah dipakai banyak modul.
 
 ### Mini Challenge
 
-Buat script kecil lalu jelaskan trade-off desain yang kamu pilih (kejelasan vs keringkasan).
+Buat file `pricing_api.py` berisi:
+
+- fungsi lama `get_price_total(price)`
+- fungsi baru `get_price_total_v2(price, tax_rate=0.11)`
+- warning deprecation pada fungsi lama
+
+Tambahkan minimal 5 test case (termasuk jalur kompatibilitas lama), lalu tulis 5-8 kalimat strategi transisi yang Anda pilih.
 
 ## Checklist Lulus Bab
 
-- [ ] memahami prinsip inti bab
-- [ ] mampu menjelaskan trade-off dasar
-- [ ] menyelesaikan mini challenge
-- [ ] bisa menjelaskan alasan refactor
+- [ ] memahami perbedaan additive vs breaking change
+- [ ] mampu menerapkan deprecation bertahap
+- [ ] menyelesaikan mini challenge dan test
+- [ ] mampu menggunakan PEP sebagai acuan argumentasi teknis
 
 ## Peta Keterkaitan
 
 - Bab sebelumnya: 09_batteries_included_mindset.md
 - Bab berikutnya: 11_idiomatic_python_and_style.md
-- Keterkaitan lintas buku Core: CORE-13
+- Keterkaitan lintas buku Core: CORE-13 (packaging/release), CORE-14 (testing)
 
 ## Ringkasan
 
-- topik bab ini membentuk dasar language design Python
-- keputusan desain memengaruhi kode harian
-- pemahaman prinsip desain meningkatkan kualitas implementasi
+- backward compatibility adalah strategi penting menjaga stabilitas ekosistem
+- perubahan API idealnya additive lalu deprecate sebelum remove
+- PEP memberi kerangka keputusan desain yang transparan dan terdokumentasi
+- migrasi yang jelas menurunkan risiko teknis dan biaya adopsi
 
 ## FAQ Singkat
 
-1. Kenapa perlu belajar language design sebagai developer aplikasi?
-   Jawaban singkat: supaya keputusan coding lebih terarah dan konsisten.
-2. Apakah prinsip desain selalu absolut?
-   Jawaban singkat: tidak, sering ada trade-off antar prinsip.
-3. Bagaimana menerapkan bab ini ke proyek nyata?
-   Jawaban singkat: evaluasi keputusan kode dengan kriteria readability, maintainability, dan consistency.
+1. Apakah semua breaking change harus dihindari?
+   Jawaban singkat: tidak selalu, tapi harus terencana, terdokumentasi, dan diberi jalur migrasi.
+2. Kapan warning deprecation sebaiknya dipasang?
+   Jawaban singkat: segera saat API pengganti stabil tersedia.
+3. Kenapa perlu baca PEP untuk developer aplikasi?
+   Jawaban singkat: agar paham alasan fitur/perubahan dan bisa mengambil keputusan implementasi yang lebih tepat.
 
 ## Referensi
 
+- PEP Index: https://peps.python.org/
+- PEP 387 (Backwards Compatibility): https://peps.python.org/pep-0387/
 - Python Tutorial: https://docs.python.org/3/tutorial/
 - Python Language Reference: https://docs.python.org/3/reference/
-- PEP Index: https://peps.python.org/

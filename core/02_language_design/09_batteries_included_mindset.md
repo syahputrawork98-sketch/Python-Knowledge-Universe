@@ -1,107 +1,151 @@
-﻿# Batteries-included Mindset
+# Batteries-included Mindset
 
 Chapter Code: CORE-02-09
 Book Code: CORE-02
-Version: v0.2.0
+Version: v0.2.1
 Last Updated: 2026-03-08
-Status: Planned
+Status: Draft
 Difficulty: Basic
 Estimated Time: 40 menit teori + 30 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini membahas konsep inti batteries-included mindset dalam konteks filosofi desain bahasa Python.
+Bab ini membahas filosofi "batteries included" di Python: bahasa menyediakan standard library yang luas agar banyak kebutuhan umum bisa diselesaikan tanpa menambah dependency eksternal sejak awal.
 
 ## Prasyarat Spesifik Bab
 
-- memahami bab sebelumnya (jika ada)
-- memahami dasar sintaks Python dari CORE-01
+- sudah menyelesaikan CORE-02-01 sampai CORE-02-08
+- memahami module import dasar
+- memahami fungsi dan error handling sederhana
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| language design | prinsip perancangan bahasa | readability over cleverness |
-| trade-off | kompromi antar tujuan desain | simplicity vs flexibility |
+| batteries included | filosofi menyediakan alat bawaan yang cukup lengkap | `json`, `pathlib`, `datetime` |
+| standard library | kumpulan modul bawaan Python resmi | `collections`, `itertools`, `logging` |
+| third-party package | library dari luar distribusi Python default | `requests`, `pydantic` |
+| dependency cost | biaya adopsi library tambahan | maintenance, security update |
+| build vs buy | keputusan buat sendiri vs pakai komponen siap pakai | util internal vs paket eksternal |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami alasan desain Python agar keputusan coding lebih sadar konteks.
+Membantu pembaca memilih solusi yang seimbang antara standard library dan third-party package berdasarkan kebutuhan nyata proyek.
 
 ## Tujuan Kecil
 
-- mengenali prinsip inti topik bab
-- menghubungkan prinsip dengan praktik coding
-- mengidentifikasi trade-off dasar pada kasus sederhana
+- mengenali kekuatan standard library untuk use case umum
+- mengevaluasi biaya/manfaat dependency tambahan
+- menghindari reinventing wheel maupun dependency berlebihan
 
 ## Hasil Belajar
 
 Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
 
-- menjelaskan prinsip utama bab ini
-- menerapkan prinsip pada contoh kode sederhana
-- mengevaluasi dampak desain pada keterbacaan kode
+- menyelesaikan masalah umum dengan modul bawaan Python
+- menilai kapan third-party package memang diperlukan
+- memberi alasan teknis saat menambah dependency ke project
 
 ## Peruntukan
 
 Bab ini digunakan saat:
 
-- ingin memahami "mengapa" di balik gaya Python
-- ingin menulis kode yang lebih idiomatik
+- memulai fitur baru dengan kebutuhan utility umum
+- review proposal penambahan package baru
+- menyusun guideline dependency policy tim
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython detail rendah
-- pembahasan implementasi compiler/interpreter mendalam
+- daftar lengkap seluruh modul standard library
+- evaluasi keamanan dependency tingkat enterprise mendalam
+- pembahasan packaging/distribution Python yang sangat detail
 
 ## Analogi
 
-Anggap desain bahasa seperti arsitektur kota: keputusan tata letak memengaruhi semua aktivitas di dalamnya.
+Batteries-included seperti membeli toolkit rumah. Untuk pekerjaan umum, alat bawaan sudah cukup. Anda beli alat tambahan hanya saat benar-benar dibutuhkan untuk tugas spesifik.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: desain bahasa hanya urusan pembuat bahasa.
-  Klarifikasi: pemrogram tetap terdampak langsung oleh keputusan desain.
+- Miskonsepsi: "Selalu pakai standard library, jangan third-party."
+  Klarifikasi: third-party bisa sangat bernilai jika standard library tidak cukup atau terlalu mahal dikembangkan sendiri.
 
-- Miskonsepsi: aturan gaya hanya preferensi pribadi.
-  Klarifikasi: banyak aturan gaya berakar dari filosofi desain bahasa.
+- Miskonsepsi: "Pakai package populer selalu pilihan terbaik."
+  Klarifikasi: popularitas tidak otomatis cocok dengan kebutuhan dan constraints proyek Anda.
+
+- Miskonsepsi: "Dependency itu gratis selama install berhasil."
+  Klarifikasi: setiap dependency menambah biaya upgrade, audit, dan troubleshooting.
 
 ## Konsep Inti
 
 ### 1. Prinsip Dasar
 
-Jelaskan prinsip utama yang dibahas di bab ini dan hubungannya dengan kode Python.
+Kerangka pengambilan keputusan sederhana:
+
+1. Start with standard library
+Cek dulu apakah kebutuhan bisa dipenuhi modul bawaan dengan kualitas memadai.
+
+2. Evaluate gap clearly
+Jika ada gap, tulis spesifik apa yang kurang: performa, fitur, ergonomi, atau reliability.
+
+3. Add third-party intentionally
+Tambahkan dependency hanya jika manfaatnya jelas lebih besar dari biaya adopsi.
+
+4. Re-evaluate periodically
+Dependency yang dulu relevan bisa jadi tidak perlu lagi setelah kebutuhan berubah.
 
 ### 2. Dampak Praktis
 
-Jelaskan bagaimana prinsip ini memengaruhi keputusan coding sehari-hari.
+Penerapan mindset ini berdampak pada:
+
+- startup project lebih cepat dengan risiko dependency rendah
+- onboarding tim lebih mudah karena modul bawaan cenderung familiar
+- maintenance lebih stabil karena surface area dependency lebih kecil
+- keputusan teknis lebih transparan saat package baru diajukan
+
+Checklist sebelum menambah package baru:
+
+1. apakah ada modul stdlib yang sudah cukup
+2. apakah package aktif dirawat dan terdokumentasi
+3. apakah tim siap menanggung biaya upgrade jangka panjang
+4. apakah manfaat fungsionalnya benar-benar signifikan
 
 ## Diagram
 
 ![Big picture Batteries-included Mindset](assets/09_batteries_included_mindset.svg)
 
-Caption: Diagram memetakan alur konsep utama bab dan dampaknya ke praktik coding.
+Caption: Diagram menggambarkan jalur keputusan dari penggunaan standar bawaan menuju adopsi dependency eksternal yang terukur.
 
 ### Legenda Diagram
 
-- 1️⃣: konsep awal
-- 2️⃣: proses analisis
-- 3️⃣: keputusan praktis
+- 1: kebutuhan fitur
+- 2: evaluasi stdlib vs external package
+- 3: keputusan dependency berbasis biaya-manfaat
 
 ## Contoh Kode (Benar)
 
 ```python
-# contoh sederhana penerapan prinsip desain
-message = "Readability matters"
-print(message)
+from pathlib import Path
+import json
+
+
+def load_settings(file_path: str) -> dict:
+    path = Path(file_path)
+    if not path.exists():
+        raise FileNotFoundError(f"settings file not found: {file_path}")
+
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+print(load_settings("settings.json"))
 ```
 
 Expected output:
 
 ```text
-Readability matters
+{'app_name': 'Python Knowledge Universe'}
 ```
 
 ## Pitfall Umum
@@ -109,70 +153,101 @@ Readability matters
 Contoh kesalahan yang sering terjadi:
 
 ```python
-# kode terlalu kompleks untuk masalah sederhana
-result = [x for x in range(10) if (x % 2 == 0 and x > 3) or (x == 1)]
+# menambah dependency eksternal untuk parsing json sederhana
+# padahal kebutuhan bisa dipenuhi `json` bawaan
+import some_json_package
+
+
+def load_settings(file_path):
+    return some_json_package.parse_file(file_path)
 ```
+
+Masalah:
+
+- menambah beban dependency tanpa manfaat jelas
+- menaikkan risiko kompatibilitas dan maintenance
+- tim baru perlu belajar API tambahan yang sebenarnya tidak perlu
 
 Perbaikan:
 
 ```python
-# pecah logika agar intent lebih jelas
-result = []
-for x in range(10):
-    if x % 2 == 0 and x > 3:
-        result.append(x)
+from pathlib import Path
+import json
+
+
+def load_settings(file_path: str) -> dict:
+    path = Path(file_path)
+    if not path.exists():
+        raise FileNotFoundError(f"settings file not found: {file_path}")
+
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
 ```
 
 ## Catatan Praktis
 
-- prioritaskan kejelasan intent
-- dokumentasikan keputusan desain yang tidak obvious
-- hindari clever code jika mengorbankan readability
+- bias default: coba stdlib dulu, ukur dulu, baru tambah dependency
+- dokumentasikan alasan saat menambah package baru
+- batasi dependency pada modul yang benar-benar memberi leverage
+- lakukan review berkala untuk menghapus dependency yang tidak lagi dipakai
+- jangan reinvent wheel jika stdlib atau package matang sudah memenuhi kebutuhan
 
 ## Latihan
 
 ### Dasar
 
-Identifikasi satu keputusan desain Python yang kamu lihat pada contoh bab ini.
+Cari satu util di proyek yang bisa diganti dengan standard library (`pathlib`, `collections`, `itertools`, atau `json`).
 
 ### Menengah
 
-Refactor contoh kode agar lebih jelas tanpa mengubah hasil.
+Buat tabel keputusan untuk satu dependency eksternal: manfaat, risiko, alternatif stdlib, dan keputusan akhir.
 
 ### Mini Challenge
 
-Buat script kecil lalu jelaskan trade-off desain yang kamu pilih (kejelasan vs keringkasan).
+Buat file `report_loader.py` yang:
+
+- membaca data JSON dari file
+- memvalidasi key wajib (`report_id`, `created_at`)
+- mengembalikan ringkasan sederhana
+
+Syarat:
+
+- gunakan hanya standard library
+- tambahkan minimal 5 test case
+- tulis 5-8 kalimat alasan kenapa stdlib cukup atau tidak cukup untuk kasus Anda
 
 ## Checklist Lulus Bab
 
-- [ ] memahami prinsip inti bab
-- [ ] mampu menjelaskan trade-off dasar
-- [ ] menyelesaikan mini challenge
-- [ ] bisa menjelaskan alasan refactor
+- [ ] memahami prinsip batteries-included Python
+- [ ] mampu mengevaluasi kebutuhan dependency eksternal
+- [ ] menyelesaikan mini challenge dengan stdlib
+- [ ] mampu memberi justifikasi teknis penambahan package
 
 ## Peta Keterkaitan
 
 - Bab sebelumnya: 08_errors_as_part_of_design.md
 - Bab berikutnya: 10_backward_compatibility_and_peps.md
-- Keterkaitan lintas buku Core: CORE-07
+- Keterkaitan lintas buku Core: CORE-07 (stdlib), CORE-13 (packaging)
 
 ## Ringkasan
 
-- topik bab ini membentuk dasar language design Python
-- keputusan desain memengaruhi kode harian
-- pemahaman prinsip desain meningkatkan kualitas implementasi
+- Python menyediakan standard library kuat untuk banyak kebutuhan umum
+- dependency eksternal harus dipilih secara sadar, bukan otomatis
+- keputusan dependency yang baik menurunkan biaya maintenance
+- keseimbangan stdlib dan third-party adalah bagian penting dari desain sistem
 
 ## FAQ Singkat
 
-1. Kenapa perlu belajar language design sebagai developer aplikasi?
-   Jawaban singkat: supaya keputusan coding lebih terarah dan konsisten.
-2. Apakah prinsip desain selalu absolut?
-   Jawaban singkat: tidak, sering ada trade-off antar prinsip.
-3. Bagaimana menerapkan bab ini ke proyek nyata?
-   Jawaban singkat: evaluasi keputusan kode dengan kriteria readability, maintainability, dan consistency.
+1. Apakah salah memakai third-party package?
+   Jawaban singkat: tidak; gunakan saat manfaatnya jelas dan biaya adopsi dapat diterima.
+2. Kapan stdlib tidak cukup?
+   Jawaban singkat: saat kebutuhan fitur/performa/ergonomi melewati kemampuan praktis stdlib.
+3. Bagaimana menghindari dependency bloat?
+   Jawaban singkat: terapkan review dependency berkala dan minta justifikasi teknis tiap penambahan package.
 
 ## Referensi
 
+- Python Standard Library: https://docs.python.org/3/library/
 - Python Tutorial: https://docs.python.org/3/tutorial/
 - Python Language Reference: https://docs.python.org/3/reference/
-- PEP Index: https://peps.python.org/
+- Packaging User Guide: https://packaging.python.org/

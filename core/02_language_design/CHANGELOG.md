@@ -1,8 +1,43 @@
 ﻿# CHANGELOG
 
 Book Code: CORE-02
-Version: v0.2.0
+Version: v0.2.1
 Last Updated: 2026-03-08
+
+## 2026-03-08
+- Changed: Sinkronisasi metadata level buku setelah seluruh bab `CORE-02-01` s.d. `CORE-02-12` selesai diisi ke status draft.
+- Reason: Menutup fase pengisian konten awal agar status versi dan progres buku konsisten lintas dokumen.
+- Impact: `README` dan `CHANGELOG` kini merepresentasikan kondisi terbaru Buku CORE-02 secara akurat (`v0.2.1`, draft complete).
+
+## 2026-03-08
+- Changed: Menyelesaikan draft konten detail `CORE-02-11` (`11_idiomatic_python_and_style.md`) dari template menjadi materi penuh.
+- Reason: Menuntaskan urutan penulisan per topik pada area praktik style Pythonic dan standar kode yang maintainable.
+- Impact: Bab idiomatic style kini siap dipakai untuk latihan refactor, code review, dan penyusunan guideline coding tim.
+
+## 2026-03-08
+- Changed: Menyelesaikan draft konten detail `CORE-02-10` (`10_backward_compatibility_and_peps.md`) dari template menjadi materi penuh.
+- Reason: Melanjutkan penulisan per topik pada area strategi evolusi API, kompatibilitas mundur, dan proses perubahan berbasis PEP.
+- Impact: Bab backward compatibility kini siap dipakai untuk latihan deprecation bertahap, migration path, dan argumentasi desain yang lebih kuat.
+
+## 2026-03-08
+- Changed: Menyelesaikan draft konten detail `CORE-02-09` (`09_batteries_included_mindset.md`) dari template menjadi materi penuh.
+- Reason: Melanjutkan urutan penulisan per topik pada area pengambilan keputusan penggunaan standard library vs dependency eksternal.
+- Impact: Bab batteries-included kini siap dipakai untuk latihan evaluasi dependency dan desain solusi berbasis stdlib yang terukur.
+
+## 2026-03-08
+- Changed: Menyelesaikan draft konten detail `CORE-02-08` (`08_errors_as_part_of_design.md`) dari template menjadi materi penuh.
+- Reason: Melanjutkan urutan penulisan per topik pada area desain error handling dan kontrak exception.
+- Impact: Bab error design kini siap dipakai untuk latihan fail-fast, exception contract, dan peningkatan kualitas debugging.
+
+## 2026-03-08
+- Changed: Menyelesaikan draft konten detail `CORE-02-07` (`07_duck_typing_and_protocols.md`) dari template menjadi materi penuh.
+- Reason: Melanjutkan urutan penulisan per topik pada aspek fleksibilitas desain antarkomponen di Python.
+- Impact: Bab duck typing kini siap dipakai untuk latihan desain kontrak berbasis perilaku, pengurangan coupling, dan kemudahan testing.
+
+## 2026-03-08
+- Changed: Menyelesaikan draft konten detail `CORE-02-06` (`06_mutability_and_object_thinking.md`) dari template menjadi materi penuh.
+- Reason: Melanjutkan progres per topik pada area risiko bug paling umum terkait state dan referensi objek.
+- Impact: Bab mutability kini siap dipakai untuk latihan desain API aman, pencegahan shared state bug, dan penguatan praktik testing.
 
 ## 2026-03-08
 - Changed: Menyelesaikan draft konten detail `CORE-02-05` (`05_simple_vs_complex.md`) dari template menjadi materi penuh.

@@ -1,107 +1,150 @@
-﻿# Idiomatic Python and Style
+# Idiomatic Python and Style
 
 Chapter Code: CORE-02-11
 Book Code: CORE-02
-Version: v0.2.0
+Version: v0.2.1
 Last Updated: 2026-03-08
-Status: Planned
+Status: Draft
 Difficulty: Intermediate
 Estimated Time: 45 menit teori + 35 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini membahas konsep inti idiomatic python and style dalam konteks filosofi desain bahasa Python.
+Bab ini membahas apa yang dimaksud "idiomatic Python": cara menulis kode yang terasa natural bagi ekosistem Python, mudah dibaca tim lain, dan konsisten dengan praktik yang direkomendasikan (terutama PEP 8).
 
 ## Prasyarat Spesifik Bab
 
-- memahami bab sebelumnya (jika ada)
-- memahami dasar sintaks Python dari CORE-01
+- sudah menyelesaikan CORE-02-01 sampai CORE-02-10
+- memahami fungsi, class dasar, exception, dan module import
+- memahami dasar type hint dan standard library umum
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| language design | prinsip perancangan bahasa | readability over cleverness |
-| trade-off | kompromi antar tujuan desain | simplicity vs flexibility |
+| idiomatic Python | gaya penulisan yang sesuai kebiasaan komunitas Python | list comprehension seperlunya |
+| style guide | pedoman konsistensi penulisan kode | PEP 8 |
+| readability | kemudahan kode dipahami pembaca | nama fungsi deskriptif |
+| explicitness | niat kode jelas, tidak tersembunyi | guard clause, named argument |
+| refactor | perubahan struktur internal tanpa ubah perilaku | pecah fungsi panjang |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami alasan desain Python agar keputusan coding lebih sadar konteks.
+Membantu pembaca menulis kode Python yang bersih, konsisten, dan mudah dipelihara, sekaligus mampu membedakan gaya idiomatik yang sehat dari "gaya pintar" yang sulit dirawat.
 
 ## Tujuan Kecil
 
-- mengenali prinsip inti topik bab
-- menghubungkan prinsip dengan praktik coding
-- mengidentifikasi trade-off dasar pada kasus sederhana
+- menerapkan pola idiomatic Python pada kasus umum
+- menghindari anti-pattern style yang memperberat maintenance
+- membangun dasar argumentasi saat code review
 
 ## Hasil Belajar
 
 Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
 
-- menjelaskan prinsip utama bab ini
-- menerapkan prinsip pada contoh kode sederhana
-- mengevaluasi dampak desain pada keterbacaan kode
+- menulis fungsi yang mengikuti style Pythonic secara konsisten
+- refactor kode non-idiomatic menjadi lebih jelas
+- menjelaskan keputusan style berbasis readability dan maintainability
 
 ## Peruntukan
 
 Bab ini digunakan saat:
 
-- ingin memahami "mengapa" di balik gaya Python
-- ingin menulis kode yang lebih idiomatik
+- melakukan code review harian
+- menyiapkan standar coding guideline tim
+- merapikan modul lama agar lebih mudah dibaca
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython detail rendah
-- pembahasan implementasi compiler/interpreter mendalam
+- pembahasan seluruh aturan PEP 8 secara lengkap
+- perdebatan style subjektif tanpa konteks kebutuhan tim
+- optimisasi performa rendah-level berbasis microbenchmark
 
 ## Analogi
 
-Anggap desain bahasa seperti arsitektur kota: keputusan tata letak memengaruhi semua aktivitas di dalamnya.
+Idiomatic style seperti tata bahasa baku. Anda tetap bisa dipahami dengan gaya acak, tapi komunikasi jadi lebih lambat dan rawan salah tafsir.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: desain bahasa hanya urusan pembuat bahasa.
-  Klarifikasi: pemrogram tetap terdampak langsung oleh keputusan desain.
+- Miskonsepsi: "Pythonic berarti kode sesingkat mungkin."
+  Klarifikasi: Pythonic menekankan kejelasan intent, bukan minim karakter.
 
-- Miskonsepsi: aturan gaya hanya preferensi pribadi.
-  Klarifikasi: banyak aturan gaya berakar dari filosofi desain bahasa.
+- Miskonsepsi: "Kalau linter hijau, style sudah bagus."
+  Klarifikasi: linter penting, tapi tidak menggantikan desain fungsi, naming, dan alur logika yang sehat.
+
+- Miskonsepsi: "Style itu urusan kosmetik."
+  Klarifikasi: style yang baik menurunkan beban kognitif dan biaya maintenance.
 
 ## Konsep Inti
 
 ### 1. Prinsip Dasar
 
-Jelaskan prinsip utama yang dibahas di bab ini dan hubungannya dengan kode Python.
+Prinsip praktis idiomatic Python:
+
+1. Use clear names
+Nama fungsi/variabel harus menyampaikan intent bisnis.
+
+2. Prefer simple flow
+Gunakan guard clause untuk menghindari nested logic berlapis.
+
+3. Use Python features responsibly
+Comprehension, unpacking, dan context manager dipakai saat memperjelas kode, bukan untuk pamer trik.
+
+4. Keep functions focused
+Satu fungsi, satu tanggung jawab utama.
 
 ### 2. Dampak Praktis
 
-Jelaskan bagaimana prinsip ini memengaruhi keputusan coding sehari-hari.
+Penerapan idiomatik memberi dampak nyata:
+
+- review lebih cepat karena pola kode familiar
+- onboarding developer baru lebih mudah
+- refactor lebih aman karena struktur fungsi jelas
+- bug lebih cepat ditemukan dari intent yang terbaca
+
+Checklist refactor menuju idiomatic style:
+
+1. apakah nama sudah menjelaskan tujuan
+2. apakah alur logika terlalu dalam dan bisa diringkas
+3. apakah ada fitur Python yang bisa membuat kode lebih jelas
+4. apakah perubahan tetap menjaga perilaku asli
 
 ## Diagram
 
 ![Big picture Idiomatic Python and Style](assets/11_idiomatic_python_and_style.svg)
 
-Caption: Diagram memetakan alur konsep utama bab dan dampaknya ke praktik coding.
+Caption: Diagram memperlihatkan hubungan antara prinsip idiomatic style dan dampaknya terhadap kualitas kolaborasi tim.
 
 ### Legenda Diagram
 
-- 1️⃣: konsep awal
-- 2️⃣: proses analisis
-- 3️⃣: keputusan praktis
+- 1: prinsip style Pythonic
+- 2: penerapan pada struktur kode
+- 3: dampak ke readability dan maintenance
 
 ## Contoh Kode (Benar)
 
 ```python
-# contoh sederhana penerapan prinsip desain
-message = "Readability matters"
-print(message)
+from pathlib import Path
+
+
+def load_usernames(file_path: str) -> list[str]:
+    path = Path(file_path)
+    if not path.exists():
+        raise FileNotFoundError(f"file not found: {file_path}")
+
+    with path.open("r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
+
+
+print(load_usernames("users.txt"))
 ```
 
 Expected output:
 
 ```text
-Readability matters
+['alice', 'bob', 'charlie']
 ```
 
 ## Pitfall Umum
@@ -109,70 +152,102 @@ Readability matters
 Contoh kesalahan yang sering terjadi:
 
 ```python
-# kode terlalu kompleks untuk masalah sederhana
-result = [x for x in range(10) if (x % 2 == 0 and x > 3) or (x == 1)]
+def load(file):
+    f = open(file)
+    data = []
+    for x in f.readlines():
+        if x.strip() != "":
+            data.append(x.strip())
+    f.close()
+    return data
 ```
+
+Masalah:
+
+- nama fungsi/parameter terlalu umum
+- tidak memakai context manager (`with`)
+- style kondisi verbose dan kurang idiomatik
 
 Perbaikan:
 
 ```python
-# pecah logika agar intent lebih jelas
-result = []
-for x in range(10):
-    if x % 2 == 0 and x > 3:
-        result.append(x)
+from pathlib import Path
+
+
+def load_usernames(file_path: str) -> list[str]:
+    path = Path(file_path)
+    if not path.exists():
+        raise FileNotFoundError(f"file not found: {file_path}")
+
+    with path.open("r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
 ```
 
 ## Catatan Praktis
 
-- prioritaskan kejelasan intent
-- dokumentasikan keputusan desain yang tidak obvious
-- hindari clever code jika mengorbankan readability
+- ikuti PEP 8 sebagai baseline konsistensi
+- pakai comprehension jika hasilnya tetap mudah dibaca
+- pilih `with` untuk resource management (file, lock, connection)
+- hindari nama singkat tanpa konteks (`x`, `tmp`, `data` berlebihan)
+- gabungkan formatter + linter + review manusia untuk kualitas style
 
 ## Latihan
 
 ### Dasar
 
-Identifikasi satu keputusan desain Python yang kamu lihat pada contoh bab ini.
+Refactor satu fungsi non-idiomatic di proyek Anda agar menggunakan nama yang lebih jelas dan context manager jika relevan.
 
 ### Menengah
 
-Refactor contoh kode agar lebih jelas tanpa mengubah hasil.
+Ambil satu loop klasik, ubah menjadi list/dict comprehension yang tetap terbaca. Bandingkan mana yang lebih jelas.
 
 ### Mini Challenge
 
-Buat script kecil lalu jelaskan trade-off desain yang kamu pilih (kejelasan vs keringkasan).
+Buat file `student_report.py` berisi:
+
+- fungsi load data siswa dari file teks
+- fungsi hitung rata-rata nilai
+- fungsi format output laporan
+
+Syarat:
+
+- gunakan naming deskriptif
+- gunakan `with` untuk file handling
+- tambahkan minimal 5 test case
+- tulis 5-8 kalimat trade-off style yang Anda pilih (ringkas vs jelas)
 
 ## Checklist Lulus Bab
 
-- [ ] memahami prinsip inti bab
-- [ ] mampu menjelaskan trade-off dasar
-- [ ] menyelesaikan mini challenge
-- [ ] bisa menjelaskan alasan refactor
+- [ ] memahami prinsip utama idiomatic Python
+- [ ] mampu refactor kode non-idiomatic ke versi lebih jelas
+- [ ] menyelesaikan mini challenge dan test
+- [ ] mampu memberi alasan style decision saat code review
 
 ## Peta Keterkaitan
 
 - Bab sebelumnya: 10_backward_compatibility_and_peps.md
 - Bab berikutnya: 12_language_design_tradeoffs.md
-- Keterkaitan lintas buku Core: CORE-15
+- Keterkaitan lintas buku Core: CORE-15 (code quality), CORE-14 (testing)
 
 ## Ringkasan
 
-- topik bab ini membentuk dasar language design Python
-- keputusan desain memengaruhi kode harian
-- pemahaman prinsip desain meningkatkan kualitas implementasi
+- idiomatic Python adalah cara menulis yang natural, jelas, dan konsisten
+- style yang baik mempercepat kolaborasi serta menurunkan biaya maintenance
+- fitur bahasa Python dipakai untuk memperjelas, bukan memperumit
+- keputusan style harus selalu ditimbang dengan readability tim
 
 ## FAQ Singkat
 
-1. Kenapa perlu belajar language design sebagai developer aplikasi?
-   Jawaban singkat: supaya keputusan coding lebih terarah dan konsisten.
-2. Apakah prinsip desain selalu absolut?
-   Jawaban singkat: tidak, sering ada trade-off antar prinsip.
-3. Bagaimana menerapkan bab ini ke proyek nyata?
-   Jawaban singkat: evaluasi keputusan kode dengan kriteria readability, maintainability, dan consistency.
+1. Apakah harus selalu pakai comprehension?
+   Jawaban singkat: tidak; pakai hanya jika membuat intent lebih jelas.
+2. Apakah PEP 8 wajib 100%?
+   Jawaban singkat: jadikan baseline kuat; deviasi boleh jika ada alasan jelas dan konsisten.
+3. Bagaimana menyeimbangkan style dan performa?
+   Jawaban singkat: mulai dari style yang jelas, lalu optimasi berdasarkan data profiling nyata.
 
 ## Referensi
 
+- PEP 8 (Style Guide): https://peps.python.org/pep-0008/
+- PEP 20 (Zen of Python): https://peps.python.org/pep-0020/
 - Python Tutorial: https://docs.python.org/3/tutorial/
 - Python Language Reference: https://docs.python.org/3/reference/
-- PEP Index: https://peps.python.org/
