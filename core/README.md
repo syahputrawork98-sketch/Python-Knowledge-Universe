@@ -116,7 +116,8 @@ Setiap direktori merepresentasikan satu buku utama.
 
 ## Kontribusi ke Bagian Core
 
-Gunakan panduan kontribusi di `docs/contribution-guide.md` untuk standar format, kualitas, dan alur perubahan konten.
+- Panduan global: `docs/contribution-guide.md`
+- Panduan khusus Core: `core/docs/CONTRIBUTING.md`
 
 ## Referensi
 
