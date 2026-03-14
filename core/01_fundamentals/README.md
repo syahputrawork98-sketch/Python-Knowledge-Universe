@@ -6,7 +6,13 @@ Ini adalah langkah pertama dan paling krusial sebelum masuk ke pemahaman yang le
 ## Daftar Buku
 
 1. [**01_python_basics**](01_python_basics/)
-   Dasar-dasar variabel, tipe data bawaan, struktur kontrol (if, for, while), fungsi dasar, tipe data lanjutan, dan OOP dasar.
+   Fondasi paling awal: sintaks, variabel, tipe data, dan kontrol alur.
 
-2. [**02_language_design**](02_language_design/)
-   Analisis PEP-8, filosofi *The Zen of Python*, design pattern ala Python, dan berbagai kebiasaan *Pythonic* (seperti *list comprehensions*, *generators*, dan *decorators* sederhana).
+2. [**02_data_and_logic**](02_data_and_logic/)
+   Struktur data, fungsi, modularitas, I/O, dan pola pemrograman dasar.
+
+3. [**03_object_oriented_programming**](03_object_oriented_programming/)
+   Paradigma pemrograman berbasis objek sebagai jembatan ke Rak 02.
+
+4. [**04_language_design**](04_language_design/)
+   Filosofi *The Zen of Python*, prinsip desain bahasa, dan kebiasaan *Pythonic*.

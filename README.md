@@ -28,11 +28,10 @@ Repository ini dibagi menjadi dua **Rak** utama.
 
 Core adalah rak fondasi. Rak ini dibagi lagi menjadi beberapa **Sub-Rak** (Fase) untuk memandu perjalanan belajar:
 
-1. **01_fundamentals**: Pemahaman dasar tentang bahasa (`01_python_basics`, `02_language_design`)
-2. **02_advanced_concepts**: Konsep mendalam di balik layar (`01_execution_model`, `02_object_model`, `03_memory_management`)
-3. **03_system_and_io**: Interaksi program dengan sistem operasi (`01_modules_import_system`, `02_file_system_io`, `03_networking`)
-4. **04_concurrency**: Eksekusi paralel dan asynchronous (`01_concurrency`, `02_async_programming`)
-5. **05_ecosystem_and_tooling**: Perangkat pengembangan dunia nyata (`01_standard_library`, `02_testing`, `03_packaging`, `04_virtual_environments`, `05_tooling`)
+1. **01_python_basics**: Fondasi paling awal: sintaks, variabel, tipe data, dan kontrol alur.
+2. **02_data_and_logic**: Struktur data, fungsi, modularitas, I/O, dan pola pemrograman dasar.
+3. **03_object_oriented_programming**: Paradigma pemrograman berbasis objek sebagai jembatan ke Rak 02.
+4. **04_language_design**: Filosofi *The Zen of Python*, prinsip desain bahasa, dan kebiasaan *Pythonic*.
 
 ### 2. Rak Specializations (`specializations/`)
 
@@ -108,7 +107,9 @@ Sebagai proyek yang terus berkembang, tabel ini mencatat versi terkini dari pero
 | Rak | Buku | Status | Versi Rilis | Terakhir Diperbarui |
 | :--- | :--- | :--- | :--- | :--- |
 | Core | [01_python_basics](core/01_fundamentals/01_python_basics) | Published | Core.Fundamentals.01.00 | 2026-03-14 |
-| Core | [02_language_design](core/01_fundamentals/02_language_design) | Planned | `-` | `-` |
+| Core | [02_data_and_logic](core/01_fundamentals/02_data_and_logic) | In Progress | Core.Fundamentals.02.00 | 2026-03-14 |
+| Core | [03_object_oriented_programming](core/01_fundamentals/03_object_oriented_programming) | Planned | Core.Fundamentals.03.00 | 2026-03-14 |
+| Core | [04_language_design](core/01_fundamentals/04_language_design) | Draft Complete | Core.Fundamentals.04.00 | 2026-03-14 |
 | ... | ... | ... | ... | ... |
 
 *(Tabel di atas akan terus diperbarui secara manual setiap kali ada sebuah buku yang resmi dilabeli "Rilis" dari versi unreleased-nya).*

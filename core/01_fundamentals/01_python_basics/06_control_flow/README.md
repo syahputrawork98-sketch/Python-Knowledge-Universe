@@ -1,9 +1,9 @@
 # Bab 06: Control Flow
 
 Chapter Code: CORE-01-06
-Version: Core.Fundamentals.01.01-draft
+Version: Core.Fundamentals.01.00
 Last Updated: 2026-03-14
-Status: Draft
+Status: Released
 
 > **Deskripsi Singkat**: Bab ini membahas jantung logika pemrograman: bagaimana Python membuat keputusan menggunakan percabangan (`if`) dan mengulang tugas menggunakan perulangan (`for`, `while`).
 

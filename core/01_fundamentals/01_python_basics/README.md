@@ -28,15 +28,8 @@ Materi pada bagian ini dirancang untuk membantu pembaca memahami konsep dasar Py
 | 03 | CORE-01-03 | Variables and Names | [`03_variables_and_names/`](03_variables_and_names/README.md) |
 | 04 | CORE-01-04 | Basic Data Types | [`04_basic_data_types/`](04_basic_data_types/README.md) |
 | 05 | CORE-01-05 | Operators and Expressions | [`05_operators_and_expressions/`](05_operators_and_expressions/README.md) |
-| 06 | CORE-01-06 | Control Flow | `06_control_flow/` |
-| 07 | CORE-01-07 | Functions | `07_functions/` |
-| 08 | CORE-01-08 | Basic Data Structures | `08_basic_data_structures/` |
-| 09 | CORE-01-09 | Modules and Import | `09_modules_and_import/` |
-| 10 | CORE-01-10 | Input and Output | `10_input_output/` |
-| 11 | CORE-01-11 | File Handling | `11_file_handling/` |
-| 12 | CORE-01-12 | Errors and Exceptions | `12_exception_handling/` |
-| 13 | CORE-01-13 | Built-in Functions | `13_builtin_functions/` |
-| 14 | CORE-01-14 | Basic Programming Patterns | `14_basic_programming_patterns/` |
+| 06 | CORE-01-06 | Control Flow | [`06_control_flow/`](06_control_flow/README.md) |
+| 07 | CORE-01-07 | Built-in Functions | [`07_builtin_functions/`](07_builtin_functions/README.md) |
 
 ## Aset Visual
 
