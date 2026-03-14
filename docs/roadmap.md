@@ -1,14 +1,16 @@
-﻿# Roadmap
+# Roadmap
 
 Dokumen ini memetakan rencana pengembangan Python Knowledge Universe.
 
 ## Fase Pengembangan
 
-### Phase 1: Foundation (In Progress)
+### Phase 1: Foundation (Completed)
 
 - finalisasi struktur repository
 - penyelarasan penamaan topik
 - pembuatan README inti untuk root, core, dan specialization
+- adopsi sistem versi berdasarkan alamat rak
+- restrukturisasi bab (chapter) menjadi berbasis direktori/folder
 
 ### Phase 2: Core Authoring (Planned)
 

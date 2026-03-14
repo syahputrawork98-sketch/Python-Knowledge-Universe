@@ -1,10 +1,29 @@
-﻿# CHANGELOG
+# CHANGELOG
 
-Book Code: CORE-01
-Version: v0.3.5
-Last Updated: 2026-03-08
+> Format berdasarkan panduan versi internal (`Rak.SubRak.Buku.Revisi`).
 
-## 2026-03-08
+**Book Code:** CORE-01
+**Current Version:** Core.Fundamentals.01.00
+**Last Updated:** 2026-03-14
+
+---
+
+## [Unreleased]
+*Catatan perubahan yang sedang dikerjakan ("Draf") dan belum dirilis secara resmi.*
+
+---
+
+## [Core.Fundamentals.01.00] - 2026-03-14
+### Ditambahkan
+- **Bab 05 (`05_operators_and_expressions`):** Penulisan ulang materi operator menggunakan metafora "Alat Masak & Hierarki Resep". Mencakup detail *precedence*, *short-circuit logic*, dan mekanisme internal *dunder methods* secara konseptual.
+- **Bab 04 (`04_basic_data_types`):** Ditulis ulang seutuhnya menggunakan Analogi "Wadah Kemasan Pasar". Menambahkan tabel Istilah Kunci lengkap dan demonstrasi interaktif penggunaan inspektur obyek `type()` serta trik konversi paksa (*Type Casting*). Disertai satu diagram SVG pengolahan *parsing* data.
+- **Bab 03 (`03_variables_and_names`):** Ditulis ulang seutuhnya dengan implementasi Analogi Gudang & Stiker Label. Menyertakan bab komprehensif tentang teori *Name Binding*, konsep mutable vs immutable, bahaya aliasing, serta visual SVG arsitektur objek.
+- **Bab 02 (`02_python_syntax`):** Ditulis ulang seutuhnya; materi difokuskan pada penguasaan pemehaman indentasi 4 spasi, statement tunggal, blok kode, dan sintaks komentar `#`. Dilengkapi diagram visual "Tata Bahasa Python" dan dua berkas contoh.
+- **Bab 01 (`01_getting_started`):** Ditulis ulang seutuhnya menggunakan format Bab Folder, Analogi Ganda (Pendek/Panjang), dan pemecahan file instruksi REPL vs Script ke dalam `examples/`.
+
+---
+
+## [v0.3.5] - 2026-03-08
 - Changed: Menambahkan section `Hasil Belajar` pada seluruh bab 01-14, memperbaiki urutan prasyarat di `11_file_handling.md`, dan menambahkan catatan alasan penggunaan referensi non-resmi di bab 14.
 - Reason: Menutup temuan review agar seluruh bab selaras dengan standar wajib pada `core/docs/CONTRIBUTING.md`.
 - Impact: Konsistensi pedagogi dan kepatuhan struktur buku meningkat sehingga buku siap masuk tahap commit.

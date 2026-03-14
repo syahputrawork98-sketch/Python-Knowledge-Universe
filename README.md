@@ -15,7 +15,7 @@ Tujuan utamanya adalah membangun struktur pengetahuan Python yang jelas, bertaha
 - menyusun pengetahuan Python secara sistematis
 - menyediakan jalur belajar Python yang jelas
 - menjadi referensi Python jangka panjang
-- menjadi dokumentasi yang terus berkembang
+- **menjadi ekosistem hidup (living document) yang terus berkembang mengikuti rilis terbaru Python**
 - menjadi dasar untuk website pembelajaran Python
 
 ## Struktur Pengetahuan
@@ -98,6 +98,22 @@ Lanjutkan ke bagian `specializations` setelah menyelesaikan `core`.
 ### 2. Jalur Referensi
 
 Jika sudah familiar dengan Python, pembaca dapat langsung menuju rak, sub-rak, atau buku tertentu sesuai kebutuhan, membaca ringkasan pada `README.md` masing-masing folder.
+
+---
+
+## Katalog & Status Buku
+
+Sebagai proyek yang terus berkembang, tabel ini mencatat versi terkini dari perombakan/penulisan buku yang sedang aktif (Berdasarkan log dari masing-masing folder buku):
+
+| Rak | Buku | Status | Versi Rilis | Terakhir Diperbarui |
+| :--- | :--- | :--- | :--- | :--- |
+| Core | [01_python_basics](core/01_fundamentals/01_python_basics) | Published | Core.Fundamentals.01.00 | 2026-03-14 |
+| Core | [02_language_design](core/01_fundamentals/02_language_design) | Planned | `-` | `-` |
+| ... | ... | ... | ... | ... |
+
+*(Tabel di atas akan terus diperbarui secara manual setiap kali ada sebuah buku yang resmi dilabeli "Rilis" dari versi unreleased-nya).*
+
+---
 
 ## Status Proyek
 

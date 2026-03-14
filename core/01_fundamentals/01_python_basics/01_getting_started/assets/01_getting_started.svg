@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .box { rx: 8px; ry: 8px; stroke-width: 2px; }
+      .text-title { font-family: sans-serif; font-size: 20px; font-weight: bold; fill: #333; }
+      .text-body { font-family: sans-serif; font-size: 14px; fill: #555; }
+      .text-code { font-family: monospace; font-size: 14px; fill: #d63384; font-weight: bold; }
+      
+      /* Colors */
+      .bg-repl { fill: #e3f2fd; stroke: #1e88e5; }
+      .bg-script { fill: #e8f5e9; stroke: #43a047; }
+      .bg-interpreter { fill: #fff3e0; stroke: #f57c00; }
+      .bg-output { fill: #f3e5f5; stroke: #8e24aa; }
+      
+      .arrow { stroke: #666; stroke-width: 3px; marker-end: url(#arrowhead); stroke-dasharray: 4; }
+      .arrow-solid { stroke: #666; stroke-width: 3px; marker-end: url(#arrowhead); }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold" fill="#2c3e50">Eksekusi Python: REPL vs Skrip File</text>
+  <text x="450" y="70" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#7f8c8d" font-style="italic">Analogi Sang Koki (Interpreter Python)</text>
+
+  <!-- =============================== -->
+  <!-- LEFT SIDE: REPL                 -->
+  <!-- =============================== -->
+  <rect x="50" y="110" width="360" height="340" class="box" fill="#f8f9fa" stroke="#ccc" stroke-dasharray="5"/>
+  <text x="230" y="140" text-anchor="middle" class="text-title">1. REPL (Mode Interaktif)</text>
+  <text x="230" y="165" text-anchor="middle" class="text-body">Terminal Terbuka (`python`)</text>
+  
+  <!-- REPL Input -->
+  <rect x="70" y="190" width="160" height="60" class="box bg-repl" />
+  <text x="150" y="215" text-anchor="middle" class="text-title">Perintah Lisan</text>
+  <text x="150" y="235" text-anchor="middle" class="text-code">>>> 2 + 5</text>
+  
+  <!-- Interpreter Box -->
+  <rect x="260" y="240" width="120" height="60" class="box bg-interpreter" />
+  <text x="320" y="265" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#e65100">KOKI</text>
+  <text x="320" y="285" text-anchor="middle" class="text-body">(Langsung Masak)</text>
+
+  <path d="M 230 220 L 320 220 L 320 240" class="arrow" fill="none" />
+  
+  <!-- Output REPL -->
+  <rect x="70" y="300" width="160" height="60" class="box bg-output" />
+  <text x="150" y="325" text-anchor="middle" class="text-title">Dicicipi Langsung</text>
+  <text x="150" y="345" text-anchor="middle" class="text-code">7</text>
+
+  <path d="M 320 300 L 320 330 L 230 330" class="arrow" fill="none" />
+
+  <text x="230" y="420" text-anchor="middle" class="text-body" font-style="italic">"Sangat cepat tetapi tidak disimpan."</text>
+
+
+  <!-- =============================== -->
+  <!-- RIGHT SIDE: SCRIPT              -->
+  <!-- =============================== -->
+  <rect x="490" y="110" width="360" height="340" class="box" fill="#f8f9fa" stroke="#ccc" stroke-dasharray="5"/>
+  <text x="670" y="140" text-anchor="middle" class="text-title">2. Skrip (.py)</text>
+  <text x="670" y="165" text-anchor="middle" class="text-body">Eksekusi File (`python app.py`)</text>
+
+  <!-- Script Input -->
+  <rect x="520" y="190" width="140" height="80" class="box bg-script" />
+  <text x="590" y="215" text-anchor="middle" class="text-title">Kertas Resep</text>
+  <text x="590" y="240" text-anchor="middle" class="text-code">a = 2</text>
+  <text x="590" y="255" text-anchor="middle" class="text-code">print(a + 5)</text>
+
+  <!-- Interpreter Box -->
+  <rect x="710" y="200" width="120" height="60" class="box bg-interpreter" />
+  <text x="770" y="225" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#e65100">KOKI</text>
+  <text x="770" y="245" text-anchor="middle" class="text-body">(Baca &amp; Masak)</text>
+
+  <path d="M 660 230 L 710 230" class="arrow-solid" fill="none" />
+
+  <!-- Output Script -->
+  <rect x="620" y="310" width="160" height="60" class="box bg-output" />
+  <text x="700" y="335" text-anchor="middle" class="text-title">Tersaji ke Meja</text>
+  <text x="700" y="355" text-anchor="middle" class="text-code">7</text>
+
+  <path d="M 770 260 L 770 340 L 780 340" class="arrow-solid" fill="none" />
+
+  <text x="670" y="420" text-anchor="middle" class="text-body" font-style="italic">"Abadi dan bisa diulang kapan saja."</text>
+
+</svg>

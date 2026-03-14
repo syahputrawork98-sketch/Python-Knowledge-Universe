@@ -1,4 +1,4 @@
-﻿# Contribution Guide
+# Contribution Guide
 
 Terima kasih atas minat kontribusi ke Python Knowledge Universe.
 
@@ -35,10 +35,10 @@ Setiap pull request sebaiknya berisi:
 
 ## Konvensi Konten Core
 
-- satu folder mewakili satu buku/topik besar
-- setiap folder punya `README.md` sebagai peta materi
-- materi turunan menggunakan urutan numerik (`01_`, `02_`, dst)
-- setiap buku Core wajib punya `CHANGELOG.md`
+- `core` dibagi menjadi beberapa Sub-rak (Fase Pembelajaran).
+- di dalam Sub-rak terdapat folder-folder yang mewakili satu Buku/topik besar.
+- setiap folder (Sub-rak dan Buku) wajib punya `README.md` sebagai peta materi.
+- file bab (chapter) wajib berbentuk **folder bab** yang berisi `README.md` teks materinya.
 
 ## Konvensi Konten Specialization
 
@@ -62,51 +62,19 @@ Gunakan kode unik per buku agar tracking perubahan konsisten.
 - Specialization AI Engineering: `SPEC-AI-01`, `SPEC-AI-02`, ...
 - Specialization Automation: `SPEC-AUTO-01`, `SPEC-AUTO-02`, ...
 
-## Aturan CHANGELOG Bertingkat
+## Aturan CHANGELOG dan Versioning (Rilis)
 
-Level log yang dipakai:
+Sistem versi pada buku mengikuti alamat penyimpanannya di rak (contoh: `[Rak].[Sub-Rak].[Buku].[Revisi]`).
 
-1. Sub-rak utama:
-- `core/CHANGELOG.md`
-- `specializations/CHANGELOG.md`
+### Alur Kerja Draft (Unreleased)
+Saat materi atau bab baru dari sebuah buku sedang ditulis atau direvisi pelan-pelan, perubahannya dicatat di file `CHANGELOG.md` pada buku tersebut di bawah label khusus `[Unreleased]`. Pada tahap ini, buku belum dianggap "merilis" versi baru.
 
-2. Sub-rak domain specialization:
-- `specializations/<domain>/CHANGELOG.md`
+### Alur Kerja Rilis (Released)
+Buku tidak dianggap memiliki versi stabil terbaru hingga mendapat instruksi "Rilis". Saat dirilis, seluruh catatan draf di blok `[Unreleased]` digabung (di-bundle) menjadi versi rilis yang sesungguhnya (misal `v1.1.1.0`), lalu blok `[Unreleased]` dikosongkan kembali untuk memantau pekerjaan tahap selanjutnya.
 
-3. Buku:
-- `core/<book>/CHANGELOG.md`
-- `specializations/<domain>/<book>/CHANGELOG.md`
-
-Aturan update:
-
-- perubahan isi buku: update `CHANGELOG.md` buku
-- perubahan struktur domain: update `CHANGELOG.md` domain
-- perubahan lintas domain/arsitektur: update `core/CHANGELOG.md` atau `specializations/CHANGELOG.md`
-
-## Format Entry CHANGELOG Buku
-
-Setiap `CHANGELOG.md` buku minimal berisi:
-
-- `Book Code`
-- `Version`
-- `Last Updated`
-- daftar entry perubahan dengan format:
-  - `Date`
-  - `Changed`
-  - `Reason`
-  - `Impact`
-
-Contoh singkat:
-
-```md
-# CHANGELOG
-
-Book Code: CORE-01
-Version: v0.1.0
-Last Updated: 2026-03-08
-
-## 2026-03-08
-- Changed: Menambahkan struktur awal buku.
-- Reason: Menetapkan fondasi sebelum penulisan detail.
-- Impact: Navigasi materi lebih jelas.
-```
+### Format Entry CHANGELOG Buku
+Setiap `CHANGELOG.md` buku wajib mengikuti kerangka dari templat bawaan repository `docs/changelog-template.md`.
+Minimal memuat:
+- Konstanta `Book Code`
+- Status `Current Version` (Sesuai alamat rak)
+- Daftar perubahan yang diatur dalam blok `[Unreleased]` maupun Rilis.
