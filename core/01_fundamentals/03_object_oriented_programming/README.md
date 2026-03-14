@@ -3,7 +3,7 @@
 Book Code: CORE-03
 Version: Core.Fundamentals.03.00
 Last Updated: 2026-03-14
-Status: Planned
+Status: In Progress
 
 Buku ini membangun fondasi paradigma pemrograman berbasis objek yang sangat kuat, bertindak sebagai jembatan sebelum masuk ke materi internal objek di Rak 02.
 

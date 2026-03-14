@@ -49,7 +49,11 @@ harga = 5000
 print(f"Harga barang adalah Rp{harga:,}") # Output: Rp5.000
 ```
 
-## 4. Peringatan / Jebakan Umum (Gotchas)
+## 4. Visualisasi Analogi
+
+![Big Picture String Manipulation - Slicing and Immutability](assets/04_string_manipulation.svg)
+
+## 5. Peringatan / Jebakan Umum (Gotchas)
 - **Hindari ini**: Mencoba mengubah isi string secara langsung (e.g., `text[0] = 'X'`). Anda akan mendapat error. Gunakan `replace()` atau buat string baru.
 - **Ingat bahwa**: Indeks `stop` pada slicing tidak disertakan dalam hasil. `[0:3]` hanya mengambil indeks 0, 1, dan 2.
 

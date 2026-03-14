@@ -52,7 +52,11 @@ my_project/
 - Menandai folder sebagai paket.
 - Bisa digunakan untuk mengekspos fungsi tertentu agar lebih mudah diakses (misal: `from my_package import fast_func` alih-alih `from my_package.internal.deep.module import fast_func`).
 
-## 4. Peringatan / Jebakan Umum (Gotchas)
+## 4. Visualisasi Analogi
+
+![Big Picture Package Basics - Organizing with Init Seals](assets/06_package_basics.svg)
+
+## 5. Peringatan / Jebakan Umum (Gotchas)
 - **Hindari ini**: Membuat struktur folder yang sangat dalam (*deeply nested*) tanpa alasan kuat. Ini membuat import menjadi sangat panjang dan sulit dibaca.
 - **Ingat bahwa**: Sejak Python 3.3, `__init__.py` secara teknis tidak wajib (disebut *Namespace Packages*), namun sangat disarankan untuk tetap digunakan agar eksplisit dan kompatibel.
 

@@ -3,7 +3,7 @@
 Book Code: CORE-01
 Version: Core.Fundamentals.01.00
 Last Updated: 2026-03-14
-Status: Draft Complete (Chapters 1-14 Authored)
+Status: Released
 
 Bagian ini membahas fondasi dasar bahasa pemrograman Python.
 

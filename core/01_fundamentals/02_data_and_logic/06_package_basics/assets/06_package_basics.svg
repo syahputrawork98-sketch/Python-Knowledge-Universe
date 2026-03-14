@@ -1,0 +1,41 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+
+  <!-- Package Outer Box -->
+  <rect x="150" y="150" width="500" height="350" rx="20" fill="#f1f5f9" stroke="#3b82f6" stroke-width="5" />
+  <path d="M 150 200 L 650 200" stroke="#3b82f6" stroke-width="2" opacity="0.3" />
+  <text x="180" y="190" font-family="Arial" font-size="24" fill="#1e40af" font-weight="bold">PACKAGE: ecommerce/</text>
+
+  <!-- Module Files Inside -->
+  <!-- module_a.py -->
+  <rect x="200" y="250" width="100" height="140" rx="5" fill="white" stroke="#94a3b8" stroke-width="2" />
+  <path d="M 220 280 L 280 280 M 220 310 L 280 310 M 220 340 L 260 340" stroke="#cbd5e1" stroke-width="2" />
+  <text x="205" y="415" font-family="Arial" font-size="12" fill="#475569">payments.py</text>
+
+  <!-- module_b.py -->
+  <rect x="350" y="250" width="100" height="140" rx="5" fill="white" stroke="#94a3b8" stroke-width="2" />
+  <path d="M 370 280 L 430 280 M 370 310 L 430 310 M 370 340 L 410 340" stroke="#cbd5e1" stroke-width="2" />
+  <text x="365" y="415" font-family="Arial" font-size="12" fill="#475569">products.py</text>
+
+  <!-- __init__.py - The Seal -->
+  <rect x="500" y="230" width="120" height="160" rx="5" fill="#10b981" stroke="#065f46" stroke-width="3" />
+  <text x="515" y="270" font-family="Courier New" font-size="16" fill="white" font-weight="bold">__init__.py</text>
+  <circle cx="560" cy="320" r="30" fill="white" opacity="0.2" />
+  <path d="M 545 320 L 575 320 M 560 305 L 560 335" stroke="white" stroke-width="3" />
+  <text x="510" y="415" font-family="Arial" font-size="14" fill="#065f46" font-weight="bold">THE SEAL</text>
+  <text x="490" y="435" font-family="Arial" font-size="11" fill="#10b981" font-style="italic">"Tanda Folder adalah Paket"</text>
+
+  <!-- Import Path Arrow -->
+  <path d="M 700 100 L 550 150" fill="none" stroke="#3b82f6" stroke-width="4" marker-end="url(#bluearrow)" />
+  <text x="610" y="90" font-family="Courier New" font-size="14" fill="#1e40af">import ecommerce.payments</text>
+
+  <defs>
+    <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="300" y="580" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Package Basics</text>
+</svg>

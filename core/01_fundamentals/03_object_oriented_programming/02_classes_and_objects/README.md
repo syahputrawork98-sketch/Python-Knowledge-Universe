@@ -1,6 +1,6 @@
-# Bab 01: Classes and Objects
+# Bab 02: Classes and Objects
 
-Chapter Code: CORE-03-01
+Chapter Code: CORE-03-02
 Version: Core.Fundamentals.03.00
 Last Updated: 2026-03-14
 Status: Draft

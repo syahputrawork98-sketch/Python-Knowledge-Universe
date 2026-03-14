@@ -1,0 +1,48 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+
+  <!-- Input Pool -->
+  <text x="80" y="100" font-family="Arial" font-size="18" fill="#64748b" font-weight="bold">RAW DATA (ITERABLE)</text>
+  <rect x="60" y="120" width="180" height="350" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" />
+  <circle cx="100" cy="160" r="15" fill="#3b82f6" />
+  <rect x="140" y="145" width="30" height="30" fill="#ef4444" />
+  <circle cx="100" cy="220" r="15" fill="#3b82f6" />
+  <circle cx="180" cy="220" r="15" fill="#3b82f6" />
+  <rect x="100" y="280" width="30" height="30" fill="#ef4444" />
+  <circle cx="150" cy="340" r="15" fill="#3b82f6" />
+  <circle cx="100" cy="400" r="15" fill="#3b82f6" />
+
+  <!-- The Comprehension Machine (Funnel) -->
+  <path d="M 300 150 L 500 150 L 450 400 L 350 400 Z" fill="#e2e8f0" stroke="#3b82f6" stroke-width="4" />
+  <text x="330" y="140" font-family="Arial" font-size="20" fill="#1e40af" font-weight="bold">COMPREHENSION</text>
+  
+  <!-- Internal Process Logic -->
+  <text x="340" y="240" font-family="Courier New" font-size="14" fill="#1e40af">for item in data</text>
+  <text x="360" y="280" font-family="Courier New" font-size="14" fill="#ef4444">if is_circle(item)</text>
+  <text x="360" y="320" font-family="Courier New" font-size="14" fill="#10b981">return item.upper()</text>
+
+  <!-- Output List -->
+  <text x="580" y="100" font-family="Arial" font-size="18" fill="#10b981" font-weight="bold">NEW LIST / DICT</text>
+  <rect x="560" y="120" width="180" height="350" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="3" />
+  <circle cx="620" cy="180" r="15" fill="#10b981" />
+  <circle cx="680" cy="240" r="15" fill="#10b981" />
+  <circle cx="620" cy="300" r="15" fill="#10b981" />
+  <circle cx="680" cy="360" r="15" fill="#10b981" />
+  
+  <!-- Flow Arrows -->
+  <path d="M 240 300 L 320 300" stroke="#3b82f6" stroke-width="4" marker-end="url(#bluearrow)" />
+  <path d="M 460 300 L 540 300" stroke="#10b981" stroke-width="4" marker-end="url(#greenarrow)" />
+
+  <defs>
+    <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6" />
+    </marker>
+    <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="300" y="580" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Comprehensions</text>
+</svg>

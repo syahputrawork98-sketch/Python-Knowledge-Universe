@@ -8,6 +8,9 @@ Last Updated: 2026-03-14
 
 ## [Unreleased]
 - **Seluruh Bab:** Menunggu penulisan konten.
+- **Restrukturisasi:** Merapikan folder Book 03 menjadi 12 bab sesuai rencana README.
+- **Bab 01 (`01_intro_oop`):** Inisialisasi draf materi pengenalan konsep OOP.
+- **Bab 06 (`06_inheritance`):** Penulisan draf materi sistem pewarisan menggunakan Analogi "Evolusi Teknologi (Telepon ke Smartphone)". Menjelaskan mekanisme Method Overriding dan penggunaan fungsi `super()`.
 
 ---
 

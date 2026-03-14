@@ -45,7 +45,11 @@ nama = ["Budi", "Siti"]
 panjang_nama = {n: len(n) for n in nama} # {'Budi': 4, 'Siti': 4}
 ```
 
-## 4. Peringatan / Jebakan Umum (Gotchas)
+## 4. Visualisasi Analogi
+
+![Big Picture Comprehensions - The Transformation Funnel](assets/11_list_dict_comprehensions.svg)
+
+## 5. Peringatan / Jebakan Umum (Gotchas)
 - **Hindari ini**: Menulis comprehension yang terlalu panjang dan rumit (misal: ada 3 level nested loop). Jika sulit dibaca, gunakan perulangan `for` biasa. Ingat semboyan: *Readability counts*.
 - **Ingat bahwa**: Comprehension mengonsumsi memori secara instan untuk membuat list baru. Untuk data berukuran raksasa, pertimbangkan menggunakan *Generator Expression* `(x for x in ...)` yang akan dibahas di materi Lanjutan.
 

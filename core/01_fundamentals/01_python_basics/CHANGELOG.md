@@ -14,8 +14,13 @@
 ---
 
 ## [Core.Fundamentals.01.00] - 2026-03-14
+### Perubahan Besar (Restrukturisasi)
+- **Migrasi Bab:** Bab 08 hingga 14 telah dipindahkan ke **Buku 02: Data and Logic** untuk menjaga fokus fondasi sintaksis pada Buku 01.
+- **Status:** Buku 01 sekarang difokuskan pada fondasi awal (Getting Started hingga Built-in Functions).
+
 ### Ditambahkan
-- **Bab 14 (`14_basic_programming_patterns`):** Penulisan draf materi pola pemrograman dasar menggunakan Analogi "Buku Resep & Cetak Biru Logika". Membahas pola-pola esensial seperti *Accumulator*, *Filtering*, *Searching*, dan *Counting*.
+- **Bab 14 (`14_basic_programming_patterns`):** [DIPINDAHKAN KE BUKU 02]
+- **Bab 13 (`13_builtin_functions`):** [DIPINDAHKAN KE BUKU 02] - *Koreksi: Bab 13 (Built-in) tetap di Buku 01 (Bab 07), Bab 08-14 Lainnya pindah.*
 - **Bab 13 (`13_builtin_functions`):** Penulisan draf materi fungsi bawaan menggunakan Analogi "Sabuk Alat Tukang Ahli". Membahas alat ukur (`len`, `sum`), alat identifikasi (`type`, `dir`), serta alat perulangan modern (`range`, `enumerate`, `zip`).
 - **Bab 12 (`12_exception_handling`):** Penulisan draf materi sistem keamanan menggunakan Analogi "Manajemen Krisis Gedung". Membahas penggunaan `try`, `except`, `else`, `finally`, dan cara melempar error manual dengan `raise`.
 - **Bab 11 (`11_file_handling`):** Penulisan draf materi interaksi file menggunakan Analogi "Sekretaris Digital & Lemari Arsip". Membahas siklus `open-work-close`, mode file (`r, w, a`), kekuatan `with`, dan mekanisme *buffering*.

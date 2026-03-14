@@ -52,7 +52,11 @@ Python menentukan "siapa bisa melihat apa" berdasarkan lokasi variabel didefinis
 3. **Global (G)**: Di level teratas file `.py`.
 4. **Built-in (B)**: Fungsi bawaan Python seperti `len`, `print`.
 
-## 4. Peringatan / Jebakan Umum (Gotchas)
+## 4. Visualisasi Analogi
+
+![Big Picture Scope LEGB & Lambda - The Hierarchy of Names](assets/02_lambda_functions.svg)
+
+## 5. Peringatan / Jebakan Umum (Gotchas)
 - **Hindari ini**: Menggunakan lambda untuk logika yang kompleks (lebih dari satu baris). Jika sulit dibaca, gunakan `def`.
 - **Ingat bahwa**: Variabel di dalam fungsi (Local) akan hilang setelah fungsi selesai dijalankan, kecuali dikembalikan (`return`).
 

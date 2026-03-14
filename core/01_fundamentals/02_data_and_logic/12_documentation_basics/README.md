@@ -50,7 +50,11 @@ def hitung_luas(p: float, l: float) -> float:
 - **Dokumentasi (Docstrings)**: Menjelaskan **Apa** fungsinya, apa inputnya, dan apa hasilnya. (Untuk pengguna fungsi).
 - **Komentar (#)**: Menjelaskan **Mengapa** kode ditulis dengan cara tertentu, misal trik khusus atau peringatan bug. (Untuk pengembang kode).
 
-## 4. Peringatan / Jebakan Umum (Gotchas)
+## 4. Visualisasi Analogi
+
+![Big Picture Documentation Basics - Labels and Manuals](assets/12_documentation_basics.svg)
+
+## 5. Peringatan / Jebakan Umum (Gotchas)
 - **Hindari ini**: Menulis komentar yang menjelaskan hal yang sudah jelas (e.g., `x = 10 # isi x dengan 10`). Kode yang bersih seharusnya "bercerita" sendiri.
 - **Ingat bahwa**: Type hinting di Python bersifat **opsional** dan tidak dipaksakan oleh interpreter secara default. Python tetaplah bahasa yang dinamis, namun *type hinting* sangat membantu produktivitas tim.
 
