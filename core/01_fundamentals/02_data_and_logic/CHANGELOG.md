@@ -6,8 +6,10 @@ Last Updated: 2026-03-14
 
 ---
 
-## [Unreleased]
-- **Bab 02, 04, 06, 11, 12:** Menunggu penulisan konten.
+## [Core.Fundamentals.02.00] - 2026-03-14
+### Ditambahkan
+- Menulis dan melengkapi seluruh 12 bab mulai dari Functions hingga Documentation Basics.
+- Menambahkan ketersediaan seluruh file SVG pada folder `assets/` dan skrip python pada `examples/`.
 
 ---
 

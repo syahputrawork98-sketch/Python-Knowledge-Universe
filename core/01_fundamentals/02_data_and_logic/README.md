@@ -3,7 +3,7 @@
 Book Code: CORE-02
 Version: Core.Fundamentals.02.00
 Last Updated: 2026-03-14
-Status: In Progress
+Status: Published
 
 Buku ini berfokus pada cara mengorganisir data dan alur logika program yang lebih kompleks, mulai dari fungsi hingga pola pemrograman dasar.
 
