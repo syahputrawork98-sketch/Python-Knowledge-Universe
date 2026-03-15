@@ -1,258 +1,68 @@
-# Backward Compatibility and PEPs
+# Bab 10: Backward Compatibility and PEPs
 
 Chapter Code: CORE-04-10
-Book Code: CORE-04
-Version: Core.Fundamentals.04.00
-Last Updated: 2026-03-14
-Status: Draft
-Difficulty: Intermediate
-Estimated Time: 50 menit teori + 40 menit praktik
+Version: Core.Fundamentals.04.01
+Last Updated: 2026-03-15
+Status: Published
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Memahami bagaimana Python berevolusi tanpa merusak kode lama (Backward Compatibility) dan bagaimana setiap ide baru diperjuangkan melalui dokumen resmi yang disebut PEP.
 
-Bab ini membahas bagaimana Python menyeimbangkan dua kebutuhan yang sering bertentangan: menjaga kompatibilitas kode lama (backward compatibility) dan tetap berevolusi melalui perubahan bahasa. PEP (Python Enhancement Proposal) menjadi mekanisme utama untuk mendiskusikan dan meresmikan perubahan tersebut.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Backward Compatibility itu seperti **Renovasi Gedung Tua**—Anda boleh menambah lift dan AC modern, tapi Anda harus menjamin tiang penyangga aslinya tetap kuat agar gedung tidak roboh bagi penghuni lama."
 
-- sudah menyelesaikan CORE-04-01 sampai CORE-04-09
-- memahami dasar versioning dan API function/module
-- memahami warning dan exception dasar
+### Analogi Panjang (Sidang Parlemen & Undang-Undang)
+Bayangkan Python adalah sebuah negara. Bagaimana sebuah undang-undang baru dibuat agar tidak menimbulkan kekacauan bagi rakyatnya?
 
-## Istilah Kunci
+Setiap warga (Programmer) yang punya ide hebat untuk kemajuan negara harus mengajukan **Draft Undang-Undang (PEP - Python Enhancement Proposal)**. Ide tersebut tidak langsung disahkan, melainkan harus melewati **Sidang Parlemen (Diskusi Komunitas)**.
+
+Para ahli akan menguji: "Apakah ide ini akan membuat rakyat bingung?", "Apakah peraturan lama jadi tidak berlaku secara mendadak?". Jika ide tersebut disetujui oleh ** Steering Council (Dewan Pimpinan)**, barulah ia menjadi hukum resmi negara Python.
+
+Proses yang matang ini memastikan bahwa kode yang Anda tulis hari ini masih bisa berjalan 5 atau 10 tahun lagi, meskipun Python terus bertambah canggih.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| backward compatibility | kemampuan versi baru tetap menjalankan kode lama | fungsi lama masih bekerja |
-| breaking change | perubahan yang membuat kode lama gagal | parameter wajib baru tanpa default |
-| deprecation | fase transisi sebelum fitur lama dihapus | `DeprecationWarning` |
-| migration path | langkah berpindah dari API lama ke API baru | alias fungsi + panduan update |
-| PEP | dokumen proposal resmi evolusi Python | PEP 8, PEP 20, PEP 484 |
+| PEP | Dokumen proposal resmi untuk perubahan fitur Python | PEP 8 (Style Guide) |
+| Backward Compatibility | Kemampuan versi baru untuk menjalankan kode dari versi lama | Kode Python 3.10 jalan di 3.12 |
+| Deprecation | Masa transisi di mana sebuah fitur lama mulai dilarang | Munculnya `DeprecationWarning` |
+| Steering Council | Kelompok kecil orang yang punya kata akhir tentang arah Python | - |
+| Breaking Change | Perubahan yang membuat kode lama berhenti berfungsi | Menghapus fungsi tanpa pemberitahuan |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca merancang perubahan kode/API secara aman dan terukur, serta memahami mengapa proses evolusi Python sangat menekankan kompatibilitas.
+### A. Keseimbangan Antara Stabilitas dan Kemajuan
+Python sangat menjaga kepercayaan penggunanya. Mereka tidak akan mengubah hal-hal mendasar secara tiba-tiba hanya karena ada tren baru. Stabilitas adalah prioritas, namun kemajuan tetap berjalan lewat diskusi yang transparan.
 
-## Tujuan Kecil
+### B. PEP: Jantung Inovasi Python
+Setiap fitur besar di Python (seperti `async/await` atau `Type Hints`) selalu berawal dari sebuah PEP. Membaca PEP bukan hanya untuk ahli, tapi bagi siapa pun yang ingin tahu "mengapa" sebuah fitur didesain seperti itu.
 
-- membedakan perubahan kompatibel vs breaking
-- menerapkan pola deprecation bertahap pada API
-- membaca PEP sebagai sumber keputusan desain
+### C. Masa Transisi (Deprecation Period)
+Saat sebuah fungsi lama ingin diganti dengan yang lebih baik, Python tidak langsung menghapusnya. Ada masa "Deprecation" (biasanya selama beberapa versi rilis) di mana programmer diberi peringatan agar segera beralih ke cara baru sebelum cara lama benar-benar dihapus.
 
-## Hasil Belajar
+### D. Keputusan Berbasis Komunitas
+Python tidak dimiliki oleh satu perusahaan. Keputusan arah bahasa ini diambil berdasarkan konsensus komunitas. Ini menjamin bahwa Python tetap relevan dengan kebutuhan programmer di seluruh dunia.
 
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+## 4. Visualisasi Analogi
 
-- mengidentifikasi risiko breaking change sebelum rilis
-- menulis migration path sederhana untuk API internal
-- menggunakan PEP relevan sebagai acuan argumen teknis
+![The Journey of a PEP - From Idea to Standard](assets/10_backward_compatibility_and_peps.svg)
 
-## Peruntukan
+## 5. Peringatan / Jebakan Umum (Gotchas)
 
-Bab ini digunakan saat:
+- **Mengubah Sintaks Secara Tiba-tiba**: Jangan pernah mengubah cara kerja fungsi di proyek tim Anda tanpa memberitahu orang lain atau memberikan masa transisi. Ini adalah resep pasti untuk kekacauan saat *deployment*.
+- **Lupa Membaca PEP 0**: PEP 0 adalah indeks dari semua PEP yang ada. Jika Anda ingin tahu standar terbaru tentang sesuatu, mulailah dari sana.
+- **Kekakuan vs Kekacauan**: Jangan terlalu kaku menolak perubahan (anti-kemajuan), tapi juga jangan terlalu cepat mengganti segala sesuatu (anti-stabilitas). Temukan jalan tengah yang aman.
 
-- mengubah API library internal tim
-- menyusun release note dan rencana migrasi
-- meninjau proposal perubahan arsitektur/module publik
+## 6. Referensi Kode Praktik
 
-## Bukan Peruntukan
+Buka folder `examples/` untuk melihat penerapan langsung:
+- `01_deprecation_warning.py`: Cara memberikan peringatan yang sopan kepada pengguna kode Anda sebelum menghapus fitur.
+- `02_api_evolution.py`: Contoh mengelola dua versi API secara bersamaan selama masa transisi.
 
-Bab ini bukan untuk:
+## 7. Latihan (Validasi)
 
-- membahas governance Python secara historis lengkap
-- merinci seluruh proses formal PEP dari awal sampai akhir
-- menggantikan strategi release management organisasi secara penuh
-
-## Analogi
-
-Backward compatibility seperti renovasi jalan utama kota: perubahan harus memungkinkan kendaraan lama tetap lewat sambil menyiapkan jalur baru yang lebih baik.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: "Kalau desain baru lebih bagus, langsung ganti total."
-  Klarifikasi: tanpa transisi, biaya migrasi pengguna bisa sangat besar.
-
-- Miskonsepsi: "Deprecation warning cuma gangguan."
-  Klarifikasi: warning adalah alat komunikasi penting untuk menurunkan risiko perubahan.
-
-- Miskonsepsi: "PEP hanya penting untuk core developer Python."
-  Klarifikasi: developer aplikasi tetap diuntungkan karena PEP menjelaskan alasan dan dampak fitur bahasa.
-
-## Konsep Inti
-
-### 1. Prinsip Dasar
-
-Empat prinsip perubahan kompatibel:
-
-1. Prefer additive change
-Tambahkan API baru sebelum menghapus yang lama.
-
-2. Deprecate before remove
-Berikan warning dan waktu transisi yang jelas.
-
-3. Document migration path
-Sediakan langkah konkret berpindah API agar pengguna tidak menebak.
-
-4. Use standards as reference
-Rujuk PEP/dokumen resmi agar keputusan tidak berbasis opini semata.
-
-### 2. Dampak Praktis
-
-Jika prinsip ini dipakai, tim akan mendapatkan:
-
-- rollout fitur baru lebih aman
-- gangguan produksi lebih kecil saat upgrade
-- komunikasi antar tim lebih jelas melalui release note
-- kepercayaan pengguna internal/eksternal lebih tinggi
-
-Checklist sebelum mengubah API publik:
-
-1. apakah ini breaking change
-2. apakah ada fallback/compat layer sementara
-3. apakah warning dan dokumentasi migrasi sudah tersedia
-4. apakah test mencakup jalur API lama dan baru selama transisi
-
-## Diagram
-
-![Big picture Backward Compatibility and PEPs](assets/10_backward_compatibility_and_peps.svg)
-
-Caption: Diagram menunjukkan alur perubahan dari proposal (PEP/policy) ke deprecation bertahap hingga migrasi aman.
-
-### Legenda Diagram
-
-- 1: kebutuhan perubahan
-- 2: evaluasi dampak kompatibilitas
-- 3: rollout bertahap + migrasi
-
-## Contoh Kode (Benar)
-
-```python
-import warnings
-
-
-def calculate_total_v2(price: float, tax_rate: float = 0.11) -> float:
-    return price + (price * tax_rate)
-
-
-def calculate_total(price: float) -> float:
-    warnings.warn(
-        "calculate_total() is deprecated; use calculate_total_v2(price, tax_rate)",
-        DeprecationWarning,
-        stacklevel=2,
-    )
-    return calculate_total_v2(price)
-
-
-with warnings.catch_warnings(record=True) as caught:
-    warnings.simplefilter("always", DeprecationWarning)
-    total = calculate_total(100_000)
-
-print(caught[0].message)
-print(total)
-```
-
-Expected output:
-
-```text
-calculate_total() is deprecated; use calculate_total_v2(price, tax_rate)
-111000.0
-```
-
-## Pitfall Umum
-
-Contoh kesalahan yang sering terjadi:
-
-```python
-# versi lama tiba-tiba dihapus tanpa fase transisi
-
-def calculate_total_v2(price: float, tax_rate: float) -> float:
-    return price + (price * tax_rate)
-```
-
-Masalah:
-
-- caller lama langsung error karena signature berubah
-- tidak ada jalur migrasi yang jelas
-- memperbesar risiko gangguan saat deploy
-
-Perbaikan:
-
-```python
-import warnings
-
-
-def calculate_total_v2(price: float, tax_rate: float = 0.11) -> float:
-    return price + (price * tax_rate)
-
-
-def calculate_total(price: float) -> float:
-    warnings.warn(
-        "calculate_total() is deprecated; use calculate_total_v2(price, tax_rate)",
-        DeprecationWarning,
-        stacklevel=2,
-    )
-    return calculate_total_v2(price)
-```
-
-## Catatan Praktis
-
-- hindari breaking change mendadak pada API yang sudah dipakai luas
-- gunakan `DeprecationWarning` dengan pesan migrasi yang jelas
-- tentukan batas waktu transisi dan komunikasikan sejak awal
-- sertakan contoh before/after di release note
-- jadikan PEP relevan sebagai rujukan keputusan desain
-
-## Latihan
-
-### Dasar
-
-Tambahkan wrapper deprecated untuk satu fungsi lama di proyek Anda dan tampilkan warning yang informatif.
-
-### Menengah
-
-Buat rencana migrasi 3 langkah untuk perubahan signature fungsi yang sudah dipakai banyak modul.
-
-### Mini Challenge
-
-Buat file `pricing_api.py` berisi:
-
-- fungsi lama `get_price_total(price)`
-- fungsi baru `get_price_total_v2(price, tax_rate=0.11)`
-- warning deprecation pada fungsi lama
-
-Tambahkan minimal 5 test case (termasuk jalur kompatibilitas lama), lalu tulis 5-8 kalimat strategi transisi yang Anda pilih.
-
-## Checklist Lulus Bab
-
-- [ ] memahami perbedaan additive vs breaking change
-- [ ] mampu menerapkan deprecation bertahap
-- [ ] menyelesaikan mini challenge dan test
-- [ ] mampu menggunakan PEP sebagai acuan argumentasi teknis
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: 09_batteries_included_mindset.md
-- Bab berikutnya: 11_idiomatic_python_and_style.md
-- Keterkaitan lintas buku Core: CORE-01, CORE-02, CORE-03
-
-## Ringkasan
-
-- backward compatibility adalah strategi penting menjaga stabilitas ekosistem
-- perubahan API idealnya additive lalu deprecate sebelum remove
-- PEP memberi kerangka keputusan desain yang transparan dan terdokumentasi
-- migrasi yang jelas menurunkan risiko teknis dan biaya adopsi
-
-## FAQ Singkat
-
-1. Apakah semua breaking change harus dihindari?
-   Jawaban singkat: tidak selalu, tapi harus terencana, terdokumentasi, dan diberi jalur migrasi.
-2. Kapan warning deprecation sebaiknya dipasang?
-   Jawaban singkat: segera saat API pengganti stabil tersedia.
-3. Kenapa perlu baca PEP untuk developer aplikasi?
-   Jawaban singkat: agar paham alasan fitur/perubahan dan bisa mengambil keputusan implementasi yang lebih tepat.
-
-## Referensi
-
-- PEP Index: https://peps.python.org/
-- PEP 387 (Backwards Compatibility): https://peps.python.org/pep-0387/
-- Python Tutorial: https://docs.python.org/3/tutorial/
-- Python Language Reference: https://docs.python.org/3/reference/
+- [ ] Cari tahu apa isi dari **PEP 8** dan **PEP 20**, lalu jelaskan pengaruhnya pada gaya coding Anda saat ini.
+- [ ] Buatlah sebuah fungsi sederhana dan berikan `DeprecationWarning` jika fungsi tersebut dipanggil.
+- [ ] Temukan satu fitur di Python versi terbaru yang sangat Anda sukai, lalu cari nomor PEP-nya dan bacalah bagian "Motivation" (alasan dibuatnya fitur tersebut).

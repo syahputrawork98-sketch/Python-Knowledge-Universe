@@ -1,239 +1,66 @@
-# Consistency and Practicality
+# Bab 04: Consistency and Practicality
 
 Chapter Code: CORE-04-04
-Book Code: CORE-04
-Version: Core.Fundamentals.04.00
-Last Updated: 2026-03-14
-Status: Draft
-Difficulty: Basic
-Estimated Time: 40 menit teori + 30 menit praktik
+Version: Core.Fundamentals.04.01
+Last Updated: 2026-03-15
+Status: Published
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Menyeimbangkan antara menjaga keteraturan pola (Consistency) dengan kebutuhan mendesak untuk menyelesaikan masalah di dunia nyata (Practicality).
 
-Bab ini membahas dua pilar yang sering berjalan bersama dalam Python: consistency (konsistensi pola) dan practicality (keputusan yang berguna di dunia nyata). Tujuannya agar kode tidak hanya "rapi di teori", tapi juga efektif dipakai tim untuk menyelesaikan masalah.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Konsistensi itu seperti **Blok Lego**—walaupun warnanya berbeda, semua punya ukuran tonjolan yang sama sehingga bisa saling menyambung. Sementara itu, Praktikalitas itu seperti **Pisau Lipat**—mungkin bukan alat pemotong pohon yang ideal secara teori, tapi dialah yang paling berguna dan siap sedia di saku Anda saat dibutuhkan."
 
-- sudah menyelesaikan CORE-04-01 sampai CORE-04-03
-- memahami fungsi, struktur data dasar, dan exception
-- pernah berkolaborasi pada kode yang ditulis lebih dari satu orang
+### Analogi Panjang (Seragam Tentara vs Pakaian Kerja)
+Bayangkan sebuah pasukan tentara. Mereka semua memakai **Seragam yang Konsisten**. Mengapa? Agar dalam kondisi darurat (perang/badai), mereka bisa saling mengenali dengan cepat tanpa perlu bertanya "Siapa kamu?". Dalam kode, konsistensi pola membuat programmer lain bisa langsung mengenali maksud sebuah fungsi hanya dengan melihat strukturnya.
 
-## Istilah Kunci
+Namun, bayangkan jika tentara tersebut harus memperbaiki mesin di tengah jalan yang berlumpur. Jika mereka terlalu kaku menjaga "kebersihan seragam" (Purity) dan menolak kotor, mesin tidak akan pernah jalan. Di sinilah **Praktikalitas** masuk. Terkadang, kita perlu "mengotori tangan" dengan solusi yang mungkin sedikit menyimpang dari teori murni, asalkan solusi itu benar-benar menyelesaikan masalah dan membuat sistem kembali berjalan.
+
+Python adalah bahasa yang mencintai keteraturan, tapi ia lebih mencintai **Hasil Nyata**.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| consistency | keseragaman pola penulisan agar mudah diprediksi | format naming dan struktur fungsi stabil |
-| practicality | keputusan berbasis manfaat nyata | solusi sederhana yang cepat dipelihara |
-| convention | kebiasaan standar yang diikuti bersama | snake_case, 4 spasi indent |
-| local optimum | solusi terbaik di konteks tertentu | pattern tim untuk modul tertentu |
-| maintainability | kemudahan merawat kode jangka panjang | perubahan fitur tanpa banyak regression |
+| Consistency | Keseragaman pola agar perilaku kode mudah diprediksi | Struktur `try-except` yang sama di semua modul |
+| Practicality | Keputusan yang mendahulukan kegunaan nyata daripada keindahan teori | Menggunakan `print()` sederhana untuk debug cepat |
+| Purity | Idealisme desain yang mengikuti teori 100% tanpa kompromi | Arsitektur yang terlalu kompleks padahal hanya butuh fungsi kecil |
+| Convention | Aturan tidak tertulis yang disepakati bersama oleh tim | Format penamaan `snake_case` |
+| Uniformity | Kesamaan tampilan dan rasa di seluruh bagian proyek | Dokumentasi yang formatnya seragam |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca mengambil keputusan desain yang konsisten lintas kodebase sambil tetap pragmatis terhadap deadline, kebutuhan produk, dan kapasitas tim.
+### A. Kekuatan Pola yang Sama (Consistency)
+Konsistensi bukan tentang membatasi kreativitas, tapi tentang mengurangi "kejutan" (Surprise). Jika semua fungsi validasi di proyek Anda mengembalikan `True/False`, jangan tiba-tiba membuat satu fungsi yang mengembalikan `1/0`. Gunakan pola yang sudah ada agar rekan tim Anda tidak perlu berpikir dua kali.
 
-## Tujuan Kecil
+### B. Pragmatisme di Atas Teori
+Python sering kali memilih solusi yang "sedikit tidak rapi secara teori" asalkan itu membuat programmer lebih produktif. Contoh: Python mengizinkan akses ke atribut internal (dengan prefix `_`), karena secara praktis programmer terkadang memang perlu melakukannya untuk perbaikan cepat, daripada dipaksa membuat sistem *Getter/Setter* yang rumit seperti di Java.
 
-- memahami kapan konsistensi harus diprioritaskan
-- memahami kapan pragmatisme perlu mengalahkan idealisme
-- menyusun aturan praktis agar tim punya standar yang operasional
+### C. Konsistensi API
+Pastikan cara memanggil fungsi Anda seragam. Jika fungsi pertama menerima `(data, identifier)`, usahakan fungsi kedua juga menerima urutan yang sama, bukan dibalik menjadi `(identifier, data)`. Otak manusia bekerja dengan pengenalan pola; hargailah itu.
 
-## Hasil Belajar
+### D. Memilih Keputusan yang Berguna
+Timbangan terbaik saat Anda bingung mendesain sesuatu adalah: "Mana yang lebih memudahkan tim dalam merawat kode ini 3 bulan lagi?". Jika desain ideal Anda ternyata sangat sulit dipahami orang lain, pilihlah desain yang lebih praktis dan sederhana.
 
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+## 4. Visualisasi Analogi
 
-- menerapkan style dan pola yang konsisten di fungsi/modul sederhana
-- menjelaskan alasan pragmatis di balik deviasi dari pola umum
-- melakukan refactor kecil agar kode lebih seragam tanpa mengganggu perilaku
+![Consistency and Practicality - Balancing Purity and Utility](assets/04_consistency_and_practicality.svg)
 
-## Peruntukan
+## 5. Peringatan / Jebakan Umum (Gotchas)
 
-Bab ini digunakan saat:
+- **Fanatik Teori**: Jangan menolak solusi yang jalan hanya karena "tidak sesuai dengan buku desain arsitektur halaman 50". Ingat, tujuan utama program adalah memecahkan masalah bisnis/pengguna.
+- **Inkonsistensi Kreatif**: Sering terjadi saat programmer mencoba "cara baru yang lebih keren" di tengah proyek yang sudah punya standar. Ini adalah bencana bagi *maintenance*. Gunakan standar lama sampai ada keputusan tim untuk mengubahnya secara global.
+- **Over-Engineering**: Membangun sistem yang sangat fleksibel (generalisasi berlebihan) padahal kebutuhan saat ini sangat spesifik. Ini melanggar prinsip praktikalitas.
 
-- membangun coding guideline tim
-- melakukan review pada kode yang ditulis banyak kontributor
-- memutuskan antara "ideal design" vs "shipping value" secara realistis
+## 6. Referensi Kode Praktik
 
-## Bukan Peruntukan
+Buka folder `examples/` untuk melihat penerapan langsung:
+- `01_consistency_pattern.py`: Standarisasi struktur fungsi (Validasi -> Proses -> Output).
+- `02_practical_decision.py`: Contoh kapan kita memilih solusi pragmatis vs solusi ideal yang rumit.
 
-Bab ini bukan untuk:
+## 7. Latihan (Validasi)
 
-- pembahasan arsitektur enterprise multi-layer secara mendalam
-- validasi performa skala besar dengan profiling kompleks
-- justifikasi "asal jalan" tanpa standar kualitas minimum
-
-## Analogi
-
-Consistency dan practicality seperti jalur produksi. Standar yang konsisten menjaga kualitas, sementara keputusan praktis memastikan produk tetap keluar tepat waktu.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: "Konsisten berarti kaku dan anti-perubahan."
-  Klarifikasi: konsisten berarti mudah diprediksi; perubahan tetap boleh jika dilakukan seragam dan terdokumentasi.
-
-- Miskonsepsi: "Praktis berarti boleh melanggar semua aturan."
-  Klarifikasi: praktis tetap butuh batas. Keputusan cepat tanpa standar hanya memindahkan biaya ke maintenance.
-
-- Miskonsepsi: "Kalau sudah pakai linter, masalah consistency selesai."
-  Klarifikasi: linter membantu format, tapi tidak menggantikan keputusan desain API dan struktur logika.
-
-## Konsep Inti
-
-### 1. Prinsip Dasar
-
-Empat prinsip kerja consistency + practicality:
-
-1. Default to convention
-Ikuti pola umum tim lebih dulu agar onboarding dan review lebih ringan.
-
-2. Break rule with reason
-Jika perlu menyimpang, tulis alasan teknis dan ruang lingkupnya.
-
-3. Optimize for team speed
-Pilih pola yang mempercepat pemahaman tim, bukan hanya penulis awal.
-
-4. Minimize surprise
-Kode yang baik tidak "mengejutkan" pembaca lewat perilaku tak terduga.
-
-### 2. Dampak Praktis
-
-Dalam pekerjaan harian, dampaknya terlihat di:
-
-- struktur fungsi yang seragam (validasi -> proses utama -> return)
-- pola penamaan yang stabil antar modul
-- error handling yang konsisten
-- keputusan trade-off yang terdokumentasi saat ada pengecualian
-
-Checklist saat review:
-
-1. apakah pola fungsi ini konsisten dengan modul sejenis
-2. jika berbeda, apakah alasannya jelas dan valid
-3. apakah deviasi ini menambah atau mengurangi beban maintenance
-4. apakah perubahan tetap aman untuk tim berikutnya
-
-## Diagram
-
-![Big picture Consistency and Practicality](assets/04_consistency_and_practicality.svg)
-
-Caption: Diagram menampilkan alur keputusan dari standar konsisten menuju hasil praktis yang dapat dipelihara.
-
-### Legenda Diagram
-
-- 1: standar/pola tim
-- 2: evaluasi kebutuhan nyata
-- 3: keputusan implementasi yang operasional
-
-## Contoh Kode (Benar)
-
-```python
-def normalize_phone_number(raw_phone: str) -> str:
-    cleaned = raw_phone.strip().replace("-", "").replace(" ", "")
-    if not cleaned.isdigit():
-        raise ValueError("phone number must contain digits only")
-    if len(cleaned) < 10:
-        raise ValueError("phone number must be at least 10 digits")
-    return cleaned
-
-
-print(normalize_phone_number("0812-3456-7890"))
-```
-
-Expected output:
-
-```text
-081234567890
-```
-
-## Pitfall Umum
-
-Contoh kesalahan yang sering terjadi:
-
-```python
-def p(x):
-    x = x.replace("-", "")
-    if len(x) < 10:
-        return ""
-    return x
-```
-
-Masalah:
-
-- nama fungsi/parameter tidak konsisten dengan intent domain
-- validasi tidak seragam (kadang return string kosong, bukan error)
-- perilaku diam-diam mempersulit debugging caller
-
-Perbaikan:
-
-```python
-def normalize_phone_number(raw_phone: str) -> str:
-    cleaned = raw_phone.strip().replace("-", "").replace(" ", "")
-    if not cleaned.isdigit():
-        raise ValueError("phone number must contain digits only")
-    if len(cleaned) < 10:
-        raise ValueError("phone number must be at least 10 digits")
-    return cleaned
-```
-
-## Catatan Praktis
-
-- konsistenkan pola return dan exception pada fungsi sejenis
-- hindari sentinel value diam-diam (`""`, `None`) tanpa kontrak jelas
-- dokumentasikan deviasi dari standard pattern tim
-- gunakan tooling (formatter/linter) sebagai baseline, bukan satu-satunya quality gate
-- prefer perubahan kecil bertahap untuk legacy code
-
-## Latihan
-
-### Dasar
-
-Temukan 2 fungsi serupa di proyek Anda. Samakan gaya naming dan pola validasinya.
-
-### Menengah
-
-Refactor satu modul kecil agar semua fungsi mengikuti struktur yang sama: validasi, proses utama, return.
-
-### Mini Challenge
-
-Buat file `customer_contact.py` berisi:
-
-- fungsi normalisasi email
-- fungsi normalisasi nomor telepon
-- fungsi validasi kontak wajib (minimal salah satu terisi)
-
-Tambahkan minimal 4 test case, lalu tulis 5-8 kalimat tentang trade-off antara konsistensi style dan kebutuhan praktis yang Anda ambil.
-
-## Checklist Lulus Bab
-
-- [ ] memahami perbedaan konsistensi dan kekakuan
-- [ ] mampu memberi alasan pragmatis untuk deviasi tertentu
-- [ ] menyelesaikan mini challenge beserta test
-- [ ] mampu menjaga perilaku fungsi tetap dapat diprediksi
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: 03_readability_and_explicitness.md
-- Bab berikutnya: 05_simple_vs_complex.md
-- Keterkaitan lintas buku Core: CORE-01, CORE-02, CORE-03
-
-## Ringkasan
-
-- consistency menurunkan beban kognitif tim
-- practicality menjaga solusi tetap relevan terhadap kebutuhan nyata
-- standar tim yang jelas mempercepat review dan maintenance
-- deviasi boleh dilakukan jika ada alasan teknis yang terdokumentasi
-
-## FAQ Singkat
-
-1. Apakah konsistensi berarti semua fungsi harus identik?
-   Jawaban singkat: tidak; yang penting pola inti dan kontrak perilaku tetap seragam.
-2. Kapan boleh menyimpang dari convention tim?
-   Jawaban singkat: saat ada kebutuhan teknis valid dan dampaknya dipahami bersama.
-3. Apakah practicality selalu menang atas ideal design?
-   Jawaban singkat: tidak; keputusan terbaik menyeimbangkan nilai jangka pendek dan jangka panjang.
-
-## Referensi
-
-- PEP 8 (Style Guide): https://peps.python.org/pep-0008/
-- PEP 20 (Zen of Python): https://peps.python.org/pep-0020/
-- Python Tutorial: https://docs.python.org/3/tutorial/
-- Python Language Reference: https://docs.python.org/3/reference/
+- [ ] Periksa 3 fungsi berbeda di modul Anda. Pastikan urutan parameter dan cara penanganan *error*-nya sudah seragam (konsisten).
+- [ ] Berikan satu contoh kasus di kode Anda di mana Anda terpaksa melanggar "Best Practice" demi menyelesaikan masalah yang mendesak, dan jelaskan alasan praktisnya.
+- [ ] Tulislah 3 standar penamaan yang akan Anda gunakan secara konsisten untuk seluruh proyek ini (misal: semua fungsi API harus diawali dengan `fetch_`).

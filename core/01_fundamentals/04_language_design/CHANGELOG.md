@@ -3,13 +3,21 @@
 > Format berdasarkan panduan versi internal (Rak.SubRak.Buku.Revisi).
 
 **Book Code: CORE-04
-Version: Core.Fundamentals.04.00
-Last Updated: 2026-03-14
+Version: Core.Fundamentals.04.01
+Last Updated: 2026-03-15
 
 ---
 
-## [Unreleased]
-*Catatan perubahan yang sedang dikerjakan ("Draf") dan belum dirilis secara resmi.*
+---
+
+## [Core.Fundamentals.04.01] - 2026-03-15
+### Ditambahkan
+- 12 Premium SVG diagrams untuk setiap bab guna memvisualisasikan analogi dan konsep desain.
+- Latihan (Validasi) praktis di setiap bab untuk memperkuat pemahaman.
+### Diubah
+- Modernisasi seluruh isi Buku 04 menjadi model "Practical-Narrative".
+- Restrukturisasi README menjadi 7 bagian standar (Analogi, Istilah, Konsep, Visual, Gotchas, Kode, Latihan).
+- Mengganti gaya bahasa akademik menjadi lebih naratif dan mudah dipahami.
 
 ---
 

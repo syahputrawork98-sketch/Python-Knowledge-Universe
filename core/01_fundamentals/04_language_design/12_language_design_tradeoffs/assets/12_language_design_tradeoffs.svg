@@ -1,0 +1,44 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadowFix" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="2" dy="2" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.2" /></feComponentTransfer>
+      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="400" rx="20" fill="#f7fafc" />
+
+  <!-- The Scale -->
+  <g transform="translate(400, 300)">
+    <!-- Base -->
+    <path d="M-100 0 L100 0 L80 -20 L-80 -20 Z" fill="#4a5568" />
+    <rect x="-10" y="-180" width="20" height="180" fill="#718096" />
+    
+    <!-- Balance Beam (slightly tilted for realism) -->
+    <g transform="rotate(-5, 0, -180)">
+      <rect x="-250" y="-190" width="500" height="10" rx="5" fill="#2d3748" />
+      
+      <!-- Scale Pan Left -->
+      <g transform="translate(-230, -10)">
+        <line x1="0" y1="-180" x2="-40" y2="40" stroke="#a0aec0" stroke-width="2" />
+        <line x1="0" y1="-180" x2="40" y2="40" stroke="#a0aec0" stroke-width="2" />
+        <path d="M-60 40 Q 0 80 60 40 Z" fill="#cbd5e0" filter="url(#shadowFix)" />
+        <text x="0" y="100" font-family="Arial" font-size="14" fill="#2d3748" text-anchor="middle" font-weight="bold">READABILITY</text>
+      </g>
+
+      <!-- Scale Pan Right -->
+      <g transform="translate(230, -10)">
+        <line x1="0" y1="-180" x2="-40" y2="40" stroke="#a0aec0" stroke-width="2" />
+        <line x1="0" y1="-180" x2="40" y2="40" stroke="#a0aec0" stroke-width="2" />
+        <path d="M-60 40 Q 0 80 60 40 Z" fill="#cbd5e0" filter="url(#shadowFix)" />
+        <text x="0" y="100" font-family="Arial" font-size="14" fill="#2d3748" text-anchor="middle" font-weight="bold">PERFORMANCE</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="400" y="60" font-family="Arial" font-size="24" fill="#2d3748" text-anchor="middle" font-weight="bold">SENI BERKOMPROMI (TRADE-OFFS)</text>
+  
+  <text x="400" y="370" font-family="Arial" font-size="16" fill="#718096" text-anchor="middle">"No design is perfect; there are only choices with consequences."</text>
+</svg>

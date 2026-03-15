@@ -1,257 +1,68 @@
-# Idiomatic Python and Style
+# Bab 11: Idiomatic Python and Style
 
 Chapter Code: CORE-04-11
-Book Code: CORE-04
-Version: Core.Fundamentals.04.00
-Last Updated: 2026-03-14
-Status: Draft
-Difficulty: Intermediate
-Estimated Time: 45 menit teori + 35 menit praktik
+Version: Core.Fundamentals.04.01
+Last Updated: 2026-03-15
+Status: Published
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Belajar "berbicara" dalam bahasa Python yang fasih (Idiomatic), bukan sekadar menerjemahkan logika dari bahasa lain ke dalam sintaks Python.
 
-Bab ini membahas apa yang dimaksud "idiomatic Python": cara menulis kode yang terasa natural bagi ekosistem Python, mudah dibaca tim lain, dan konsisten dengan praktik yang direkomendasikan (terutama PEP 8).
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Bahasa Python yang idiomatik (Pythonic) itu seperti **Bahasa Gaul di Kalangan Profesional**. Jika Anda menggunakannya dengan benar, orang lain akan langsung tahu bahwa Anda adalah 'orang dalam' yang paham budaya setempat, dan komunikasi pun menjadi jauh lebih cepat serta efisien."
 
-- sudah menyelesaikan CORE-04-01 sampai CORE-04-10
-- memahami fungsi, class dasar, exception, dan module import
-- memahami dasar type hint dan standard library umum
+### Analogi Panjang (Jalan Raya vs Jalan Pintas Resmi)
+Bayangkan Anda sedang menuju ke pusat kota.
 
-## Istilah Kunci
+Ada **Jalan Raya Besar** yang memutar, penuh lampu merah, dan melelahkan (ini seperti menulis gaya Java atau C di dalam Python). Anda tetap sampai tujuan, tapi dengan tenaga dan waktu yang terbuang banyak.
+
+Lalu ada **Jalan Pintas Resmi** yang indah, asri, dan memang disediakan oleh tata kota untuk pejalan kaki (ini adalah gaya Pythonic). Jalannya lurus, efisien, dan menyenangkan untuk dilewati.
+
+Menjadi "Pythonic" bukan berarti Anda melakukan trik-trik yang aneh. Sebaliknya, Anda menggunakan alat-alat yang memang sudah disediakan oleh Python (seperti *List Comprehension*, *Unpacking*, atau *Context Managers*) untuk memotong jalur yang bertele-tele menjadi kode yang elegan dan bercerita.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| idiomatic Python | gaya penulisan yang sesuai kebiasaan komunitas Python | list comprehension seperlunya |
-| style guide | pedoman konsistensi penulisan kode | PEP 8 |
-| readability | kemudahan kode dipahami pembaca | nama fungsi deskriptif |
-| explicitness | niat kode jelas, tidak tersembunyi | guard clause, named argument |
-| refactor | perubahan struktur internal tanpa ubah perilaku | pecah fungsi panjang |
+| Pythonic | Gaya penulisan yang mengikuti budaya dan standar Python | Menggunakan `with open(...)` |
+| Idiomatic | Pola ekspresi yang natural bagi sebuah bahasa | `a, b = b, a` untuk swap |
+| PEP 8 | Standar resmi panduan gaya penulisan kode Python | Aturan indentasi 4 spasi |
+| Linter | Alat otomatis untuk mengecek kesalahan gaya/sintaks | Flake8, Pylint, Ruff |
+| Anti-pattern | Cara penyelesaian masalah yang terlihat benar tapi berdampak buruk | `except: pass` |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca menulis kode Python yang bersih, konsisten, dan mudah dipelihara, sekaligus mampu membedakan gaya idiomatik yang sehat dari "gaya pintar" yang sulit dirawat.
+### A. "The One Obvious Way"
+Filosofi Python adalah: *"There should be one-- and preferably only one --obvious way to do it"*. Python lebih suka satu cara yang jelas dan standar daripada menyediakan 10 cara berbeda yang membingungkan. Tugas Anda adalah menemukan "cara yang satu" itu.
 
-## Tujuan Kecil
+### B. Menulis Kode yang Bercerita
+Kode Pythonic harus terasa seperti membaca paragraf bahasa Inggris. Gunakan penamaan yang logis, alur yang linear, dan hindari simbol-simbol aneh yang tidak perlu. Kode Anda harus menjelaskan **APA** yang sedang terjadi tanpa butuh banyak komentar.
 
-- menerapkan pola idiomatic Python pada kasus umum
-- menghindari anti-pattern style yang memperberat maintenance
-- membangun dasar argumentasi saat code review
+### C. Standar PEP 8
+Ini adalah "Undang-Undang Kesopanan" di Python. Mulai dari berapa spasi untuk indentasi hingga bagaimana cara memberi nama Class (`PascalCase`) dan Fungsi (`snake_case`). Mengikuti PEP 8 membuat kode Anda terlihat profesional di mata dunia.
 
-## Hasil Belajar
+### D. Alat Bantu (Linters & Formatters)
+Jangan mencoba menghafal semua aturan style. Gunakan bantuan alat seperti **Black** (untuk merapikan kode otomatis) atau **Ruff** (untuk mengecek kesalahan gaya). Biarkan mesin yang mengerjakan urusan kosmetik, sementara Anda fokus pada logika bisnis.
 
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+## 4. Visualisasi Analogi
 
-- menulis fungsi yang mengikuti style Pythonic secara konsisten
-- refactor kode non-idiomatic menjadi lebih jelas
-- menjelaskan keputusan style berbasis readability dan maintainability
+![The Pythonic shortcut - Efficient and Readable Paths](assets/11_idiomatic_python_and_style.svg)
 
-## Peruntukan
+## 5. Peringatan / Jebakan Umum (Gotchas)
 
-Bab ini digunakan saat:
+- **Diktator Style**: Jangan berdebat berjam-jam tentang spasi atau tanda kurung. Gunakan satu standar (misal Black) dan ikuti saja. Konsistensi jauh lebih penting daripada preferensi pribadi.
+- **Terlalu Pintar (Yoda Code)**: Hati-hati dengan *List Comprehension* yang terlalu panjang dan rumit. Jika satu baris kode Anda terlihat seperti rumus fisika kuantum, pecahlah menjadi loop `for` biasa.
+- **Mengabaikan Konsistensi Tim**: Jika tim Anda sudah punya standar sendiri yang sedikit berbeda dari PEP 8, ikutilah standar tim tersebut. Menghormati "budaya lokal" adalah bagian dari menjadi profesional.
 
-- melakukan code review harian
-- menyiapkan standar coding guideline tim
-- merapikan modul lama agar lebih mudah dibaca
+## 6. Referensi Kode Praktik
 
-## Bukan Peruntukan
+Buka folder `examples/` untuk melihat penerapan langsung:
+- `01_pythonic_tricks.py`: Kumpulan "Jalan Pintas" resmi yang membuat kode jauh lebih bersih.
+- `02_pep8_makeover.py`: Transformasi kode berantakan menjadi kode standar industri.
 
-Bab ini bukan untuk:
+## 7. Latihan (Validasi)
 
-- pembahasan seluruh aturan PEP 8 secara lengkap
-- perdebatan style subjektif tanpa konteks kebutuhan tim
-- optimisasi performa rendah-level berbasis microbenchmark
-
-## Analogi
-
-Idiomatic style seperti tata bahasa baku. Anda tetap bisa dipahami dengan gaya acak, tapi komunikasi jadi lebih lambat dan rawan salah tafsir.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: "Pythonic berarti kode sesingkat mungkin."
-  Klarifikasi: Pythonic menekankan kejelasan intent, bukan minim karakter.
-
-- Miskonsepsi: "Kalau linter hijau, style sudah bagus."
-  Klarifikasi: linter penting, tapi tidak menggantikan desain fungsi, naming, dan alur logika yang sehat.
-
-- Miskonsepsi: "Style itu urusan kosmetik."
-  Klarifikasi: style yang baik menurunkan beban kognitif dan biaya maintenance.
-
-## Konsep Inti
-
-### 1. Prinsip Dasar
-
-Prinsip praktis idiomatic Python:
-
-1. Use clear names
-Nama fungsi/variabel harus menyampaikan intent bisnis.
-
-2. Prefer simple flow
-Gunakan guard clause untuk menghindari nested logic berlapis.
-
-3. Use Python features responsibly
-Comprehension, unpacking, dan context manager dipakai saat memperjelas kode, bukan untuk pamer trik.
-
-4. Keep functions focused
-Satu fungsi, satu tanggung jawab utama.
-
-### 2. Dampak Praktis
-
-Penerapan idiomatik memberi dampak nyata:
-
-- review lebih cepat karena pola kode familiar
-- onboarding developer baru lebih mudah
-- refactor lebih aman karena struktur fungsi jelas
-- bug lebih cepat ditemukan dari intent yang terbaca
-
-Checklist refactor menuju idiomatic style:
-
-1. apakah nama sudah menjelaskan tujuan
-2. apakah alur logika terlalu dalam dan bisa diringkas
-3. apakah ada fitur Python yang bisa membuat kode lebih jelas
-4. apakah perubahan tetap menjaga perilaku asli
-
-## Diagram
-
-![Big picture Idiomatic Python and Style](assets/11_idiomatic_python_and_style.svg)
-
-Caption: Diagram memperlihatkan hubungan antara prinsip idiomatic style dan dampaknya terhadap kualitas kolaborasi tim.
-
-### Legenda Diagram
-
-- 1: prinsip style Pythonic
-- 2: penerapan pada struktur kode
-- 3: dampak ke readability dan maintenance
-
-## Contoh Kode (Benar)
-
-```python
-from pathlib import Path
-from tempfile import TemporaryDirectory
-
-
-def load_usernames(file_path: str) -> list[str]:
-    path = Path(file_path)
-    if not path.exists():
-        raise FileNotFoundError(f"file not found: {file_path}")
-
-    with path.open("r", encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
-
-
-with TemporaryDirectory() as temp_dir:
-    users_path = Path(temp_dir) / "users.txt"
-    users_path.write_text("alice\nbob\n\ncharlie\n", encoding="utf-8")
-    print(load_usernames(str(users_path)))
-```
-
-Expected output:
-
-```text
-['alice', 'bob', 'charlie']
-```
-
-## Pitfall Umum
-
-Contoh kesalahan yang sering terjadi:
-
-```python
-def load(file):
-    f = open(file)
-    data = []
-    for x in f.readlines():
-        if x.strip() != "":
-            data.append(x.strip())
-    f.close()
-    return data
-```
-
-Masalah:
-
-- nama fungsi/parameter terlalu umum
-- tidak memakai context manager (`with`)
-- style kondisi verbose dan kurang idiomatik
-
-Perbaikan:
-
-```python
-from pathlib import Path
-
-
-def load_usernames(file_path: str) -> list[str]:
-    path = Path(file_path)
-    if not path.exists():
-        raise FileNotFoundError(f"file not found: {file_path}")
-
-    with path.open("r", encoding="utf-8") as f:
-        return [line.strip() for line in f if line.strip()]
-```
-
-## Catatan Praktis
-
-- ikuti PEP 8 sebagai baseline konsistensi
-- pakai comprehension jika hasilnya tetap mudah dibaca
-- pilih `with` untuk resource management (file, lock, connection)
-- hindari nama singkat tanpa konteks (`x`, `tmp`, `data` berlebihan)
-- gabungkan formatter + linter + review manusia untuk kualitas style
-
-## Latihan
-
-### Dasar
-
-Refactor satu fungsi non-idiomatic di proyek Anda agar menggunakan nama yang lebih jelas dan context manager jika relevan.
-
-### Menengah
-
-Ambil satu loop klasik, ubah menjadi list/dict comprehension yang tetap terbaca. Bandingkan mana yang lebih jelas.
-
-### Mini Challenge
-
-Buat file `student_report.py` berisi:
-
-- fungsi load data siswa dari file teks
-- fungsi hitung rata-rata nilai
-- fungsi format output laporan
-
-Syarat:
-
-- gunakan naming deskriptif
-- gunakan `with` untuk file handling
-- tambahkan minimal 5 test case
-- tulis 5-8 kalimat trade-off style yang Anda pilih (ringkas vs jelas)
-
-## Checklist Lulus Bab
-
-- [ ] memahami prinsip utama idiomatic Python
-- [ ] mampu refactor kode non-idiomatic ke versi lebih jelas
-- [ ] menyelesaikan mini challenge dan test
-- [ ] mampu memberi alasan style decision saat code review
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: 10_backward_compatibility_and_peps.md
-- Bab berikutnya: 12_language_design_tradeoffs.md
-- Keterkaitan lintas buku Core: CORE-01, CORE-02, CORE-03
-
-## Ringkasan
-
-- idiomatic Python adalah cara menulis yang natural, jelas, dan konsisten
-- style yang baik mempercepat kolaborasi serta menurunkan biaya maintenance
-- fitur bahasa Python dipakai untuk memperjelas, bukan memperumit
-- keputusan style harus selalu ditimbang dengan readability tim
-
-## FAQ Singkat
-
-1. Apakah harus selalu pakai comprehension?
-   Jawaban singkat: tidak; pakai hanya jika membuat intent lebih jelas.
-2. Apakah PEP 8 wajib 100%?
-   Jawaban singkat: jadikan baseline kuat; deviasi boleh jika ada alasan jelas dan konsisten.
-3. Bagaimana menyeimbangkan style dan performa?
-   Jawaban singkat: mulai dari style yang jelas, lalu optimasi berdasarkan data profiling nyata.
-
-## Referensi
-
-- PEP 8 (Style Guide): https://peps.python.org/pep-0008/
-- PEP 20 (Zen of Python): https://peps.python.org/pep-0020/
-- Python Tutorial: https://docs.python.org/3/tutorial/
-- Python Language Reference: https://docs.python.org/3/reference/
+- [ ] Cobalah instal alat **Black** atau **Ruff** dan jalankan pada salah satu file Python lama Anda. Lihat seberapa banyak perubahan yang disarankan.
+- [ ] Ubahlah sebuah loop `for` sederhana yang hanya melakukan filter data menjadi sebuah *List Comprehension*.
+- [ ] Lakukan "Swap" (tukar posisi) dua variable tanpa membuat variable bantuan `temp`, menggunakan gaya Pythonic.

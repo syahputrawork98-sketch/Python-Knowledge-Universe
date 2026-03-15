@@ -1,253 +1,68 @@
-# Duck Typing and Protocols
+# Bab 07: Duck Typing and Protocols
 
 Chapter Code: CORE-04-07
-Book Code: CORE-04
-Version: Core.Fundamentals.04.00
-Last Updated: 2026-03-14
-Status: Draft
-Difficulty: Intermediate
-Estimated Time: 45 menit teori + 40 menit praktik
+Version: Core.Fundamentals.04.01
+Last Updated: 2026-03-15
+Status: Published
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Mengenal filosofi "Duck Typing" yang membebaskan objek dari batasan silsilah keluarga (Inheritance) dan beralih fokus pada apa yang bisa objek tersebut lakukan (Behavior).
 
-Bab ini membahas pendekatan duck typing di Python: objek dinilai dari perilakunya (method/atribut yang tersedia), bukan dari garis keturunan class semata. Bab ini juga memperkenalkan `Protocol` sebagai cara modern untuk membuat kontrak antarkomponen tanpa coupling berlebihan.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Duck Typing itu seperti sebuah **Klub Dansa Salsa**. Penjaga pintu tidak akan bertanya apakah Anda punya sertifikat penari atau sekolah di mana (Inheritance). Satu-satunya syarat adalah: **Jika Anda bisa menari Salsa, Anda boleh masuk ke lantai dansa.**"
 
-- sudah menyelesaikan CORE-04-01 sampai CORE-04-06
-- memahami class, inheritance dasar, dan type hint
-- memahami exception handling dan refactor sederhana
+### Analogi Panjang (Charger HP vs Sertifikat Merek)
+Bayangkan Anda sedang di bandara dan baterai HP Anda habis. Anda meminjam charger kepada orang di sebelah Anda.
 
-## Istilah Kunci
+Dalam sistem yang kaku (**Nominal Typing**), HP Anda akan mengecek: "Apakah charger ini berasal dari pabrik yang sama dengan saya? Jika tidak, saya menolak diisi daya." Anda harus membawa charger merek spesifik ke mana-mana.
+
+Dalam sistem Python (**Duck Typing**), HP Anda hanya peduli: "Apakah charger ini punya ujung kabel USB-C? Apakah ia mengeluarkan daya listrik? Jika ya, silakan isi daya saya." HP Anda tidak peduli apakah charger itu bermerek Samsung, Apple, atau rakitan sendiri, selama ia "berperilaku" seperti charger yang Anda butuhkan.
+
+Inilah inti dari Duck Typing: **"Jika ia berjalan seperti bebek dan bersuara seperti bebek, maka bagi Python, ia adalah bebek."**
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| duck typing | pendekatan berbasis perilaku objek | objek apa pun yang punya `.read()` bisa dipakai |
-| protocol | kontrak struktur/perilaku tanpa wajib inheritance | `typing.Protocol` |
-| structural typing | kecocokan ditentukan dari shape, bukan parent class | punya method yang disyaratkan |
-| nominal typing | kecocokan ditentukan dari deklarasi tipe/pewarisan | `isinstance(obj, BaseClass)` |
-| loose coupling | ketergantungan antarkomponen rendah | fungsi menerima interface perilaku |
+| Duck Typing | Penentuan tipe objek berdasarkan method/atributnya | Objek apa pun yang punya `.read()` dianggap file |
+| Protocol | Kontrak struktur/perilaku tanpa wajib mewarisi class induk | `typing.Protocol` |
+| Nominal Typing | Penentuan tipe berdasarkan deklarasi nama class/parent | `isinstance(x, Manusia)` |
+| Structural Typing | Nama lain Duck Typing (kecocokan berdasarkan struktur) | Punya method yang disyaratkan |
+| Interface | Antarmuka atau kontrak yang harus dipenuhi sebuah objek | Kumpulan method wajib |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca merancang API Python yang fleksibel namun tetap jelas kontraknya, sehingga mudah dikembangkan dan diuji.
+### A. Fokus pada Perilaku (Behavior)
+Di Python, kita jarang bertanya "Siapa orang tuamu?" (`isinstance`). Kita lebih sering langsung mencoba: "Bisakah kamu melakukan ini?". Jika sebuah objek punya method `fly()`, kita anggap dia bisa terbang, tidak peduli apakah dia burung, pesawat, atau pahlawan super.
 
-## Tujuan Kecil
+### B. Tanpa Harus Mewarisi (Inherit)
+Duck Typing membebaskan kita dari hierarki class yang rumit. Anda tidak perlu membuat class `Kucing` mewarisi dari `HewanBersuara` hanya agar bisa dipanggil fungsi `buat_suara()`. Cukup pastikan `Kucing` punya method `suara()`.
 
-- memahami kapan duck typing menguntungkan
-- menulis kontrak perilaku dengan `Protocol`
-- menghindari coupling berlebihan ke class konkret
+### C. Keajaiban `Protocol` (PEP 544)
+Meskipun bebas, terkadang kita ingin "catatan resmi" tentang apa saja syarat untuk masuk ke fungsi kita. `Protocol` adalah cara modern di Python untuk menuliskan kontrak perilaku secara formal tanpa merusak sifat Duck Typing-nya.
 
-## Hasil Belajar
+### D. Fleksibilitas vs Keamanan
+Duck Typing memberikan fleksibilitas luar biasa (lebih mudah diuji/di-mock), tapi memiliki risiko *Runtime Error* jika objek ternyata tidak punya method yang kita minta. Oleh karena itu, *Type Hinting* dan *Protocol* sangat disarankan sebagai pengaman.
 
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+## 4. Visualisasi Analogi
 
-- membedakan duck typing, nominal typing, dan structural typing
-- mendesain fungsi yang menerima objek berdasarkan kapabilitas
-- memakai `Protocol` untuk meningkatkan kejelasan kolaborasi tim
+![Duck Typing - Focus on Capability over Identity](assets/07_duck_typing_and_protocols.svg)
 
-## Peruntukan
+## 5. Peringatan / Jebakan Umum (Gotchas)
 
-Bab ini digunakan saat:
+- **AttributeError di Tengah Jalan**: Risiko terbesar adalah program hancur di tengah jalan karena kita berasumsi objek punya method tertentu padahal tidak. Selalu gunakan `hasattr()` atau `try-except` jika Anda ragu.
+- **Sulit Ditelusuri**: Di proyek besar, Duck Typing murni bisa membuat programmer bingung: "Objek apa saja sih yang boleh masuk ke fungsi ini?". Gunakan `Protocol` untuk mendokumentasikannya.
+- **Asal Bisa Dipanggil**: Hati-hati, hanya karena dua objek punya method bernama sama (misal `.draw()`), bukan berarti mereka melakukan hal yang sama. Satu mungkin menggambar grafik, yang lain mungkin menarik uang dari ATM. Konteks tetap penting!
 
-- membuat service/repository abstraction
-- menyiapkan kode yang mudah di-mock saat testing
-- membangun library internal yang extensible
+## 6. Referensi Kode Praktik
 
-## Bukan Peruntukan
+Buka folder `examples/` untuk melihat penerapan langsung:
+- `01_duck_typing_demo.py`: Bagaimana satu fungsi bisa menerima berbagai objek berbeda selama mereka punya perilaku yang sama.
+- `02_protocol_standard.py`: Menggunakan `typing.Protocol` untuk membuat kontrak yang bersih dan profesional.
 
-Bab ini bukan untuk:
+## 7. Latihan (Validasi)
 
-- membahas type checker secara penuh dan lanjutan
-- menggantikan materi OOP mendalam tentang inheritance tree besar
-- pembahasan plugin architecture skala enterprise
-
-## Analogi
-
-Duck typing seperti meminjam charger. Anda tidak peduli merek ponselnya; yang penting konektornya cocok dan bisa mengisi daya.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: "Duck typing berarti tanpa kontrak sama sekali."
-  Klarifikasi: kontrak tetap perlu, hanya bentuknya berbasis perilaku, bukan class induk.
-
-- Miskonsepsi: "Harus selalu pakai inheritance untuk polymorphism."
-  Klarifikasi: di Python, banyak kasus lebih sederhana dengan structural typing.
-
-- Miskonsepsi: "Protocol hanya untuk type checker, tidak ada dampak desain."
-  Klarifikasi: Protocol memaksa kita merumuskan kontrak yang lebih bersih dan fokus.
-
-## Konsep Inti
-
-### 1. Prinsip Dasar
-
-Empat prinsip desain duck typing yang sehat:
-
-1. Program to behavior, not concrete class
-Fungsi menerima objek yang mampu melakukan aksi tertentu.
-
-2. Keep protocol minimal
-Definisikan method seminimal mungkin sesuai kebutuhan use case.
-
-3. Fail clearly
-Jika kapabilitas tidak ada, error harus jelas dan cepat terlihat.
-
-4. Use Protocol for communication
-Gunakan `Protocol` untuk mendokumentasikan kontrak antar modul/tim.
-
-### 2. Dampak Praktis
-
-Dampaknya dalam pengembangan harian:
-
-- komponen lebih mudah ditukar (swap implementation)
-- testing lebih ringan karena mock/fake object sederhana
-- integrasi lintas modul lebih cepat jika kontrak perilaku jelas
-- refactor class internal lebih aman selama kontrak tetap terpenuhi
-
-Checklist saat mendesain fungsi berbasis duck typing:
-
-1. method apa yang benar-benar dibutuhkan fungsi ini
-2. apakah kontrak itu sudah ditulis jelas (docstring/type hint/Protocol)
-3. apakah error message cukup jelas saat objek tidak kompatibel
-4. apakah desain ini mengurangi ketergantungan ke class konkret
-
-## Diagram
-
-![Big picture Duck Typing and Protocols](assets/07_duck_typing_and_protocols.svg)
-
-Caption: Diagram menunjukkan alur dari kontrak perilaku ke desain komponen yang fleksibel dan mudah diuji.
-
-### Legenda Diagram
-
-- 1: kebutuhan perilaku
-- 2: definisi protocol/kontrak
-- 3: implementasi yang dapat dipertukarkan
-
-## Contoh Kode (Benar)
-
-```python
-from typing import Protocol
-
-
-class Writer(Protocol):
-    def write(self, message: str) -> None:
-        ...
-
-
-def send_report(writer: Writer, title: str) -> None:
-    writer.write(f"[REPORT] {title}")
-
-
-class ConsoleWriter:
-    def write(self, message: str) -> None:
-        print(message)
-
-
-send_report(ConsoleWriter(), "Monthly Revenue")
-```
-
-Expected output:
-
-```text
-[REPORT] Monthly Revenue
-```
-
-## Pitfall Umum
-
-Contoh kesalahan yang sering terjadi:
-
-```python
-class ConsoleWriter:
-    def write(self, message: str) -> None:
-        print(message)
-
-
-def send_report(console_writer: ConsoleWriter, title: str) -> None:
-    # coupling ke class konkret, susah ditukar implementasinya
-    console_writer.write(f"[REPORT] {title}")
-```
-
-Masalah:
-
-- fungsi bergantung pada implementasi spesifik
-- sulit reuse dengan writer lain (file, network, test double)
-- memperbesar biaya perubahan
-
-Perbaikan:
-
-```python
-from typing import Protocol
-
-
-class Writer(Protocol):
-    def write(self, message: str) -> None:
-        ...
-
-
-def send_report(writer: Writer, title: str) -> None:
-    writer.write(f"[REPORT] {title}")
-```
-
-## Catatan Praktis
-
-- gunakan Protocol kecil dan fokus use case
-- hindari interface "gemuk" yang memaksa implementasi tidak perlu
-- pada boundary publik, type hint + docstring wajib jelas
-- pilih duck typing untuk fleksibilitas, pilih class konkret jika domain memang tetap
-- validasi runtime tetap penting untuk input eksternal
-
-## Latihan
-
-### Dasar
-
-Buat dua class berbeda (`ConsoleWriter`, `FileWriter`) yang sama-sama punya method `write` dan pakai satu fungsi pengirim laporan yang sama.
-
-### Menengah
-
-Refactor fungsi yang saat ini menerima class konkret menjadi menerima `Protocol` minimal.
-
-### Mini Challenge
-
-Buat file `notifier.py` berisi:
-
-- `Protocol` bernama `Notifier` dengan method `send(message: str) -> None`
-- dua implementasi: `EmailNotifier` dan `SmsNotifier`
-- satu fungsi `broadcast` yang menerima daftar `Notifier`
-
-Tambahkan minimal 5 test case (termasuk fake notifier untuk testing), lalu tulis 5-8 kalimat tentang trade-off fleksibilitas vs kejelasan kontrak.
-
-## Checklist Lulus Bab
-
-- [ ] memahami konsep duck typing dan structural typing
-- [ ] mampu mendefinisikan Protocol yang minimal dan jelas
-- [ ] menyelesaikan mini challenge beserta test
-- [ ] mampu menjelaskan kapan coupling ke class konkret masih masuk akal
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: 06_mutability_and_object_thinking.md
-- Bab berikutnya: 08_errors_as_part_of_design.md
-- Keterkaitan lintas buku Core: CORE-01, CORE-02, CORE-03
-
-## Ringkasan
-
-- duck typing menekankan kapabilitas, bukan identitas class
-- Protocol membantu mendokumentasikan kontrak perilaku dengan rapi
-- desain berbasis perilaku menurunkan coupling dan memudahkan testing
-- fleksibilitas tetap harus dijaga dengan kontrak yang eksplisit
-
-## FAQ Singkat
-
-1. Apakah Protocol selalu lebih baik daripada inheritance?
-   Jawaban singkat: tidak; gunakan Protocol untuk kontrak perilaku lintas implementasi, inheritance untuk relasi domain yang benar-benar hierarkis.
-2. Apakah duck typing berbahaya tanpa type checker?
-   Jawaban singkat: bisa, jika kontrak tidak jelas; minimalkan risiko dengan type hint, test, dan error message yang baik.
-3. Kapan boleh tetap memakai class konkret sebagai parameter?
-   Jawaban singkat: saat kebutuhan memang spesifik ke implementasi tersebut dan kecil kemungkinan ditukar.
-
-## Referensi
-
-- Python Tutorial: https://docs.python.org/3/tutorial/
-- Python Language Reference: https://docs.python.org/3/reference/
-- `typing.Protocol` docs: https://docs.python.org/3/library/typing.html#typing.Protocol
-- PEP 544 (Protocols): https://peps.python.org/pep-0544/
+- [ ] Buatlah 3 class berbeda (misal: `Mobil`, `Sepeda`, `Manusia`) yang tidak saling mewarisi, tapi semuanya punya method `pindah(lokasi)`. Buat satu fungsi `perjalanan` yang bisa menerima ketiganya.
+- [ ] Implementasikan sebuah `Protocol` sederhana untuk objek yang bisa "Bersuara" (`speak`), lalu gunakan *Static Type Checker* (seperti Mypy) untuk memvalidasinya.
+- [ ] Tuliskan 2 situasi di mana Duck Typing lebih baik daripada inheritance, dan 1 situasi di mana inheritance justru lebih aman.

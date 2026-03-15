@@ -1,245 +1,68 @@
-# Mutability and Object Thinking
+# Bab 06: Mutability and Object Thinking
 
 Chapter Code: CORE-04-06
-Book Code: CORE-04
-Version: Core.Fundamentals.04.00
-Last Updated: 2026-03-14
-Status: Draft
-Difficulty: Intermediate
-Estimated Time: 45 menit teori + 35 menit praktik
+Version: Core.Fundamentals.04.01
+Last Updated: 2026-03-15
+Status: Published
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Memahami cara kerja objek di memori, mengapa ada data yang bisa diubah (Mutable) dan ada yang tetap (Immutable), serta cara menghindari bug "data yang berubah sendiri".
 
-Bab ini membahas cara berpikir objek di Python melalui konsep mutability: mana objek yang bisa berubah, mana yang tidak, dan bagaimana perubahan itu memengaruhi state program. Fokus utamanya adalah mencegah bug akibat referensi bersama (shared references) yang tidak disadari.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Objek **Mutable** itu seperti **Papan Tulis Bersama**—siapa pun yang punya spidol bisa mengubah isinya, dan semua orang akan melihat perubahannya. Sementara objek **Immutable** itu seperti **Prasasti Batu**—isinya tidak bisa diganti. Jika ingin tulisan berbeda, Anda harus memahat prasasti yang baru."
 
-- sudah menyelesaikan CORE-04-01 sampai CORE-04-05
-- memahami list, dict, tuple, function parameter, dan class dasar
-- memahami error handling dan debugging sederhana
+### Analogi Panjang (Tanah Liat vs Balok Es)
+Bayangkan Anda memiliki dua jenis wadah untuk menyimpan barang.
 
-## Istilah Kunci
+Wadah pertama terbuat dari **Tanah Liat (Mutable)**. Jika Anda ingin mengubah bentuknya (misal dari bulat menjadi kotak), Anda cukup menekan-nekan tanah liat tersebut. Wadahnya tetap sama, tapi bentuknya berubah. Di Python, ini seperti `List` atau `Dictionary`. Anda bisa menambah atau menghapus isinya tanpa mengganti objeknya.
+
+Wadah kedua terbuat dari **Balok Es (Immutable)**. Di dalam es tersebut tertanam sebuah mainan. Jika Anda ingin mengganti mainannya, Anda tidak bisa membongkar es itu tanpa menghancurkannya. Anda harus membekukan balok es yang baru dengan mainan yang berbeda. Di Python, ini seperti `String` atau `Tuple`. Jika Anda "mengubah" sebuah string, sebenarnya Python membuatkan string baru untuk Anda di memori.
+
+Memahami kapan menggunakan "Tanah Liat" dan kapan menggunakan "Es" adalah kunci agar program Anda tidak memiliki perilaku yang membingungkan.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| mutable object | objek yang bisa diubah setelah dibuat | `list`, `dict`, `set` |
-| immutable object | objek yang tidak bisa diubah setelah dibuat | `int`, `str`, `tuple` |
-| reference | variabel menunjuk ke objek yang sama di memori | `b = a` pada list |
-| shared state | beberapa bagian kode mengubah objek yang sama | list config dipakai lintas fungsi |
-| defensive copy | menyalin data untuk mencegah side effect | `items.copy()` |
+| Mutability | Kemampuan sebuah objek untuk diubah isinya setelah dibuat | `list`, `dict`, `set` |
+| Immutability | Sifat objek yang isinya tidak bisa diubah sama sekali | `str`, `int`, `tuple` |
+| Reference | Alamat atau label yang menunjuk ke objek di memori | `b = a` (keduanya menunjuk lokasi sama) |
+| Shared State | Kondisi di mana beberapa bagian kode berbagi satu objek mutable | Satu list config dipakai di 5 fungsi |
+| Side Effect | Perubahan yang tidak sengaja terjadi pada data di luar fungsi | Fungsi yang diam-diam mengubah list input |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca mengambil keputusan desain berbasis pemahaman mutability agar perilaku data tetap dapat diprediksi dan aman dirawat.
+### A. Wadah vs Isi (Reference)
+Di Python, variabel bukanlah kotak yang berisi nilai, melainkan **Label** yang ditempelkan pada objek. Jika Anda membuat `b = a`, Anda sebenarnya menempelkan dua label pada satu objek yang sama. Jika objek itu mutable (seperti List), mengubah lewat label `a` akan membuat label `b` juga ikut berubah isinya.
 
-## Tujuan Kecil
+### B. Bahaya Perubahan Tak Sengaja
+Shared Mutable State adalah sumber bug yang paling sulit dilacak. Jika Anda mengirim sebuah List ke dalam fungsi, dan fungsi itu mengubah isinya, maka List asli Anda di luar fungsi juga akan ikut berubah. Ini disebut *Side Effect*.
 
-- membedakan mutasi in-place vs membuat objek baru
-- menghindari bug dari shared mutable state
-- mendesain fungsi/API dengan kontrak mutability yang jelas
+### C. Kapan Pakai Immutable?
+Gunakan objek Immutable (seperti Tuple) saat Anda ingin menjamin bahwa data tersebut tidak akan pernah berubah selama program berjalan. Ini sangat berguna untuk kunci dictionary atau data konfigurasi yang harus stabil.
 
-## Hasil Belajar
+### D. Identitas Objek
+Gunakan fungsi `id()` untuk mengecek apakah dua variabel menunjuk ke objek yang sama persis di memori, atau gunakan operator `is`. Ingat: Dua objek bisa punya isi yang sama, tapi identitas yang berbeda.
 
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+## 4. Visualisasi Analogi
 
-- menjelaskan dampak reference semantics terhadap perilaku kode
-- mengenali dan memperbaiki bug mutable default argument
-- memilih kapan perlu copy data untuk menjaga isolasi state
+![Mutable vs Immutable - Clay Boxes and Sturdy Stones](assets/06_mutability_and_object_thinking.svg)
 
-## Peruntukan
+## 5. Peringatan / Jebakan Umum (Gotchas)
 
-Bab ini digunakan saat:
+- **"Dampaknya ke Mana-mana"**: Hati-hati saat meng-copy list dengan `b = a`. Gunakan `b = a.copy()` jika Anda ingin membuat List baru yang isinya sama tapi terpisah identitasnya.
+- **Mutable Default Argument**: Jangan pernah gunakan `def tambah_data(item, daftar=[])`. List `daftar` itu akan disimpan terus di memori dan isinya akan menumpuk setiap kali fungsi dipanggil. Gunakan `daftar=None` sebagai gantinya.
+- **Shared References**: Mengubah isi list di dalam list lain sering kali menimbulkan kejutan jika Anda tidak memahami konsep *Shallow Copy* vs *Deep Copy*.
 
-- merancang fungsi yang menerima list/dict sebagai input
-- menulis class yang menyimpan state internal
-- melakukan debugging bug yang muncul karena data "berubah sendiri"
+## 6. Referensi Kode Praktik
 
-## Bukan Peruntukan
+Buka folder `examples/` untuk melihat penerapan langsung:
+- `01_reference_demo.py`: Bukti visual bahwa `b = a` tidak menyalin data, melainkan menyalin alamat.
+- `02_mutable_defaults_fix.py`: Cara memperbaiki bug klasik "parameter yang ingat masa lalu".
 
-Bab ini bukan untuk:
+## 7. Latihan (Validasi)
 
-- pembahasan detail manajemen memori CPython tingkat rendah
-- optimisasi performa ekstrem berbasis object layout
-- pengganti materi data structure mendalam
-
-## Analogi
-
-Bayangkan list seperti papan tulis bersama. Jika banyak orang menulis di papan yang sama, semua orang melihat perubahan. Kalau ingin catatan pribadi, Anda perlu fotokopi papan itu terlebih dahulu.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: "Assignment membuat salinan objek."
-  Klarifikasi: assignment hanya menyalin referensi; objek aslinya tetap sama.
-
-- Miskonsepsi: "Tuple selalu sepenuhnya immutable."
-  Klarifikasi: tuple immutable, tapi bisa berisi objek mutable di dalamnya.
-
-- Miskonsepsi: "Bug mutable default argument itu edge case langka."
-  Klarifikasi: ini bug umum di kode Python pemula hingga menengah.
-
-## Konsep Inti
-
-### 1. Prinsip Dasar
-
-Empat prinsip kerja saat berurusan dengan mutability:
-
-1. Ketahui jenis objek
-Sebelum memodifikasi data, pastikan objeknya mutable atau immutable.
-
-2. Bedakan alias vs copy
-`b = a` membuat alias (referensi sama). `b = a.copy()` membuat objek baru (dangkal).
-
-3. Jelaskan kontrak mutasi
-Fungsi harus jelas apakah mengubah argumen input atau mengembalikan objek baru.
-
-4. Hindari state tersembunyi
-Default argument mutable atau state global mutable sering menghasilkan bug non-deterministik.
-
-### 2. Dampak Praktis
-
-Di proyek nyata, pemahaman ini berdampak pada:
-
-- desain API yang lebih aman terhadap side effect
-- debugging lebih cepat karena alur perubahan state terlihat
-- test lebih stabil karena data test tidak saling memengaruhi
-- refactor lebih aman saat fungsi dipakai banyak tempat
-
-Checklist saat menulis fungsi yang menerima list/dict:
-
-1. apakah fungsi ini mutasi input atau tidak
-2. jika mutasi, apakah caller tahu dan setuju
-3. jika tidak mutasi, apakah perlu defensive copy
-4. apakah default parameter aman (gunakan `None` untuk mutable)
-
-## Diagram
-
-![Big picture Mutability and Object Thinking](assets/06_mutability_and_object_thinking.svg)
-
-Caption: Diagram menunjukkan hubungan antara referensi objek, mutasi, dan konsekuensinya terhadap prediktabilitas state program.
-
-### Legenda Diagram
-
-- 1: objek dan referensi
-- 2: keputusan mutasi/copy
-- 3: dampak side effect ke alur program
-
-## Contoh Kode (Benar)
-
-```python
-from typing import Iterable
-
-
-def add_tag(tags: Iterable[str] | None, new_tag: str) -> list[str]:
-    current_tags = list(tags) if tags is not None else []
-    current_tags.append(new_tag)
-    return current_tags
-
-
-original = ["python", "design"]
-updated = add_tag(original, "core")
-
-print(original)
-print(updated)
-```
-
-Expected output:
-
-```text
-['python', 'design']
-['python', 'design', 'core']
-```
-
-## Pitfall Umum
-
-Contoh kesalahan yang sering terjadi:
-
-```python
-def add_tag(tags=[], new_tag="python"):
-    tags.append(new_tag)
-    return tags
-```
-
-Masalah:
-
-- default list dibuat sekali saat fungsi didefinisikan
-- pemanggilan berikutnya membawa state lama tanpa disadari
-- menghasilkan bug lintas request/test
-
-Perbaikan:
-
-```python
-def add_tag(tags=None, new_tag="python"):
-    if tags is None:
-        tags = []
-    result = list(tags)
-    result.append(new_tag)
-    return result
-```
-
-## Catatan Praktis
-
-- gunakan `None` sebagai default untuk parameter mutable
-- tulis docstring singkat: fungsi mutasi input atau tidak
-- lakukan copy saat ingin mengisolasi state caller
-- hati-hati dengan nested mutable (copy dangkal vs deep copy)
-- test kasus side effect secara eksplisit
-
-## Latihan
-
-### Dasar
-
-Buat contoh kecil yang menunjukkan perbedaan `b = a` dan `b = a.copy()` pada list.
-
-### Menengah
-
-Refactor fungsi yang memodifikasi argumen input menjadi fungsi pure (mengembalikan objek baru).
-
-### Mini Challenge
-
-Buat file `cart_state.py` berisi:
-
-- fungsi tambah item ke cart
-- fungsi hapus item dari cart
-- fungsi hitung total item
-
-Syarat:
-
-- fungsi tidak boleh mengubah input cart asli
-- tambahkan minimal 5 test case, termasuk kasus list kosong dan repeated call
-- tulis 5-8 kalimat: keputusan mutability apa yang Anda ambil dan kenapa
-
-## Checklist Lulus Bab
-
-- [ ] memahami mutable vs immutable object
-- [ ] mampu menghindari bug default mutable argument
-- [ ] menyelesaikan mini challenge beserta test
-- [ ] mampu menjelaskan kapan perlu alias, copy dangkal, atau pendekatan immutable
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: 05_simple_vs_complex.md
-- Bab berikutnya: 07_duck_typing_and_protocols.md
-- Keterkaitan lintas buku Core: CORE-01, CORE-02, CORE-03
-
-## Ringkasan
-
-- mutability adalah sumber kekuatan sekaligus sumber bug umum di Python
-- assignment menyalin referensi, bukan objek
-- kontrak mutasi yang jelas meningkatkan prediktabilitas kode
-- defensive copy membantu menjaga isolasi state antar komponen
-
-## FAQ Singkat
-
-1. Apakah selalu salah memodifikasi list input langsung?
-   Jawaban singkat: tidak, asal kontraknya jelas dan caller memang mengharapkan mutasi.
-2. Kapan pakai `deepcopy`?
-   Jawaban singkat: saat struktur data bertingkat dan Anda butuh isolasi penuh dari nested object.
-3. Kenapa bug mutable default argument sulit dideteksi?
-   Jawaban singkat: karena efeknya muncul antar pemanggilan, bukan di satu eksekusi saja.
-
-## Referensi
-
-- Python Tutorial: https://docs.python.org/3/tutorial/
-- Python Language Reference: https://docs.python.org/3/reference/
-- Python Data Model: https://docs.python.org/3/reference/datamodel.html
-- PEP 8 (Style Guide): https://peps.python.org/pep-0008/
+- [ ] Matikan komputer (opsional), ambil kertas, dan gambarkan alur referensi variabel saat Anda melakukan `a = [1]`, `b = a`, dan `a.append(2)`.
+- [ ] Buatlah sebuah fungsi yang menerima list, tapi fungsi tersebut WAJIB mengembalikan list baru tanpa mengubah isi list aslinya.
+- [ ] Buktikan lewat kode bahwa `str` adalah immutable dengan cara mencoba mengubah satu karakter di dalamnya menggunakan index (misal `s[0] = 'X'`) dan lihat error apa yang muncul.
