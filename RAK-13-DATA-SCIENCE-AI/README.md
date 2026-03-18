@@ -14,4 +14,11 @@ Python menjadi bahasa utama AI bukan karena kecepatannya (C++ lebih cepat), teta
 3. **Ecosystem**: Komunitas terbesar untuk riset AI di dunia.
 
 ---
+
+## 🌐 Architectural Nexus (Jembatan Master Plan)
+Materi di Rak ini terhubung langsung dengan komponen lain dalam ekosistem [Master Plan Senior](../../catatan/Master-Plan-Senior.md):
+- **Integrasi UI**: Lihat [Python UI Automation Hub](../../catatan/03-Digital-UI-Hubs/Python-UI-Automation-Hub.md) untuk penerapan Streamlit.
+- **Data Engineering**: Persiapan data untuk [PostgreSQL Storage Hub](../../catatan/04-Storage-Hubs/PostgreSQL-Knowledge-Base.md).
+
+---
 *Kembali ke [Documentation Hub](../docs/README.md)*
