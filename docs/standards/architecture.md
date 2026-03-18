@@ -16,6 +16,17 @@ Berikut adalah pemetaannya ke dalam direktori bertingkat:
 
 ---
 
+## Karakteristik & Autentisitas (Branding)
+
+Untuk menjaga "nyawa" dan keunikan bahasa Python, setiap konten wajib mengikuti pedoman berikut:
+
+- **Analogi Utama**: **Perpustakaan Pythonic (The Pythonic Library)**.
+- **Tone Suara**: **Ramah, Edukatif, dan "Zen"**. Python adalah tentang keterbacaan; tulislah narasi yang mengalir seperti membaca buku yang bagus.
+- **Filosofi Penulisan**: Fokus pada *Readability* dan *Simplicity* (The Zen of Python). Tekankan prinsip "There should be one-- and preferably only one --obvious way to do it."
+- **Visual**: Gunakan estetika yang bersih dan hangat, mencerminkan sifat Python yang "Batteries Included".
+
+---
+
 ## Aturan Pewajiban `README.md`
 
 Guna memudahkan navigasi, setiap tingkatan direktori **WAJIB** memiliki file `README.md`:

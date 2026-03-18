@@ -10,7 +10,7 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 - **[PPM Workflow](./standards/workflow.md)**: 4 Tahapan Penulisan Materi (PPM) V4.
 - **[Status Protocol](./standards/status-protocol.md)**: Cara melaporkan dan menghitung progress pengerjaan.
 - **[Contribution Guide](./standards/contribution.md)**: Panduan kontribusi dan aturan PR.
-- **[Core Contribution](./standards/core-contribution.md)**: Detail kontribusi spesifik untuk materi inti.
+- **[Core Contribution](./standards/core-contribution.md)**: Standar teknis kontribusi materi inti.
 
 ### 2. Cetak Biru (Blueprints)
 - **[Repository Plan](./repository-plan/README.md)**: Dekomposisi total dari Python Docs ke dalam struktur 12-Rack.
