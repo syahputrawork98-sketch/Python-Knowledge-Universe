@@ -4,21 +4,36 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 
 ## Daftar Dokumen Utama
 
-1.  **[Repository Plan](./repository-plan/README.md)**: Dekomposisi total dari Python Docs ke dalam struktur 12-Rack.
-2.  **[Python Origins](./python-origins.md)**: Kisah di balik hobi libur Natal Guido van Rossum.
-3.  **[Python History](./python-history.md)**: Dari hobi liburan Natal hingga raja dunia Data Science.
-4.  **[Philosophy & Essence](./python-philosophy.md)**: Membedah "The Zen of Python" dan keterbacaan kode.
-5.  **[Why Python?](./why-python.md)**: Alasan teknis di balik dominasi Python di era AI.
-6.  **[Structure Guide](./structure-guide.md)**: Panduan teknis pengorganisasian folder modular.
-3.  **[Contribution Guide](./contribution-guide.md)**: Aturan penulisan dan standar kualitas.
-4.  **[Roadmap](./roadmap.md)**: Milestone pengembangan fitur.
-5.  **[Glossary](./glossary.md)**: Kamus istilah Pythonic.
+### 1. Standar & Protokol
+- **[Architecture Standards](./standards/architecture.md)**: Analogi "Perpustakaan Pythonic" dan kriteria Gold Standard.
+- **[Naming Conventions](./standards/conventions.md)**: Aturan penamaan RAK, SR, BK, hingga Level Bab.
+- **[PPM Workflow](./standards/workflow.md)**: 4 Tahapan Penulisan Materi (PPM) V4.
+- **[Status Protocol](./standards/status-protocol.md)**: Cara melaporkan dan menghitung progress pengerjaan.
+- **[Contribution Guide](./standards/contribution.md)**: Panduan kontribusi dan aturan PR.
+- **[Core Contribution](./standards/core-contribution.md)**: Detail kontribusi spesifik untuk materi inti.
+
+### 2. Cetak Biru (Blueprints)
+- **[Repository Plan](./repository-plan/README.md)**: Dekomposisi total dari Python Docs ke dalam struktur 12-Rack.
+- **[Roadmap](./roadmap.md)**: Milestone pengembangan fitur.
+
+### 3. Narasi & Esensi
+- **[Python Origins](./python-origins.md)**: Kisah di balik hobi libur Natal Guido van Rossum.
+- **[Python History](./python-history.md)**: Dari hobi liburan Natal hingga raja dunia Data Science.
+- **[Philosophy & Essence](./python-philosophy.md)**: Membedah "The Zen of Python" dan keterbacaan kode.
+- **[Why Python?](./why-python.md)**: Alasan teknis di balik dominasi Python di era AI.
+
+### 4. Referensi Tambahan
+- **[Glossary](./glossary.md)**: Kamus istilah Pythonic.
 
 ## Struktur Direktori `docs/`
 
 ```text
 /docs
-├── repository-plan/
-│   └── README.md          # Cetak biru 12-Rack
+├── standards/             # Standar & Protokol (Architecture, Conventions, etc.)
+├── repository-plan/       # Cetak biru 12-Rack
+├── python-history.md      # Narasi Sejarah
+├── python-philosophy.md   # Filosofi Bahasa
+├── python-origins.md      # Legenda Inisiasi
+├── why-python.md          # Rasionalitas Penggunaan
 └── README.md              # File ini (Hub navigasi)
 ```
