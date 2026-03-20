@@ -8,10 +8,10 @@ Berikut adalah pemetaannya ke dalam direktori bertingkat:
 
 | Tingkatan | Analogi | Contoh Direktori | Keterangan |
 | :--- | :--- | :--- | :--- |
-| **Level 1** | **Perpustakaan (Library)** | `/` (root) | Seluruh sistem proyek (Python Engine). |
-| **Level 2** | **Rak (Shelf)** | `RAK-01-setup/` | Pengelompokan besar domain ilmu. |
-| **Level 3** | **Sub-Rak (Sub-shelf)** | `SR-01_Foundations/` | Grup materi berbasis area spesifik. |
-| **Level 4** | **Buku (Book)** | `BK-01_Tutorial/` | Koleksi bab yang membentuk satu topik besar. |
+| **Level 1** | **Perpustakaan (Root)** | `/` | Seluruh sistem proyek (Hub). |
+| **Level 2** | **Rak (Shelf)** | `RAK-01-foundation/` | Domain Utama (6 RAK). |
+| **Level 3** | **Sub-Rak (Sub-shelf)** | `SR-01-basics/` | Track spesifik di dalam Rak. |
+| **Level 4** | **Buku (Book)** | `BK-01_Tutorial/` | Koleksi bab terpadu. |
 | **Level 5** | **Bab (Chapter)** | `CH-01_Overview/` | Unit terkecil wajib (Folder Bab). |
 
 ---
