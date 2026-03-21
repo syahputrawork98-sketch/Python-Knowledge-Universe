@@ -1,57 +1,43 @@
-# Python Knowledge Base: 6-Rack Universal Plan
+# Python Knowledge Base: Universal Deconstruction Plan
 
-> **Status**: Universal Standard (6-Rack Architecture)
-> **Last Updated**: 2026-03-20
-> **Blueprint Mirror**: [docs.python.org/3/](https://docs.python.org/3/)
+> **Status**: Gold Standard (6-Level Hierarchy)
+> **Last Updated**: 2026-03-22
 
-Rencana ini menggunakan **6-Rack Universal Architecture** untuk mentransformasi dokumentasi resmi Python menjadi unit pelajaran yang manusiawi.
-
----
-
-## 🏗 Struktur 6-Rack Universal
-
-### 1. RAK-01-foundation (Entry Point)
-*Mirror: Setup & Usage, The Python Tutorial.*
-- **Goal**: Membangun fondasi kuat bagi praktisi Pythonic.
-
-### 2. RAK-02-evolution (History & Future)
-*Mirror: What's New & PEP Updates.*
-- **Goal**: Memahami arah perkembangan bahasa (misal: PEP 703, async updates).
-
-### 3. RAK-03-core-spec (The Internal Logic)
-*Mirror: Language Reference (Data Model, Specs).*
-- **Goal**: Menguasai logika internal Python (Objects, Binding, Garbage Collection).
-
-### 4. RAK-04-tooling (The Workshop)
-*Mirror: Distributing, Installing (pip, venv) & Tooling (Quality).*
-- **Goal**: Penguasaan alur kerja profesional dan standarisasi kualitas.
-
-### 5. RAK-05-ecosystem (The Real World)
-*Mirror: Library Reference (Built-ins, OS, Web, Concurrency) & HOWTOs.*
-- **Goal**: Implementasi di berbagai domain (Data, Web, Systems).
-
-### 6. RAK-06-specialization (The Machine Room)
-*Mirror: Extending, C-API, & FAQs.*
-- **Goal**: Optimasi tingkat mesin dan integrasi low-level.
+Rencana ini menggunakan **Unified Gold Standard** untuk mentransformasi dokumen teknis menjadi unit pelajaran yang presisi melalui hirarki **6-Level Depth**.
 
 ---
 
-## 📜 Hierarki Kedalaman (The 5-Level Depth)
+## 1. Arsitektur 6-Rak (The Universe Blueprint)
 
-Setiap Rak mengikuti hierarki standar:
-1. **RAK** (Domain)
-2. **SR** (Track)
-3. **BK** (Book)
-4. **CH** (Chapter)
-5. **Section** (README/Content)
+### I. RAK-01-anatomy (The Landscape)
+Menelusuri esensi naratif Python, filosofi rancang bangun (The Zen of Python), dan target utamanya (dari Skrip Ringan hingga Data Science).
+
+### II. RAK-02-foundation (The Standard Book)
+Struktur dan sintaks fundamental layaknya membaca Python documentation secara presisi.
+
+### III. RAK-03-evolution (History & Future)
+Jejak evolusi PEP (Python Enhancement Proposals) dan pergeseran generasi dari versi ke versi.
+
+### IV. RAK-04-core-mechanics (The Internal Logic)
+Rasionalitas di balik *Mekanisme Internal*, membedah The Python Data Model (Dunder/Magic Methods), dan Duck Typing.
+
+### V. RAK-05-standard-library (The Environment)
+Eksplorasi komprehensif dari Modul Built-in Python dan relasi dengan *pip* ekosistem.
+
+### VI. RAK-06-interpreters (The Machine Room)
+Deep Dive ke dalam Jantung Eksekutor: *CPython*, Bytecode, Global Interpreter Lock (GIL), dan JIT (seperti PyPy).
 
 ---
-*Log Perubahan: Migrasi dari 12-Rack ke 6-Rack Universal pada 2026-03-20.*
+
+## 2. Hirarki Kedalaman (Digital Mirroring)
+
+Setiap materi didekonstruksi hingga 6 level kedalaman jika diperlukan:
+1. **Root** (Pusat Hub)
+2. **RAK** (Domain)
+3. **SR** (Track)
+4. **BK** (Book)
+5. **CH** (Chapter)
+6. **SEC** (Section)
 
 ---
-
-## 📜 Log Sinkronisasi (Spec-Log)
-
-| Versi Python | Tanggal Audit | Perubahan Arsitektur | Status |
-| :--- | :--- | :--- | :--- |
-| **v3.13** | 2026-03-19 | Inisialisasi 12-Rack (Source-Driven Python Docs). | ✅ Synced |
+*Referensi Utama: Unified Gold Standard v1 (docs/standards).*
