@@ -19,4 +19,6 @@ Gunakan format ini untuk setiap `RAK-XX/README.md`.
 - [Goal 2]
 
 ---
+- **[x] Complete**: Lulus audit Sentinel (Gold Standard).
+
 *Back to [Library Root](../../README.md)*

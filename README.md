@@ -54,10 +54,10 @@ Deep Dive ke dalam Jantung Eksekutor: CPython, Bytecode, GIL, dan PyPy.
 
 ## 📏 Standar Kualitas (Gold Standard)
 Setiap materi mengikuti prinsip **Digital Mirroring** dan standar **PPM V4** yang mewajibkan:
-1. **Source-Synced**: Akurasi 1:1 terhadap dokumentasi resmi/spesifikasi.
-2. **Experimental Lab**: Kode pembuktian fungsional di folder `examples/`.
+1. **Source-Synced**: Akurasi 1:1 terhadap dokumentasi resmi/spesifikasi (docs.python.org / PEPs).
+2. **Experimental Lab**: Kode pembuktian fungsional di folder `examples/` (.py).
 3. **Mental Model Visual**: Diagram Mermaid di folder `assets/`.
-4. **Narrative Excellence**: Penjelasan mendalam dengan analogi dunia nyata.
+4. **Narrative Excellence**: Penjelasan mendalam dengan analogi dunia nyata (The Serpent's Core).
 
 *Dokumentasi Lengkap Standar: [docs/standards/architecture.md](./docs/standards/architecture.md)*
 

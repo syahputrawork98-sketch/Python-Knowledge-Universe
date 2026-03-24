@@ -17,7 +17,7 @@ Gunakan terminologi profesional untuk akurasi teknis:
 | Term | Level | Analogi | Deskripsi |
 | :--- | :--- | :--- | :--- |
 | **Root** | 1 | Hub | Pusat navigasi utama repositori. |
-| **RAK (Rack)**| 2 | Domain | Pengelompokan besar area ilmu (e.g., JavaScript). |
+| **RAK (Rack)**| 2 | Domain | Pengelompokan besar area ilmu (e.g., Python). |
 | **SR (Sub-Rack)**| 3 | Track | Jalur spesifik di dalam domain (e.g., Get Started). |
 | **BK (Book)** | 4 | Koleksi | Kumpulan bab yang membentuk satu modul utuh. |
 | **CH (Chapter)**| 5 | Materi | Unit pengerjaan materi inti (Stage 1-4 PPM). |

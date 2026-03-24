@@ -29,4 +29,8 @@ Lihat pembuktian kode fungsional di [examples/](./examples/).
 Lihat visualisasi alur atau arsitektur di [assets/](./assets/).
 
 ---
+> [!NOTE]
+> **Pengecualian "Nil Content"**: Jika unit murni naratif, hapus bagian Lab & Assets dan sertakan disclaimer: *"Unit ini murni bersifat naratif/sejarah dan tidak membutuhkan Lab Praktis."*
+
+---
 *Back to Parent Directory*

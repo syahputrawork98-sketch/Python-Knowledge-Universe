@@ -1,4 +1,4 @@
-# Konvensi Penamaan & Struktur Folder (JS Edition)
+# Konvensi Penamaan & Struktur Folder (Python Edition)
 
 Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder wajib mengikuti konvensi penamaan berikut sesuai dengan **Unified Gold Standard**.
 
@@ -9,7 +9,7 @@ Untuk menjaga keteraturan "Perpustakaan Dunia Maya", setiap file dan folder waji
 | Rak | `RAK-` | `RAK-XX-slug` | `RAK-01-introduction-essence` |
 | Sub-Rak | `SR-` | `SR-XX-slug` | `SR-01-get-started` |
 | Buku | `BK-` | `BK-XX_Slug` | `BK-01_Basics` |
-| Bab | `CH-` | `CH-XX_Slug` | `CH-01_JSFirstSteps` |
+| Bab | `CH-` | `CH-XX_Slug` | `CH-01_PythonFirstSteps` |
 | Section | `SEC-` | `SEC-XX_Slug` | `SEC-01_Introduction` |
 
 > [!IMPORTANT]
@@ -22,7 +22,7 @@ Setiap folder Bab (**CH**) atau Section (**SEC**) memiliki struktur dasar beriku
 ```text
 CH- atau SEC-/
 ├── README.md        <- Materi teks inti berserta diagram Mermaid inline (Target Utama PPM).
-├── examples/        <- Kode lab fungsional multi-file (.js). (Opsional jika "Nil Content")
+├── examples/        <- Kode lab fungsional multi-file (.py). (Opsional jika "Nil Content")
 └── assets/          <- Arsip media statis eksternal (.png/.svg). (Opsional)
 ```
 
@@ -32,8 +32,8 @@ CH- atau SEC-/
 
 ## 3. Aturan Penamaan Lab Praktis (`examples/`)
 File di dalam direktori `examples/` **WAJIB** menggunakan *prefix* numerik berurutan untuk menjaga alur pembelajaran lab.
-**Contoh Benar**: `01_basic.js`, `02_advanced_closures.js`, `03_edge_cases.js`.
-**Contoh Salah**: `dasar.js`, `contoh-closure.js`, `test.js`.
+**Contoh Benar**: `01_basic.py`, `02_advanced_closures.py`, `03_edge_cases.py`.
+**Contoh Salah**: `dasar.py`, `contoh-closure.py`, `test.py`.
 
 ## 4. Aturan README.md
 Setiap tingkatan dari Level 2 hingga Level 6 wajib memiliki file `README.md` sebagai hub navigasi atau penyaji materi.

@@ -30,17 +30,18 @@ Semua pekerjaan wajib merujuk secara mutlak pada dokumen standar di folder `docs
 ## 🏅 3. Ringkasan "Gold Standard" & PPM V4
 *(Berdasarkan `workflow.md` & `architecture.md`)*
 Setiap `README.md` (Tahap Inti) **WAJIB** memuat 5 bagian ini:
-1. **Header & Source Link**: Tautan akurasi ke PEP / Python Docs & Judul Metafora/Analogi.
-2. **Tahap 1 & 2 (Konsep, Esensi & Rasionalitas)**: Definisi formal, Model Mental (Analogi), "Why & How", serta Terminologi Teknis.
-3. **Tahap 4 (Visualisasi)**: Diagram Mermaid (Aliran Eksekusi/Call Stack).
-4. **Mekanisme & Hubungan**: Jabaran algoritma detil di balik layar (PyObject, Bytecode).
-5. **Tahap 3 (Lab Praktis)**: Penjelasan yang terhubung ke **multi-file .py** di folder `examples/`.
+1. **Header & Source Link**: Tautan akurasi ke PEP / docs.python.org & Judul Metafora.
+2. **Tahap 1 & 2 (Konsep, Esensi & Rasionalitas)**: Definisi formal, Model Mental, "Why & How", serta Terminologi Teknis.
+3. **Tahap 3 (Visualisasi)**: Diagram Mermaid inline.
+4. **Tahap 4 (Mekanisme)**: Jabaran algoritma detil (Bytecode, C-API).
+5. **Tahap 5 (Lab Praktis)**: Relasi ke multi-file .py di `examples/`.
 
-*Pengecualian ("Nil Content")*: Jika materi murni naratif awal (sejarah/filosofi), letakkan teks eksplisit penafian lab praktis sesuai aturan di `workflow.md`.
+> [!TIP]
+> **Digital Mirroring Rigor**: Sebelum mengerjakan konten, AI **WAJIB** melakukan `view_file` atau browsing ke sumber primer (DOCS/PEP) untuk memastikan akurasi 1:1.
 
 ---
 
 ## 🤖 4. AI Persona & Expertise
 - **Role**: CPython Expert & Core Language Internalist.
 - **Tone**: Profesional, Teknis, namun Manusiawi. Wajib menyertakan analogi.
-- **Expertise**: Python Data Model (Dunder Methods), CPython Internals, Global Interpreter Lock (GIL), Memory Management, Bytecode Evaluation.
+- **Commitment**: Menghasilkan konten yang murni Python, bebas dari residu JavaScript.

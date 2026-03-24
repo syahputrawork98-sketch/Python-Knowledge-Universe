@@ -28,14 +28,22 @@ def audit_structure(base_path):
         if folder_name.startswith(('RAK-', 'SR-', 'BK-', 'CH-')):
             if 'README.md' not in files:
                 errors.append(f"Missing README.md in {root}")
-            
-            # Specific check for Chapter (Level 5)
-            
-            if folder_name.startswith('CH-'):
-                if 'assets' not in dirs:
-                    errors.append(f"Missing 'assets/' folder in chapter {root}")
-                if 'examples' not in dirs:
-                    errors.append(f"Missing 'examples/' folder in chapter {root}")
+            else:
+                # Check for "Nil Content" (Narrative) disclaimer
+                with open(os.path.join(root, 'README.md'), 'r', encoding='utf-8') as f:
+                    content = f.read().lower()
+                    is_narrative = "murni bersifat" in content or "tidak membutuhkan lab praktis" in content
+                
+                # Specific check for Chapter (Level 5)
+                if folder_name.startswith('CH-'):
+                    if not is_narrative:
+                        if 'assets' not in dirs:
+                            errors.append(f"Missing 'assets/' folder in technical chapter {root}")
+                        if 'examples' not in dirs:
+                            errors.append(f"Missing 'examples/' folder in technical chapter {root}")
+                    else:
+                        if 'assets' in dirs or 'examples' in dirs:
+                            errors.append(f"Redundant assets/examples folders in narrative chapter {root} (PPM V4 rules)")
                     
     return errors
 
