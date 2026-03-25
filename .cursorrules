@@ -27,14 +27,15 @@ Semua pekerjaan wajib merujuk secara mutlak pada dokumen standar di folder `docs
 
 ---
 
-## 🏅 3. Ringkasan "Gold Standard" & PPM V4
-*(Berdasarkan `workflow.md` & `architecture.md`)*
-Setiap `README.md` (Tahap Inti) **WAJIB** memuat 5 bagian ini:
-1. **Header & Source Link**: Tautan akurasi ke PEP / docs.python.org & Judul Metafora.
-2. **Tahap 1 & 2 (Konsep, Esensi & Rasionalitas)**: Definisi formal, Model Mental, "Why & How", serta Terminologi Teknis.
-3. **Tahap 3 (Visualisasi)**: Diagram Mermaid inline.
-4. **Tahap 4 (Mekanisme)**: Jabaran algoritma detil (Bytecode, C-API).
-5. **Tahap 5 (Lab Praktis)**: Relasi ke multi-file .py di `examples/`.
+## 🎖️ 3. Gold Standard Requirements (PPM V4)
+Setiap `README.md` materi wajib berisi:
+1. **Source Link**: Referensi sumber primer (Official Docs).
+2. **Brief & Detailed Explanation**: Penjelasan singkat diikuti penjelasan mendalam.
+3. **Analogy**: Penggunaan analogi untuk mempermudah pamahaman.
+4. **Mermaid Diagram**: Visualisasi (Flowchart, Sequence, ERD, dll).
+5. **Under-the-hood Mechanics**: Mekanisme internal (Bagaimana ia bekerja di level rendah).
+6. **Practical Lab**: Contoh kode yang bisa dijalankan (examples/).
+7. **Pitfalls & Anti-Patterns**: Jebakan umum dan praktik buruk.
 
 > [!TIP]
 > **Digital Mirroring Rigor**: Sebelum mengerjakan konten, AI **WAJIB** melakukan `view_file` atau browsing ke sumber primer (DOCS/PEP) untuk memastikan akurasi 1:1.
