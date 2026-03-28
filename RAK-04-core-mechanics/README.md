@@ -4,7 +4,7 @@
 
 Rak ini membedah **Python Data Model** — lapisan protokol (`__dunder__` methods) yang menjadi tulang punggung semua objek Python. Memahami rak ini adalah perbedaan antara programmer Python dan *arsitek* Python.
 
-## 🏗️ Struktur Sub-Rak
+## 🏗️ Struktur Sub-Rak (7-SR Model)
 
 | Sub-Rak | Fokus | Konsep Utama |
 | :--- | :--- | :--- |
@@ -13,6 +13,8 @@ Rak ini membedah **Python Data Model** — lapisan protokol (`__dunder__` method
 | [SR-03-descriptors](./SR-03-descriptors/) | Descriptor Protocol | `__get__`, `__set__`, property, classmethod |
 | [SR-04-metaclasses](./SR-04-metaclasses/) | Kelas dari Kelas | `type`, `__new__`, `__init_subclass__` |
 | [SR-05-memory](./SR-05-memory/) | Memori & GC | Reference counting, Cyclic GC, `weakref` |
+| [SR-06-pvm-bytecode](./SR-06-pvm-bytecode/) | PVM & Bytecode | AST, instruction set, `dis` module |
+| [SR-07-the-gil](./SR-07-the-gil/) | The GIL | Locking theory, thread safety |
 
 ## 🎯 Key Goals
 - Memahami *mengapa* `a + b` bekerja — bagaimana `__add__` dipanggil oleh evaluator.
@@ -20,6 +22,6 @@ Rak ini membedah **Python Data Model** — lapisan protokol (`__dunder__` method
 - Mengerti lifecycle objek Python dari kreasi hingga dealokasi.
 
 ---
-- `[ ] Planned`: Menunggu pengisian konten.
+- `[x] Complete`: 7/7 Sub-Raks (Core Internals).
 
 *Back to [Library Root](../README.md)*
