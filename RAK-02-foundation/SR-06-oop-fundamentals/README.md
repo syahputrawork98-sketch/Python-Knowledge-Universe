@@ -27,5 +27,8 @@ Sub-Rak ini mengeksplorasi paradigma Pemrograman Berorientasi Objek (OOP) dalam 
 - Pemahaman tentang tipe data kolektif (SR-03).
 - Pemahaman unit fungsional dan scoping (SR-05).
 
+## ⏭️ Next Step
+Setelah memahami objek, mari kita pelajari bagaimana cara menyusun objek-objek tersebut ke dalam struktur proyek yang rapi di **[SR-07: Modules & Packages](../SR-07-modules-packages/README.md)**.
+
 ---
 *Back to [Rak-02 Foundation](../README.md)*

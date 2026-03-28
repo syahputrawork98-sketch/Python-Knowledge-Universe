@@ -26,5 +26,8 @@ Sub-Rak ini mengeksplorasi koleksi data bawaan Python yang sangat fleksibel. Kit
 - Pengetahuan dasar tipe data primitif (SR-02).
 - Pemahaman dasar tentang penggunaan memori dalam Python.
 
+## ⏭️ Next Step
+Setelah menguasai struktur data, lanjut ke **[SR-04: Control Flow & Iterators](../SR-04-control-flow-iterators/README.md)** untuk mempelajari bagaimana cara menggerakkan data tersebut.
+
 ---
 *Back to [Rak-02 Foundation](../README.md)*

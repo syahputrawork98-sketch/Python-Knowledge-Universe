@@ -4,7 +4,7 @@
 
 Rak ini adalah **Buku Referensi Teknis** — mendokumentasikan Python syntax dan semantics layaknya membaca Python Language Reference secara presisi. Setiap chapter dilengkapi Lab (`examples/`) dan Visualisasi (`assets/`).
 
-## 🏗️ Struktur Sub-Rak (9-SR Model)
+## 🏗️ Struktur Sub-Rak (10-SR Model)
 
 | Sub-Rak | Fokus | Konten Utama |
 | :--- | :--- | :--- |
@@ -16,7 +16,8 @@ Rak ini adalah **Buku Referensi Teknis** — mendokumentasikan Python syntax dan
 | [SR-06-oop-fundamentals](./SR-06-oop-fundamentals/) | Object Oriented | class, MRO, inheritance |
 | [SR-07-modules-packages](./SR-07-modules-packages/) | Organisasi Kode | import, packages, namespace |
 | [SR-08-exception-handling](./SR-08-exception-handling/) | Model Eksepsi | hierarchy, context managers |
-| [SR-09-typing-hints](./SR-09-typing-hints/) | Modern Typing | Annotations, Mypy, Logic |
+| [SR-09-testing-frameworks](./SR-09-testing-frameworks/) | Testing Frameworks | Unittest, Pytest, Mocking |
+| [SR-10-typing-hints](./SR-10-typing-hints/) | Typing Hints | Type Annotations, Checkers |
 
 ## 🎯 Key Goals
 - Memahami *mengapa* Python bekerja seperti itu, bukan sekedar *apa* sintaksisnya.
@@ -24,6 +25,6 @@ Rak ini adalah **Buku Referensi Teknis** — mendokumentasikan Python syntax dan
 - Seluruh contoh kode dapat dijalankan dan telah diverifikasi.
 
 ---
-- `[/] In Progress`: Foundation content development.
+- `[x] Complete`: 10/10 Sub-Raks (RAK-02 Foundation).
 
 *Back to [Library Root](../README.md)*

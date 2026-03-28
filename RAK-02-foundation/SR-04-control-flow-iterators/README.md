@@ -27,5 +27,8 @@ Sub-Rak ini mengeksplorasi bagaimana Python mengontrol alur eksekusi program. Ki
 - Pemahaman tentang tipe data kolektif (SR-03).
 - Pengetahuan tentang operasi logika dasar.
 
+## ⏭️ Next Step
+Setelah menguasai alur kontrol, lanjut ke **[SR-05: Functions & Scoping](../SR-05-functions-scoping/README.md)** untuk membungkus logika tersebut ke dalam unit yang dapat digunakan kembali.
+
 ---
 *Back to [Rak-02 Foundation](../README.md)*

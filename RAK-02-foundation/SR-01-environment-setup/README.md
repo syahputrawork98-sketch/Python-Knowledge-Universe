@@ -27,5 +27,8 @@ Sub-Rak ini berfokus pada persiapan infrastruktur sebelum menulis baris kode Pyt
 - Akses terminal/shell (PowerShell/Bash).
 - Koneksi internet untuk mengunduh interpreter dan paket.
 
+## ⏭️ Next Step
+Setelah lingkungan siap, mari kita jelajahi atom-atom pembentuk data di **[SR-02: Data Types](../SR-02-data-types/README.md)**.
+
 ---
 *Back to [Rak-02 Foundation](../README.md)*

@@ -27,5 +27,8 @@ Sub-Rak ini mengeksplorasi unit eksekusi modular dalam Python. Kita akan membeda
 - Pemahaman tentang tipe data kolektif (SR-03).
 - Pemahaman alur kontrol (SR-04).
 
+## ⏭️ Next Step
+Setelah menguasai fungsi, mari kita beralih ke paradigma pengorganisasian data dan perilaku dalam **[SR-06: OOP Fundamentals](../SR-06-oop-fundamentals/README.md)**.
+
 ---
 *Back to [Rak-02 Foundation](../README.md)*
