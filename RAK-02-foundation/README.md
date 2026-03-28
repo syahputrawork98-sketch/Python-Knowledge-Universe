@@ -4,17 +4,19 @@
 
 Rak ini adalah **Buku Referensi Teknis** — mendokumentasikan Python syntax dan semantics layaknya membaca Python Language Reference secara presisi. Setiap chapter dilengkapi Lab (`examples/`) dan Visualisasi (`assets/`).
 
-## 🏗️ Struktur Sub-Rak
+## 🏗️ Struktur Sub-Rak (9-SR Model)
 
 | Sub-Rak | Fokus | Konten Utama |
 | :--- | :--- | :--- |
-| [SR-01-data-types](./SR-01-data-types/) | Tipe Primitif | int, float, str, bool |
-| [SR-02-collections](./SR-02-collections/) | Koleksi Data | list, tuple, dict, set |
-| [SR-03-control-flow](./SR-03-control-flow/) | Alur Kontrol | if, for, while, match |
-| [SR-04-functions](./SR-04-functions/) | Model Fungsi | LEGB, closures, decorators |
-| [SR-05-oop](./SR-05-oop/) | Object Oriented | class, MRO, inheritance |
-| [SR-06-modules](./SR-06-modules/) | Sistem Modul | import, packages |
-| [SR-07-exceptions](./SR-07-exceptions/) | Model Eksepsi | hierarchy, context managers |
+| [SR-01-environment-setup](./SR-01-environment-setup/) | Lingkungan Kerja | Interpreter, venv, pip, pyenv |
+| [SR-02-data-types](./SR-02-data-types/) | Tipe Primitif | int, float, str, bool |
+| [SR-03-collections-structures](./SR-03-collections-structures/) | Koleksi Data | list, tuple, dict, set |
+| [SR-04-control-flow-iterators](./SR-04-control-flow-iterators/) | Alur & Iterasi | if, for, while, generators |
+| [SR-05-functions-scoping](./SR-05-functions-scoping/) | Model Fungsi | LEGB, closures, decorators |
+| [SR-06-oop-fundamentals](./SR-06-oop-fundamentals/) | Object Oriented | class, MRO, inheritance |
+| [SR-07-modules-packages](./SR-07-modules-packages/) | Organisasi Kode | import, packages, namespace |
+| [SR-08-exception-handling](./SR-08-exception-handling/) | Model Eksepsi | hierarchy, context managers |
+| [SR-09-typing-hints](./SR-09-typing-hints/) | Modern Typing | Annotations, Mypy, Logic |
 
 ## 🎯 Key Goals
 - Memahami *mengapa* Python bekerja seperti itu, bukan sekedar *apa* sintaksisnya.

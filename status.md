@@ -10,7 +10,7 @@
 | Rak ID | Nama Rak | Sub-Rak | Progress | Score | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | RAK-01 | History & Landscape | None (Flat Structure) | 100% | 100/100 | ✅ Complete |
-| RAK-02 | Foundation | TBD | 0% | 0/100 | ⚪ Planned |
+| RAK-02 | Foundation | 9 (Env, Syntax, DS, Flow, Func, OOP, Mod, Exc, Type) | 0% | 0/100 | ⚪ Planned |
 | RAK-03 | Evolution | TBD | 0% | 0/100 | ⚪ Planned |
 | RAK-04 | Core Mechanics | TBD | 0% | 0/100 | ⚪ Planned |
 | RAK-05 | Standard Library | TBD | 0% | 0/100 | ⚪ Planned |
