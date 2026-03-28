@@ -10,8 +10,9 @@ Sub-Rak ini berfokus pada persiapan infrastruktur sebelum menulis baris kode Pyt
 
 | Buku | Fokus | Deskripsi |
 | :--- | :--- | :--- |
-| **BK-01_PythonInterpreters** | Instalasi & Runtime | Memahami CPython vs Alternatif (PyPy, Conda). |
-| **BK-02_VirtualEnvironments** | Isolasi Proyek | Penggunaan `venv`, `pip`, dan standar `pyproject.toml`. |
+| **BK-01_PythonInterpreters** | Instalasi & Runtime | CPython, Installation, & CLI basics. |
+| **BK-02_VirtualEnvironments** | Isolasi Proyek | Konsep isolasi menggunakan modul `venv`. |
+| **BK-03_PackageManagement** | Manajemen Paket | `pip`, PyPI, dan standar `pyproject.toml`. |
 
 ---
 
